@@ -1,0 +1,47 @@
+Rudder: configuration management for the masses
+-----------------------------------------------
+
+This project is part of Rudder - configuration management made easy. 
+ 
+See: http://rudder-project.org for more information. 
+
+[horizontal]
+Screenshots:: http://www.rudder-project.org/foswiki/Screenshots/WebHome
+User documentation:: http://www.rudder-project.org/rudder-doc/rudder-doc.html
+Bug report:: http://www.rudder-project.org/redmine/projects/rudder/issues
+Mailing list, irc:: http://www.rudder-project.org/foswiki/Community/
+
+=== Authors
+
+Normation http://normation.com
+
+- Francois "fanf" Armand francois.armand@normation.com
+
+=== License
+
+This project is licensed under AGPLv3 license, 
+see the provided "LICENSE" file or 
+http://www.gnu.org/licenses/agpl-3.0.txt
+
+=== Contributing
+
+Thank you for your interest in our project!
+The contribution process is detailed here: 
+http://www.rudder-project.org/HowToContribute
+
+=== Synopsis
+
+This project allows to build the documentation for the REST API of Rudder. 
+
+
+=== Usage
+
+If you are interested about using Rudder REST API, you should simply look at the
+generated documentation. 
+
+The project is the one that manage the REST API web site creation. It is based on
+APIDoc (http://apidocjs.com). 
+
+The build needs NodeJS and npm, see: http://apidocjs.com/#install
+
+To build the whole things, once nodeje is installed, just execute the build.sh script
