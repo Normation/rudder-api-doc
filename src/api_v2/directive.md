@@ -12,7 +12,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/directives List all directives
     @apiVersion 2.0.0
     @apiName listDirectives
-    @apiGroup Directives
+    @apiGroup 2 - Directives
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/directives
@@ -27,7 +27,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/directives Create a new directive
     @apiVersion 2.0.0
     @apiName createDirective
-    @apiGroup Directives
+    @apiGroup 2 - Directives
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId” -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/directives  -d "techniqueName=copyGitFile" -d "displayName=Name of New Directive"
@@ -42,7 +42,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/directives Clone a directive
     @apiVersion 2.0.0
     @apiName cloneDirective
-    @apiGroup Directives
+    @apiGroup 2 - Directives
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
@@ -57,7 +57,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/directives/{id} Get directive details by id
     @apiVersion 2.0.0
     @apiName directiveDetails
-    @apiGroup Directives
+    @apiGroup 2 - Directives
      
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/directives/DirectiveID
@@ -71,7 +71,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {delete} /api/2/directives/{id} Delete a directive by id
     @apiVersion 2.0.0
     @apiName deleteDirective
-    @apiGroup Directives
+    @apiGroup 2 - Directives
      
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X DELETE http://localhost/rudder/api/directives/DirectiveID
@@ -87,7 +87,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {post} /api/2/directives/{id} Update the directive with given id
     @apiVersion 2.0.0
     @apiName updateDirective
-    @apiGroup Directives
+    @apiGroup 2 - Directives
      
     @apiExample Example usage:
     Update display name: 

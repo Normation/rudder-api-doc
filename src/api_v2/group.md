@@ -12,7 +12,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/groups List all groups
     @apiVersion 2.0.0
     @apiName listGroups
-    @apiGroup Groups
+    @apiGroup 3 - Groups
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/groups
@@ -28,7 +28,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/groups Create a new group
     @apiVersion 2.0.0
     @apiName createGroup
-    @apiGroup Groups
+    @apiGroup 3 - Groups
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/groups -d @nomDeFichierJSON
@@ -43,7 +43,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/groups Clone a group
     @apiVersion 2.0.0
     @apiName cloneGroup
-    @apiGroup Groups
+    @apiGroup 3 - Groups
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/groups -d “groups=GroupID”
@@ -57,7 +57,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/groups/{id} Get group details by id
     @apiVersion 2.0.0
     @apiName groupDetails
-    @apiGroup Groups
+    @apiGroup 3 - Groups
      
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/groups/GroupID
@@ -71,7 +71,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {delete} /api/2/groups/{id} Delete a group by id
     @apiVersion 2.0.0
     @apiName deleteGroup
-    @apiGroup Groups
+    @apiGroup 3 - Groups
      
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X DELETE http://localhost/rudder/api/groups/GroupID
@@ -87,7 +87,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {post} /api/2/groups/{id} Update the group with given id
     @apiVersion 2.0.0
     @apiName updateGroup
-    @apiGroup Groups
+    @apiGroup 3 - Groups
      
     @apiExample Example usage:
     Update display name: 

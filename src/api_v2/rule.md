@@ -12,7 +12,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/rules List all rules
     @apiVersion 2.0.0
     @apiName listRules
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Get all Rules available in Rudder
     
     @apiExample Example usage:
@@ -65,7 +65,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/rules Create a new Rule
     @apiVersion 2.0.0
     @apiName createRule
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Create a new Rule in Rudder. You can define all of its parameters, but you need at least its name
     
     @apiParamTitle (Mono) Mono value parameters - Those parameters will only work with one value
@@ -90,7 +90,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {put} /api/2/rules Clone a Rule
     @apiVersion 2.0.0
     @apiName cloneRule
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Create a new rule based on an existing Rule. you can still modify its parameters, but you need at least to specify the name of the new Rule 
 
     @apiParamTitle (Mono) Mono value parameters - Those parameters will only work with one value
@@ -143,7 +143,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/2/rules/{id} Get Rule details by ID
     @apiVersion 2.0.0
     @apiName ruleDetails
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Get the details of one Rule, whose ID is specified in the URL
      
     @apiExample Example usage:
@@ -178,7 +178,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {delete} /api/2/rules/{id} Delete a rule by ID
     @apiVersion 2.0.0
     @apiName deleteRule
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Delete the Rule having the ID passed in the URL
      
     @apiExample Example usage:
@@ -223,7 +223,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {post} /api/2/rules/{id} Update the rule with given ID
     @apiVersion 2.0.0
     @apiName updateRule
-    @apiGroup Rules
+    @apiGroup 1 - Rules
     @apiDescription Modify any parameters of a Rule. Missing parameters means to not modify that parameter
      
     @apiExample Example usage:
