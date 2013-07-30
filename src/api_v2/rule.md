@@ -106,6 +106,26 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+      {
+        "action":"createRule",
+        "id":"73fb7802-5326-483a-a6d6-c29e78449558",
+        "result":"success",
+        "data":{
+          "rules":[{
+            "id":"73fb7802-5326-483a-a6d6-c29e78449558",
+            "displayName":"Cloned Rule",
+            "shortDescription":"",
+            "longDescription":"",
+            "directives":["c4f58823-5cd6-455b-b0bc-1511c51e2533"],
+            "targets":["group:1e975cb2-b929-46f5-9b1c-5e4d5d5f1027"],
+            "enabled":false,
+            "system":false
+          }]
+        }
+      }
+
      */
 
 [GET] api/2/rules/{id}
@@ -123,23 +143,31 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
-        "action":"ruleDetails",
-        "id":"06ba8940-ed6c-4102-ba46-93d640a64c36",
+        "action":"createRule",
+        "id":"73fb7802-5326-483a-a6d6-c29e78449558",
         "result":"success",
         "data":{
           "rules":[{
-            "id":"06ba8940-ed6c-4102-ba46-93d640a64c36",
-            "displayName":"My first Rule",
+            "id":"73fb7802-5326-483a-a6d6-c29e78449558",
+            "displayName":"Cloned Rule",
             "shortDescription":"",
             "longDescription":"",
-            "directives":["cba93d24-8780-4308-b732-84995125562a","7d44f9ad-9a54-4165-bb46-f66e6c674b39","6847ad49-1c7e-4314-b764-ec176b882b6b","19be05b2-fb68-4ae1-acc0-e0ad2eba71fd","0be6fb7c-42c5-419e-9f6f-eb13ac4e4acd"],
-            "targets":["group:3b9be575-590d-4fe4-9fa5-cc166d985ccf"], 
+            "directives":["c4f58823-5cd6-455b-b0bc-1511c51e2533"],
+            "targets":["group:1e975cb2-b929-46f5-9b1c-5e4d5d5f1027"],
             "enabled":false,
             "system":false
           }]
         }
       }
 
+    @apiErrorExample Error-Response:
+      HTTP/1.1 500 Server Error
+      {
+        "action":"createRule",
+        "id":"4f7fb9e5-e9e2-41be-99fc-bfd95a733360",
+        "result":"error",
+        "error details":"Could not create Rule Cloned Rule (id:4f7fb9e5-e9e2-41be-99fc-bfd95a733360) cause is: Cannot create a rule with name Cloned Rule : there is already a rule with the same name."
+      }
 
     */
 
