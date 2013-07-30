@@ -106,6 +106,34 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+      {
+        "action":"createRule",
+        "id":"73fb7802-5326-483a-a6d6-c29e78449558",
+        "result":"success",
+        "data":{
+          "rules":[{
+            "id":"73fb7802-5326-483a-a6d6-c29e78449558",
+            "displayName":"Cloned Rule",
+            "shortDescription":"",
+            "longDescription":"",
+            "directives":["c4f58823-5cd6-455b-b0bc-1511c51e2533"],
+            "targets":["group:1e975cb2-b929-46f5-9b1c-5e4d5d5f1027"],
+            "enabled":false,
+            "system":false
+          }]
+        }
+      }
+
+    @apiErrorExample Error-Response:
+      HTTP/1.1 500 Server Error
+      {
+        "action":"createRule",
+        "id":"4f7fb9e5-e9e2-41be-99fc-bfd95a733360",
+        "result":"error",
+      }
+
      */
 
 [GET] api/2/rules/{id}
