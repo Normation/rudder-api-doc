@@ -49,32 +49,120 @@ We may declare some versions as deprecated, in order to remove them in a later v
 We defined a generic response format for any result from the API, both Errors and Success are based on the same model. The answer is embedded in a JSON
 
 <pre><code>{
-	<span class="str">"action"</span> : <span class="tag">The name of the function that you have called</span>
-	<span class="str">"id"</span> : <span class="tag">The ID of the element you want, missing if not relevant</span>
-	<span class="str">"result"</span> : <span class="tag">The result of your action : <span class="kwd">success</span> or <span class="kwd">error</span></span>
-	<span class="str">"data"</span> : <span class="tag">Only present if this is a <span class="kwd">success</span> and depends on the function, it's usually a JSON object</span>
-	<span class="str">"errorDetails"</span> : <span class="tag">Only present if there is an <span class="kwd">error</span>, it contains the error message</span>
+	  <span class="str">"action"</span> : <span class="tag">The name of the function that you have called</span>
+	, <span class="str">"id"</span> : <span class="tag">The ID of the element you want, missing if not relevant</span>
+	, <span class="str">"result"</span> : <span class="tag">The result of your action : <span class="kwd">success</span> or <span class="kwd">error</span></span>
+	, <span class="str">"data"</span> : <span class="tag">Only present if this is a <span class="kwd">success</span> and depends on the function, it's usually a JSON object</span>
+	, <span class="str">"errorDetails"</span> : <span class="tag">Only present if there is an <span class="kwd">error</span>, it contains the error message</span>
 }
 </code></pre>
 
-__Success__ Response are sent with the 200 HTTP code
-__Error__ Response are sent with an Error HTTP code (mostly 5xx ...)
+* __Success__ Response are sent with the 200 HTTP code
+* __Error__ Response are sent with an Error HTTP code (mostly 5xx ...)
 
 
 ## Parameters
 
-#### Passing parameters
+To use Rudder API, you will need to pass datas to the API. Most of them depends of the function and will be described with their function. Some exists for almost all functions and they are describe below.
 
-##### As URL parameters
+### Passing parameters
 
-##### With a JSON file
+Passing parameters to the API can take three forms:
+* As part of the URL
+* As request Parameters
+* Embedded in JSON
 
-#### General parameters
+#### As part of the URL
 
-##### Prettify
+Parameters in URL are used to indicate which data you want to interact with. The function will not work if this data is missing.
 
-##### Reason
+<pre><code>	<span class="com"># Get the Rule of ID "id"</span>
+	curl <span class="tag">/api/rules/</span><span class="kwd">id</span>
+</code></pre>
 
-##### Change request name
+#### Request parameters
 
-##### Change request description
+In most cases, datas will be sent using request parameters. for each data you want to change, you need to pass one parameter.
+
+Parameters follow the following schema : 
+
+<pre><code>	<span class="kwd">key</span>=<span class="tag">value</span></code></pre>
+
+ You can pass parameter by two means : 
+
+* As URL parameters: At the end of your url, put a **?** then your first parameter and then a **&** before next parameters
+
+<pre><code>	<span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
+	curl /api/rules/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
+</code></pre>
+
+* As request data: You can pass those parameters in the request data, they won't figure in the URL, making it lighter to read, You can pass a file that contains datas
+
+<pre><code>	<span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive (in file directiveId) </span>
+	curl /api/rules/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directiveId</span>
+</code></pre>
+
+#### Embedded in Json
+
+Instead of passing parameters one by one, you pass only one JSON object containing all your datas. You'll also have to set *Content-Type* header to **application/json** (without it the JSON won't be read)
+
+Contrary to request parameters, datas needs to be typed : string needs quotes, bollean/int don't
+
+the (prettified) format is : 
+
+<pre><code>{
+	  <span class="str">"key1"</span> : <span class="tag">"value1"</span>
+	, <span class="str">"key2"</span> : <span class="tag">false</span>
+	, <span class="str">"key3"</span> : <span class="tag">42</span>
+}
+</code></pre>
+
+ Here is an example with an inlined data :  
+
+<pre><code>	<span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
+	curl /api/rules/id -H <span class="str">"Content-Type: application/json"</span> <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span> : <span class="str">"new name"</span>, <span class="str">"enabled"</span> : <span class="kwd">false</span>, <span class="str">"directives"</span> : <span class="str">"directiveId"</span>}'</span>
+</code></pre>
+
+You can also pass a file containing the json: 
+
+<pre><code>	<span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
+	curl /api/rules/id -H <span class="str">"Content-Type: application/json"</span> <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
+</code></pre>
+
+Note that some parameters cannot be passed in a JSON (general parameters, it will be precised when necessary), and you will need to pass them a URL parameters if you want them to be taken into account (you can't mix JSON and request parameters)
+
+<pre><code>	<span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive with reason message "Reason used" </span>
+	curl "/api/rules/id<span class="tag">?reason=Reason used"</span>-H <span class="str">"Content-Type: application/json"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
+</code></pre>
+
+### General parameters
+
+Some parameters are available for almost all API functions. They will be described in this section. All of them cannot be used in JSON parameters, and will need to be passed as request parameters
+
+#### Prettify
+
+* **Parameter name** : prettify 
+* **Goal** : Determine if the answer should be prettified (human friendly) or not
+* **Optionnal**
+* **Default value** : false  
+
+#### Reason
+
+* **Parameter name** : reason 
+* **Goal** : Set the change message, if you are doing a modification in Rudder using the API
+* **Depends** : if you set the reason property to mandatory, you will have to add this parameter. 
+* **Default value** : an empty string  
+
+#### Change request name
+
+* **Parameter name** : changeRequestName 
+* **Goal** : Set the change request name, won't be used if workflow are disabled.
+* **Optionnal**
+* **Default value** : Depends on what function you are using  
+
+#### Change request description
+
+* **Parameter name** : changeRequestDescription 
+* **Goal** : Set the change request description, won't be used if workflow are disabled.
+* **Optionnal**
+* **Default value** : an empty string  
