@@ -9,23 +9,9 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 /**
    @apiDefineStructure ruleId
 
-   @apiParamTitle (URL parameters)
+   @apiParamTitle (URL parameters) URL parameters
 
    @apiParam (URL parameters) {String} id The id of the Rule you want
- */
-
- /**
-   @apiDefineStructure ruleParameters
-
-   @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
-
-   @apiParam (Mono) {String} [shortDescription] short description of the Rule
-   @apiParam (Mono) {String} [longDescription] long description of the Rule
-
-   @apiParamTitle (Multi) Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
-
-   @apiParam (Multi) {String} [directives] link one directive to the Rule. value needs to be an existing directive ID
-   @apiParam (Multi) {String} [ruleTargets] Link one target to the Rule. Rule targets are "group:groupId" "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers"
  */
 
  /**
@@ -259,7 +245,19 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Modify any parameters of a Rule. Missing parameters means to not modify that parameter
     
     @apiStructure ruleId
-    @apiStructure ruleParameters
+
+    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+
+    @apiParam (Mono) {String} [displayName] The name of the Rule
+    @apiParam (Mono) {Boolean} [isEnabled] enable/disable the Rule
+    @apiParam (Mono) {String} [shortDescription] short description of the Rule
+    @apiParam (Mono) {String} [longDescription] long description of the Rule
+
+    @apiParamTitle (Multi) Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
+
+    @apiParam (Multi) {String} [directives] link one directive to the Rule. value needs to be an existing directive ID
+    @apiParam (Multi) {String} [ruleTargets] Link one target to the Rule. Rule targets are "group:groupId" "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers"
+
     @apiParam (Mono) {String} [displayName] The name of the Rule
     @apiParam (Mono) {Boolean} [isEnabled] enable/disable the Rule
 
