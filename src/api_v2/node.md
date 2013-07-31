@@ -119,3 +119,15 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
+== [POST] api/nodes/pending/{id}
+
+    /**
+    @api {get} /api/nodes/{id} Change pending node status
+    @apiVersion 2.0.0
+    @apiName changeNodeStatus
+    @apiGroup Nodes
+    
+    @apiParam {String} id Unique ID of the node.
+    @apiParam {String} status The new status of the node (refused/accepted)
+    
+     */

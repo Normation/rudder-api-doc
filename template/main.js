@@ -87,6 +87,7 @@ require([
 		}); // each
 		// Sortieren
 		var values = Object.keys(titles);
+		console.log(values);
 		values.sort();
 
 		// Einzelne Elemente der neuen Liste hinzufügen.
@@ -99,7 +100,43 @@ require([
 	}); // each
 	// api überschreiben mit sortierter Liste.
 	api = newList;
+    console.log(api);
 
+    api.sort( function (a,b) {
+    console.log(a);
+    console.log(b);
+    switch (a.type) {
+    	case "get":
+    		if (b.type == "get")
+    			return 0;
+    		else
+    			return -1;
+    	case "put":
+    	    switch (b.type) {
+    			case "get" : return 1;
+    			case "put" : return 0;
+    			default    : return -1;
+    		}
+    	case "post" :
+    	    switch (b.type) {
+    			case "get"  :
+    			case "put"  : return 1;
+    			case "post" : return 0;
+    			default     : return -1;
+    		}
+    	case "delete" :
+    	    switch (b.type) {
+    			case "get"    :
+    			case "put"    :
+    			case "post"   : return 1;
+    			case "delete" : return 0;
+    			default       : return -1;
+    		}
+    	default: return 1;
+    }
+
+    return -1;
+	});
 	/**
 	 * Group- and Versionlists.
 	 */
@@ -114,7 +151,39 @@ require([
 
 	// Sort.
 	apiGroups = Object.keys(apiGroups);
-	apiGroups.sort();
+	apiGroups.sort( function (a,b) {
+    switch (a) {
+    	case "Rules" :
+    		if (b == "Rules")
+    			return 0;
+    		else
+    			return -1;
+    	case "Directives" :
+    	    switch (b) {
+    			case "Rules"      : return 1;
+    			case "Directives" : return 0;
+    			default           : return -1;
+    		}
+    	case "Groups" :
+    	    switch (b) {
+    			case "Rules"      :
+    			case "Directives" : return 1;
+    			case "Groups"     : return 0;
+    			default           : return -1;
+    		}
+    	case "Nodes" :
+    	    switch (b) {
+    			case "Rules"      :
+    			case "Directives" :
+    			case "Groups"     : return 1;
+    			case "Nodes"      : return 0;
+    			default           : return -1;
+    		}
+    	default : return 1;
+    }
+
+    return -1;
+	});
 
 	apiVersions = Object.keys(apiVersions);
 	apiVersions.sort();
@@ -130,7 +199,7 @@ require([
 		nav.push({
 			group: "_",
 			isHeader: true,
-			title: locale.__("General"),
+			title: locale.__("Introduction"),
 			isFixed: true
 		});
 	}
