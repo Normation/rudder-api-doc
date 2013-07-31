@@ -3,5 +3,5 @@
   "version": "2.0.0",
   "description": "",
   "apidoc": "This is a description, it will be ignored if parameter apidocFilename exist.",
-  "apidocFilename": "concept.md"
+  "apidocFilename": "introduction.md"
 }
