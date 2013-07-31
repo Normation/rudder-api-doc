@@ -5,11 +5,11 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/directive/DirectiveAPI2.scala
 
 
-[GET] api/2/directives
+[GET] api/directives
 -----------------
 
     /**
-    @api {get} /api/2/directives List all directives
+    @api {get} /api/directives List all directives
     @apiVersion 2.0.0
     @apiName listDirectives
     @apiGroup Directives
@@ -20,11 +20,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/directives
+[PUT] api/directives
 -----------------
 
     /**
-    @api {put} /api/2/directives Create a new directive
+    @api {put} /api/directives Create a new directive
     @apiVersion 2.0.0
     @apiName createDirective
     @apiGroup Directives
@@ -35,11 +35,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/directives
+[PUT] api/directives
 -----------------
 
     /**
-    @api {put} /api/2/directives Clone a directive
+    @api {put} /api/directives Clone a directive
     @apiVersion 2.0.0
     @apiName cloneDirective
     @apiGroup Directives
@@ -50,11 +50,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
      */
 
-[GET] api/2/directives/{id}
+[GET] api/directives/{id}
 --------------------------
 
     /**
-    @api {get} /api/2/directives/{id} Get directive details by id
+    @api {get} /api/directives/{id} Get directive details by id
     @apiVersion 2.0.0
     @apiName directiveDetails
     @apiGroup Directives
@@ -64,11 +64,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     */
 
-[DELETE] api/2/directives/{id}
+[DELETE] api/directives/{id}
 --------------------------
 
     /**
-    @api {delete} /api/2/directives/{id} Delete a directive by id
+    @api {delete} /api/directives/{id} Delete a directive by id
     @apiVersion 2.0.0
     @apiName deleteDirective
     @apiGroup Directives
@@ -80,11 +80,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     */
 
 
-[POST] api/2/directives/{id}
+[POST] api/directives/{id}
 --------------------------
 
     /**
-    @api {post} /api/2/directives/{id} Update the directive with given id
+    @api {post} /api/directives/{id} Update the directive with given id
     @apiVersion 2.0.0
     @apiName updateDirective
     @apiGroup Directives

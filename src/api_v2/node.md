@@ -5,16 +5,16 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/node/NodeAPI2.scala
 
 
-== [GET] api/2/nodes 
+== [GET] api/nodes 
 
     /**
-    @api {get} /api/2/nodes List accepted nodes
+    @api {get} /api/nodes List accepted nodes
     @apiVersion 2.0.0
     @apiName listAcceptedNodes
     @apiGroup Nodes
     
     @apiExample Example usage:
-        curl -H "X-API-TOKEN: Gv2Trr1YJLtfYaaw0aiTA5DmZ9nW2aNu" http://localhost/rudder/api/2/nodes
+        curl -H "X-API-TOKEN: Gv2Trr1YJLtfYaaw0aiTA5DmZ9nW2aNu" http://localhost/rudder/api/nodes
     
     @apiSuccess {String} TODO
     
@@ -35,10 +35,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-== [GET] api/2/nodes/pending
+== [GET] api/nodes/pending
 
     /**
-    @api {get} /api/2/nodes/pending List pending nodes
+    @api {get} /api/nodes/pending List pending nodes
     @apiVersion 2.0.0
     @apiName listPendingNodes
     @apiGroup Nodes
@@ -64,10 +64,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-== [GET] api/2/nodes/{id}
+== [GET] api/nodes/{id}
 
     /**
-    @api {get} /api/2/nodes/{id} Get information for node with id
+    @api {get} /api/nodes/{id} Get information for node with id
     @apiVersion 2.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
@@ -92,10 +92,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
         }
      */
 
-== [DELETE] api/2/nodes/{id}
+== [DELETE] api/nodes/{id}
 
     /**
-    @api {delete} /api/2/nodes/{id} Delete node with id
+    @api {delete} /api/nodes/{id} Delete node with id
     @apiVersion 2.0.0
     @apiName deleteNode
     @apiGroup Nodes

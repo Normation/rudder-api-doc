@@ -5,11 +5,11 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/group/GroupAPI2.scala
 
 
-[GET] api/2/groups
+[GET] api/groups
 -----------------
 
     /**
-    @api {get} /api/2/groups List all groups
+    @api {get} /api/groups List all groups
     @apiVersion 2.0.0
     @apiName listGroups
     @apiGroup Groups
@@ -21,11 +21,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/groups
+[PUT] api/groups
 -----------------
 
     /**
-    @api {put} /api/2/groups Create a new group
+    @api {put} /api/groups Create a new group
     @apiVersion 2.0.0
     @apiName createGroup
     @apiGroup Groups
@@ -36,11 +36,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/groups
+[PUT] api/groups
 -----------------
 
     /**
-    @api {put} /api/2/groups Clone a group
+    @api {put} /api/groups Clone a group
     @apiVersion 2.0.0
     @apiName cloneGroup
     @apiGroup Groups
@@ -50,11 +50,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
      */
 
-[GET] api/2/groups/{id}
+[GET] api/groups/{id}
 --------------------------
 
     /**
-    @api {get} /api/2/groups/{id} Get group details by id
+    @api {get} /api/groups/{id} Get group details by id
     @apiVersion 2.0.0
     @apiName groupDetails
     @apiGroup Groups
@@ -64,11 +64,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     */
 
-[DELETE] api/2/groups/{id}
+[DELETE] api/groups/{id}
 --------------------------
 
     /**
-    @api {delete} /api/2/groups/{id} Delete a group by id
+    @api {delete} /api/groups/{id} Delete a group by id
     @apiVersion 2.0.0
     @apiName deleteGroup
     @apiGroup Groups
@@ -80,11 +80,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     */
 
 
-[POST] api/2/groups/{id}
+[POST] api/groups/{id}
 --------------------------
 
     /**
-    @api {post} /api/2/groups/{id} Update the group with given id
+    @api {post} /api/groups/{id} Update the group with given id
     @apiVersion 2.0.0
     @apiName updateGroup
     @apiGroup Groups

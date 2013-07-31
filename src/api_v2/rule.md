@@ -5,11 +5,11 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/rule/RuleAPI2.scala
 
 
-[GET] api/2/rules
+[GET] api/rules
 -----------------
 
     /**
-    @api {get} /api/2/rules List all rules
+    @api {get} /api/rules List all rules
     @apiVersion 2.0.0
     @apiName listRules
     @apiGroup Rules
@@ -58,11 +58,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/rules
+[PUT] api/rules
 -----------------
 
     /**
-    @api {put} /api/2/rules Create a new Rule
+    @api {put} /api/rules Create a new Rule
     @apiVersion 2.0.0
     @apiName createRule
     @apiGroup Rules
@@ -83,11 +83,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      */
 
 
-[PUT] api/2/rules
+[PUT] api/rules
 -----------------
 
     /**
-    @api {put} /api/2/rules Clone a Rule
+    @api {put} /api/rules Clone a Rule
     @apiVersion 2.0.0
     @apiName cloneRule
     @apiGroup Rules
@@ -136,11 +136,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
      */
 
-[GET] api/2/rules/{id}
+[GET] api/rules/{id}
 --------------------------
 
     /**
-    @api {get} /api/2/rules/{id} Get Rule details by ID
+    @api {get} /api/rules/{id} Get Rule details by ID
     @apiVersion 2.0.0
     @apiName ruleDetails
     @apiGroup Rules
@@ -171,11 +171,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     */
 
-[DELETE] api/2/rules/{id}
+[DELETE] api/rules/{id}
 --------------------------
 
     /**
-    @api {delete} /api/2/rules/{id} Delete a rule by ID
+    @api {delete} /api/rules/{id} Delete a rule by ID
     @apiVersion 2.0.0
     @apiName deleteRule
     @apiGroup Rules
@@ -216,11 +216,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     */
 
 
-[POST] api/2/rules/{id}
+[POST] api/rules/{id}
 --------------------------
 
     /**
-    @api {post} /api/2/rules/{id} Update the rule with given ID
+    @api {post} /api/rules/{id} Update the rule with given ID
     @apiVersion 2.0.0
     @apiName updateRule
     @apiGroup Rules
