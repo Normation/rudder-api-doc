@@ -87,7 +87,6 @@ require([
 		}); // each
 		// Sortieren
 		var values = Object.keys(titles);
-		console.log(values);
 		values.sort();
 
 		// Einzelne Elemente der neuen Liste hinzufügen.
@@ -100,11 +99,8 @@ require([
 	}); // each
 	// api überschreiben mit sortierter Liste.
 	api = newList;
-    console.log(api);
 
-    api.sort( function (a,b) {
-    console.log(a);
-    console.log(b);
+    /*api.sort( function (a,b) {
     switch (a.type) {
     	case "get":
     		if (b.type == "get")
@@ -136,7 +132,7 @@ require([
     }
 
     return -1;
-	});
+	});*/
 	/**
 	 * Group- and Versionlists.
 	 */

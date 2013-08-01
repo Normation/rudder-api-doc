@@ -16,7 +16,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [GET] api/nodes 
 
     /**
-    @api {get} /api/nodes List accepted Nodes
+    @api {get} /api/nodes 1. List accepted Nodes
     @apiVersion 2.0.0
     @apiName listAcceptedNodes
     @apiGroup Nodes
@@ -30,7 +30,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [GET] api/nodes/pending
 
     /**
-    @api {get} /api/nodes/pending List pending Nodes
+    @api {get} /api/nodes/pending 2. List pending Nodes
     @apiVersion 2.0.0
     @apiName listPendingNodes
     @apiGroup Nodes
@@ -42,7 +42,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [GET] api/nodes/{id}
 
     /**
-    @api {get} /api/nodes/id Get Node details
+    @api {get} /api/nodes/id 3. Get Node details
     @apiVersion 2.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
@@ -54,7 +54,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [DELETE] api/nodes/{id}
 
     /**
-    @api {delete} /api/nodes/id Delete Node
+    @api {delete} /api/nodes/id 5. Delete Node
     @apiVersion 2.0.0
     @apiName deleteNode
     @apiGroup Nodes
@@ -67,7 +67,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [POST] api/nodes/pending/{id}
 
     /**
-    @api {post} /api/nodes/id Change pending Node status
+    @api {post} /api/nodes/id 4. Change pending Node status
     @apiVersion 2.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes

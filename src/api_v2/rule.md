@@ -36,7 +36,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {get} /api/rules List all Rules
+    @api {get} /api/rules 1. List all Rules
     @apiVersion 2.0.0
     @apiName listRules
     @apiGroup Rules
@@ -89,7 +89,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/rules Create a new Rule
+    @api {put} /api/rules 3. Create a new Rule
     @apiVersion 2.0.0
     @apiName createRule
     @apiGroup Rules
@@ -108,7 +108,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/rules Clone a Rule
+    @api {put} /api/rules 6. Clone a Rule
     @apiVersion 2.0.0
     @apiName cloneRule
     @apiGroup Rules
@@ -154,7 +154,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} /api/rules/id Get a Rule details
+    @api {get} /api/rules/id 2. Get a Rule details
     @apiVersion 2.0.0
     @apiName ruleDetails
     @apiGroup Rules
@@ -191,7 +191,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {delete} /api/rules/{id} Delete a Rule
+    @api {delete} /api/rules/{id} 5. Delete a Rule
     @apiVersion 2.0.0
     @apiName deleteRule
     @apiGroup Rules
@@ -238,7 +238,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/rules/id Update a Rule
+    @api {post} /api/rules/id 4. Update a Rule
     @apiVersion 2.0.0
     @apiName updateRule
     @apiGroup Rules

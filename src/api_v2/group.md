@@ -31,7 +31,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {get} /api/groups List all Groups
+    @api {get} /api/groups 1. List all Groups
     @apiVersion 2.0.0
     @apiName listGroups
     @apiGroup Groups
@@ -47,7 +47,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/groups Create a new Group
+    @api {put} /api/groups 3. Create a new Group
     @apiVersion 2.0.0
     @apiName createGroup
     @apiGroup Groups
@@ -65,7 +65,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/groups Clone a Group
+    @api {put} /api/groups 7. Clone a Group
     @apiVersion 2.0.0
     @apiName cloneGroup
     @apiGroup Groups
@@ -82,7 +82,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} /api/groups/{id} Get Group details
+    @api {get} /api/groups/{id} 2. Get Group details
     @apiVersion 2.0.0
     @apiName groupDetails
     @apiGroup Groups
@@ -98,7 +98,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {delete} /api/groups/{id} Delete a Group
+    @api {delete} /api/groups/{id} 6. Delete a Group
     @apiVersion 2.0.0
     @apiName deleteGroup
     @apiGroup Groups
@@ -116,7 +116,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/groups/{id} Update a Group
+    @api {post} /api/groups/{id} 4. Update a Group
     @apiVersion 2.0.0
     @apiName updateGroup
     @apiGroup Groups
@@ -143,7 +143,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/groups/:id/reload Reload a Group
+    @api {post} /api/groups/:id/reload 5. Reload a Group
     @apiVersion 2.0.0
     @apiName reloadGroup
     @apiGroup Groups

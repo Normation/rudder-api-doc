@@ -28,7 +28,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {get} /api/parameters List all Parameters
+    @api {get} /api/parameters 1. List all Parameters
     @apiVersion 2.0.0
     @apiName listGroups
     @apiGroup Parameters
@@ -44,7 +44,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/parameters Create a new Parameter
+    @api {put} /api/parameters 3. Create a new Parameter
     @apiVersion 2.0.0
     @apiName createGroup
     @apiGroup Parameters
@@ -61,7 +61,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} /api/parameters/{id} Get Parameter details
+    @api {get} /api/parameters/{id} 2. Get Parameter details
     @apiVersion 2.0.0
     @apiName parameterDetails
     @apiGroup Parameters
@@ -77,7 +77,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {delete} /api/parameters/{id} Delete a Parameter
+    @api {delete} /api/parameters/{id} 5. Delete a Parameter
     @apiVersion 2.0.0
     @apiName deleteGroup
     @apiGroup Parameters
@@ -95,7 +95,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/parameters/{id} Update a Parameter
+    @api {post} /api/parameters/{id} 4. Update a Parameter
     @apiVersion 2.0.0
     @apiName updateGroup
     @apiGroup Parameters

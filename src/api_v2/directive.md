@@ -32,7 +32,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {get} /api/directives List all Directives
+    @api {get} /api/directives 1. List all Directives
     @apiVersion 2.0.0
     @apiName listDirectives
     @apiGroup Directives
@@ -47,7 +47,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/directives Create a new Directive
+    @api {put} /api/directives 3. Create a new Directive
     @apiVersion 2.0.0
     @apiName createDirective
     @apiGroup Directives
@@ -68,7 +68,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {put} /api/directives Clone a Directive
+    @api {put} /api/directives 6. Clone a Directive
     @apiVersion 2.0.0
     @apiName cloneDirective
     @apiGroup Directives
@@ -87,7 +87,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} /api/directives/id Get a Directive details
+    @api {get} /api/directives/id 2. Get a Directive details
     @apiVersion 2.0.0
     @apiName directiveDetails
     @apiGroup Directives
@@ -103,7 +103,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {delete} /api/directives/id Delete a Directive
+    @api {delete} /api/directives/id 5. Delete a Directive
     @apiVersion 2.0.0
     @apiName deleteDirective
     @apiGroup Directives
@@ -121,7 +121,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/directives/id Update a Directive
+    @api {post} /api/directives/id 4. Update a Directive
     @apiVersion 2.0.0
     @apiName updateDirective
     @apiGroup Directives
