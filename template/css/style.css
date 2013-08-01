@@ -6,6 +6,11 @@ body {
 	max-width: 1280px;
 }
 
+img.RudderImage {
+    border: 1px ridge #707070;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 10px 10px 5px #888888;
+}
 body, p, a, div, th, td { 
 	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 400;
