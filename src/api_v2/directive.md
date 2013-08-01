@@ -38,7 +38,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Directives
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/directives
+    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/directives
 
      */
 
@@ -59,7 +59,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId” -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/directives  -d "techniqueName=copyGitFile" -d "displayName=Name of New Directive"
+    curl -H "X-API-Token:TokenId” -X PUT http://localhost/rudder/api/2/directives  -d "techniqueName=copyGitFile" -d "displayName=Name of New Directive"
 
      */
 
@@ -78,7 +78,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiPAram (Mono) {Float} [techniqueVersion=same version as source]
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
+    curl -H "X-API-Token:TokenId" -X PUT http://localhost/rudder/api/2/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
 
 
      */
@@ -95,7 +95,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure directiveId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/directives/DirectiveID
+    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/directives/DirectiveID
 
     */
 
@@ -111,7 +111,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure directiveId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X DELETE http://localhost/rudder/api/directives/DirectiveID
+    curl -H "X-API-Token:TokenId" -X DELETE http://localhost/rudder/api/2/directives/DirectiveID
 
 
     */
@@ -140,8 +140,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
     @apiExample Example usage:
-    Update display name: 
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X POST http://localhost/rudder/api/directives/DirectiveID  -d "displayName=Name of New Directive"
+    // Update display name: 
+    curl -H "X-API-Token:TokenId" -X POST http://localhost/rudder/api/2/directives/DirectiveID  -d "displayName=Name of New Directive"
 
 
 

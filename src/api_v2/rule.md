@@ -43,7 +43,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Get all Rules available in Rudder
     
     @apiExample Example usage:
-    curl -H "X-API-Token:cEMKWn38wzgpIZPwmipe1NPeAmfzwroR" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/rules
+    curl -H "X-API-Token:cEMKWn38wzgpIZPwmipe1NPeAmfzwroR" -X GET http://localhost/rudder/api/2/rules
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -99,7 +99,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
  
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId” -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/rules -d "displayName=Name of New Rule"
+    curl -H "X-API-Token:TokenId” -X PUT http://localhost/rudder/api/2/rules -d "displayName=Name of New Rule"
 
      */
 
@@ -118,7 +118,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {String} source The id of the Rule the clone will be based onto. if this parameter is missing there will be only a Rule creation
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
+    curl -H "X-API-Token:TokenId" -X PUT http://localhost/rudder/api/2/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
@@ -163,7 +163,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X GET http://localhost/rudder/api/rules/06ba8940-ed6c-4102-ba46-93d640a64c36
+    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/rules/06ba8940-ed6c-4102-ba46-93d640a64c36
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -200,7 +200,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X DELETE http://localhost/rudder/api/rules/176ad06b-ed02-4da3-8053-16225d217741
+    curl -H "X-API-Token:TokenId" -X DELETE http://localhost/rudder/api/2/rules/176ad06b-ed02-4da3-8053-16225d217741
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -223,7 +223,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       }
 
     @apiErrorExample Error-Response:
-      HTTP/1.1 404 Not Found
+      HTTP/1.1 500
       {
         "action":"deleteRule",
         "id":"176ad06b-ed02-4da3-8053-16225d217741",
@@ -260,7 +260,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X POST http://localhost/rudder/api/rules/RuleID -d "displayName=Name of Rule"
+    curl -H "X-API-Token:TokenId" -X POST http://localhost/rudder/api/2/rules/RuleID -d "displayName=Name of Rule"
 
 
     */
