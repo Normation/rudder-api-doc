@@ -2,7 +2,9 @@
 
 Since Rudder 2.7.0, We have added a Rest API to Rudder. That API Allow you to interact with Rudder without using the webapp.
 
+<span id="api-_-Authentication"/>
 ## Authentication
+
 
 To allow usage of that API, you need to be authenticated. Rudder may contains capital informations about your IT, and we don't want those informations to be public.
 
@@ -18,6 +20,7 @@ For any call to API, you will need to add a **_X-API-Token_** header to your req
 
 If you perform any action (Creation,Update,Deletion) using the API, the event log generated will have the API account as actor.
 
+<span id="api-_-Versioning"/>
 ## Versioning
 
 The API will be extended with new features, new functions, new parameters, new response. When there will be new things about the API, we will create a new version of the API. This will allow you to keep your existing scripts (based on previous behavior).
@@ -44,6 +47,7 @@ curl -X GET <span class="str">"X-API-Token: yourToken"</span> <span class="str">
 
 We may declare some versions as deprecated, in order to remove them in a later version of Rudder, but we will never remove any version without warning
 
+<span id="api-_-Response"/>
 ## Response format
 
 We defined a generic response format for any result from the API, both Errors and Success are based on the same model. The answer is embedded in a JSON
@@ -60,6 +64,7 @@ We defined a generic response format for any result from the API, both Errors an
 * __Success__ Response are sent with the 200 HTTP code
 * __Error__ Response are sent with an Error HTTP code (mostly 5xx ...)
 
+<span id="api-_-HTTP"/>
 ## HTTP method
 
 Rudder API is based on the usage of HTTP methods (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). We use them indicate what action will be done by the request. For now we use 4 of them : 
@@ -69,6 +74,7 @@ Rudder API is based on the usage of HTTP methods (http://www.w3.org/Protocols/rf
 * **DELETE**: Remove datas (Delete a Node, Delete a Parameter, ...)
 * **POST**: Update datas (Update a Directive, Reaload a Group, ...)
 
+<span id="api-_-Parameters"/>
 ## Parameters
 
 To use Rudder API, you will need to pass datas to the API. Most of them depends of the function and will be described with their function. Some exists for almost all functions and they are describe below.

@@ -198,6 +198,43 @@ require([
 			title: locale.__("Introduction"),
 			isFixed: true
 		});
+
+		nav.push({
+			group: "_",
+			isHeader: false,
+			title: locale.__("1. Authentication"),
+			name : "Authentication"
+		});
+
+
+		nav.push({
+			group: "_",
+			isHeader: false,
+			title: locale.__("2. Versioning"),
+			name : "Versioning"
+		});
+
+		nav.push({
+			group: "_",
+			isHeader: false,
+			title: locale.__("3. Response format"),
+			name : "Response"
+		});
+
+		nav.push({
+			group: "_",
+			isHeader: false,
+			title: locale.__("4. HTTP method"),
+			name : "HTTP"
+		});
+
+		nav.push({
+			group: "_",
+			isHeader: false,
+			title: locale.__("5. Parameters"),
+			name : "Parameters"
+		});
+
 	}
 	apiGroups.forEach(function(group) {
 		// Mainmenu-Entry.
