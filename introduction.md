@@ -8,7 +8,7 @@ To allow usage of that API, you need to be authenticated. Rudder may contains ca
 
 You need to be authenticated using an API Account. Those accounts can be created in Rudder, the 'API Accounts' page located inside the Administration part.
 
-![Rudder API page](../APISettings.png "Rudder API Settings page")
+![Rudder API page](img/APISettings.png "Rudder API Settings page")
 
 Once you have created an API Account, you can now use the API. A token is generated for all accounts and you will need that token to authenticate while using the API.
 
