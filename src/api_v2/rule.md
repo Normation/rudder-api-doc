@@ -115,7 +115,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Create a new Rule based on an existing Rule. you can still modify its parameters, but you need at least to specify the name of the new Rule 
 
     @apiStructure ruleCreation
-    @apiParam (Mono) {String} sourceId The id of the Rule the clone will be based onto. if this parameter is missing there will be only a Rule creation
+    @apiParam (Mono) {String} source The id of the Rule the clone will be based onto. if this parameter is missing there will be only a Rule creation
     
     @apiExample Example usage:
     curl -H "X-API-Token:TokenId" -H "X-API-Version: 2" -X PUT http://localhost/rudder/api/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
