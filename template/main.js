@@ -40,7 +40,16 @@ require([
 	"bootstrap"
 ], function($, _, locale, Handlebars, apiProject, apiData, prettyPrint) {
 
-	var api = apiData.api;
+
+	/**
+	 * We need to truncate version here to have x version instead of x.y.z
+	 */
+    apiProject.version = apiProject.version.charAt(0);
+
+	var api = $.map(apiData.api, function(elem,index) {
+		elem.version = elem.version.charAt(0);
+		return elem;
+	});
 
 	/**
 	 * Templates.
@@ -100,39 +109,7 @@ require([
 	// api überschreiben mit sortierter Liste.
 	api = newList;
 
-    /*api.sort( function (a,b) {
-    switch (a.type) {
-    	case "get":
-    		if (b.type == "get")
-    			return 0;
-    		else
-    			return -1;
-    	case "put":
-    	    switch (b.type) {
-    			case "get" : return 1;
-    			case "put" : return 0;
-    			default    : return -1;
-    		}
-    	case "post" :
-    	    switch (b.type) {
-    			case "get"  :
-    			case "put"  : return 1;
-    			case "post" : return 0;
-    			default     : return -1;
-    		}
-    	case "delete" :
-    	    switch (b.type) {
-    			case "get"    :
-    			case "put"    :
-    			case "post"   : return 1;
-    			case "delete" : return 0;
-    			default       : return -1;
-    		}
-    	default: return 1;
-    }
 
-    return -1;
-	});*/
 	/**
 	 * Group- and Versionlists.
 	 */
@@ -182,6 +159,9 @@ require([
 	});
 
 	apiVersions = Object.keys(apiVersions);
+	apiVersions = $.map(apiVersions, function(elem,index) {
+		return elem.charAt(0);
+	});
 	apiVersions.sort();
 	apiVersions.reverse();
 
@@ -451,7 +431,7 @@ require([
 
 		// Hide all
 		$("article").addClass("hide");
-		$("#sidenav li:not(.nav-fixed)").addClass("hide");
+		$("#sidenav li:not(.nav-fixed):not([data-group='_'])").addClass("hide");
 
 		// Show 1st equal or lower Version of each entry
 		$("article[data-version]").each(function(index) {
@@ -494,11 +474,11 @@ require([
 		var $button = $root.find(".version");
 		var currentVersion = $button.find("strong").html();
 		$button.find("strong").html(selectedVersion);
-		
+
 		var group = $root.data("group");
 		var name = $root.data("name");
 		var version = $root.data("version");
-		
+
 		var compareVersion = $root.data("compare-version");
 
 		if(compareVersion === selectedVersion) return;
@@ -564,7 +544,7 @@ require([
 	function changeAllVersionCompareTo(e)
 	{
 		e.preventDefault();
-		$("article:visible .versions").each(function(){
+		$(".version article:visible .versions").each(function(){
 			var $root = $(this).parents("article");
 			var currentVersion = $root.data("version");
 			var $foundElement = null;
