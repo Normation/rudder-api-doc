@@ -43,7 +43,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Get all Rules available in Rudder
     
     @apiExample Example usage:
-    curl -H "X-API-Token:cEMKWn38wzgpIZPwmipe1NPeAmfzwroR" -X GET http://localhost/rudder/api/2/rules
+    curl -H "X-API-Token:cEMKWn38wzgpIZPwmipe1NPeAmfzwroR" -X GET http://localhost/rudder/api/2/rules?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -118,7 +118,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {String} source The id of the Rule the clone will be based onto. if this parameter is missing there will be only a Rule creation
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X PUT http://localhost/rudder/api/2/rules  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
+    curl -H "X-API-Token:TokenId" -X PUT http://localhost/rudder/api/2/rules?prettify=true  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
@@ -163,7 +163,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/rules/06ba8940-ed6c-4102-ba46-93d640a64c36
+    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/rules/06ba8940-ed6c-4102-ba46-93d640a64c36?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -200,7 +200,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X DELETE http://localhost/rudder/api/2/rules/176ad06b-ed02-4da3-8053-16225d217741
+    curl -H "X-API-Token:TokenId" -X DELETE http://localhost/rudder/api/2/rules/176ad06b-ed02-4da3-8053-16225d217741?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {

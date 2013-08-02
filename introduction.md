@@ -91,7 +91,7 @@ Passing parameters to the API can take three forms:
 Parameters in URL are used to indicate which data you want to interact with. The function will not work if this data is missing.
 
 <pre class="language-json"><code><span class="com"># Get the Rule of ID "id"</span>
-curl <span class="tag">/api/rules/</span><span class="kwd">id</span>
+curl http://serverRudder/<span class="tag">/api/rules/</span><span class="kwd">id</span>
 </code></pre>
 
 #### Request parameters
@@ -107,13 +107,13 @@ Parameters follow the following schema :
 * As URL parameters: At the end of your url, put a **?** then your first parameter and then a **&** before next parameters
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  /api/rules/2/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  http://serverRudder/api/rules/2/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
 </code></pre>
 
 * As request data: You can pass those parameters in the request data, they won't figure in the URL, making it lighter to read, You can pass a file that contains datas
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive (in file directiveId) </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> /api/rules/2/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directiveId</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://serverRudder/api/rules/2/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directiveId</span>
 </code></pre>
 
 #### Embedded in Json
@@ -134,19 +134,19 @@ the (prettified) format is :
  Here is an example with an inlined data :  
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> /api/rules/2/id <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span> : <span class="str">"new name"</span>, <span class="str">"enabled"</span> : <span class="kwd">false</span>, <span class="str">"directives"</span> : <span class="str">"directiveId"</span>}'</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://serverRudder/api/rules/2/id <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span> : <span class="str">"new name"</span>, <span class="str">"enabled"</span> : <span class="kwd">false</span>, <span class="str">"directives"</span> : <span class="str">"directiveId"</span>}'</span>
 </code></pre>
 
 You can also pass a file containing the json: 
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> /api/rules/2/id <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://serverRudder/api/rules/2/id <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
 </code></pre>
 
 Note that some parameters cannot be passed in a JSON (general parameters, it will be precised when necessary), and you will need to pass them a URL parameters if you want them to be taken into account (you can't mix JSON and request parameters)
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive with reason message "Reason used" </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "/api/rules/2/id<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "http://serverRudder/api/rules/2/id<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
 </code></pre>
 
 ### General parameters
