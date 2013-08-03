@@ -34,7 +34,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Parameters
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/parameters
+    curl -H "X-API-Token:TokenId" -X GET http://serverRudder/rudder/api/2/parameters
 
 
      */
@@ -52,7 +52,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure parameterCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X PUT http://localhost/rudder/api/2/parameters -d @nomDeFichierJSON
+    curl -H "X-API-Token:TokenId" -X PUT http://serverRudder/rudder/api/2/parameters -d @nomDeFichierJSON
 
      */
 
@@ -69,7 +69,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
      
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X GET http://localhost/rudder/api/2/parameters/ParameterId
+    curl -H "X-API-Token:TokenId" -X GET http://serverRudder/rudder/api/2/parameters/ParameterId
 
     */
 
@@ -85,7 +85,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X DELETE http://localhost/rudder/api/2/parameters/ParameterId
+    curl -H "X-API-Token:TokenId" -X DELETE http://serverRudder/rudder/api/2/parameters/ParameterId
 
 
     */
@@ -112,7 +112,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token:TokenId" -X POST http://localhost/rudder/api/2/parameters/ParameterId -d "displayName=Name of New Parameter"
+    curl -H "X-API-Token:TokenId" -X POST http://serverRudder/rudder/api/2/parameters/ParameterId -d "displayName=Name of New Parameter"
 
     */
 
