@@ -115,12 +115,13 @@
 			{{/if}}
 		{{/if}}
 
+		{{subTemplate "article-param-block" params=article.parameter _hasType=_hasTypeInParameterFields}}
+
 		{{#each article.examples}}
 			<strong>{{title}}</strong>
 			<pre class="prettyprint language-json" data-type="json"><code>{{{content}}}</code></pre>
 		{{/each}}
 
-		{{subTemplate "article-param-block" params=article.parameter _hasType=_hasTypeInParameterFields}}
 		{{subTemplate "article-param-block" params=article.success _hasType=_hasTypeInSuccessFields}}
 		{{subTemplate "article-param-block" params=article.info _hasType=_hasTypeInInfoFields}}
 		{{subTemplate "article-param-block" params=article.error _col1="Name" _hasType=_hasTypeInErrorFields}}
