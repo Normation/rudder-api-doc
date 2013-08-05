@@ -22,7 +22,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Nodes
     
     @apiExample Example usage:
-        curl -H "X-API-TOKEN: Gv2Trr1YJLtfYaaw0aiTA5DmZ9nW2aNu" http://serverRudder/rudder/api/nodes
+        curl -H "X-API-Token: yourToken" http://rudder.example.com/rudder/api/nodes
     
      */
 

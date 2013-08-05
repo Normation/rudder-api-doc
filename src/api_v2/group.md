@@ -37,7 +37,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Groups
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X GET http://serverRudder/rudder/api/2/groups
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/groups
 
 
      */
@@ -56,7 +56,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure groupCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X PUT http://serverRudder/rudder/api/2/groups -d @nomDeFichierJSON
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/groups -d @nomDeFichierJSON
 
      */
 
@@ -74,7 +74,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure groupCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X PUT http://serverRudder/rudder/api/2/groups -d “groups=GroupID”
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/groups -d “groups=GroupID”
 
      */
 
@@ -90,7 +90,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  groupId
      
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X GET http://serverRudder/rudder/api/2/groups/GroupID
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/groups/GroupID
 
     */
 
@@ -106,7 +106,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  groupId
 
     @apiExample Example usage:
-    curl -H "X-API-Token:TokenId" -X DELETE http://serverRudder/rudder/api/2/groups/GroupID
+    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/2/groups/GroupID
 
 
     */
@@ -134,7 +134,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token:TokenId" -X POST http://serverRudder/rudder/api/2/groups/GroupID -d "displayName=Name of New Group"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/2/groups/GroupID -d "displayName=Name of New Group"
 
     */
 
