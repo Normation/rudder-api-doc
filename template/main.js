@@ -261,7 +261,7 @@ require([
 	 * Render Pagetitle.
 	 */
 	var title = apiProject.name + " - " + apiProject.version;
-	$(document).attr("title", "apiDoc: " + title);
+	$(document).attr("title", title);
 
 	/**
 	 * Render Sidenav.
