@@ -10,7 +10,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
    @apiParamTitle (URL parameters) URL parameters
 
-   @apiParam (URL parameters) {String} id The id of the Node you want
+   @apiParam (URL parameters) {UUID} id IF of the Node.
  */
 
 == [GET] api/nodes 

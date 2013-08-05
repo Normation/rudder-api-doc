@@ -9,7 +9,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
    @apiParamTitle (URL parameters) URL parameters
 
-   @apiParam (URL parameters) {String} id The id of the Parameter you want
+   @apiParam (URL parameters) {String} id ID/name of the Parameter.
  */
 
  /**
@@ -17,10 +17,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
 
-   @apiParam (Mono) {String} [description] description of the Parameter
-   @apiParam (Mono) {String} [value] Value of the Parameter 
-   @apiParam (Mono) {Boolean} [overridable]
-   @apiParam (Mono) {String} id The name of the Parameter to create, this parameter is mandatory
+   @apiParam (Mono) {String} id             ID/name of the Parameter to create.
+   @apiParam (Mono) {String} [description]  Description of the Parameter.
+   @apiParam (Mono) {String} [value]        Value of the Parameter.
+   @apiParam (Mono) {Boolean} [overridable] The value can be overidden by Node Parameter (not existing in 2.7)
 
  */
 
@@ -105,9 +105,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
 
-   @apiParam (Mono) {String} [description] description of the Parameter
-   @apiParam (Mono) {String} [value] Value of the Parameter 
-   @apiParam (Mono) {Boolean} [overridable]
+   @apiParam (Mono) {String} [description]  Description of the Parameter.
+   @apiParam (Mono) {String} [value]        Value of the Parameter.
+   @apiParam (Mono) {Boolean} [overridable] The value can be overidden by Node Parameter (not existing in 2.7)
+
 
      
     @apiExample Example usage:
