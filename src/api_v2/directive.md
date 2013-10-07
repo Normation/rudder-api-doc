@@ -24,8 +24,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/directives
 
-    @apiSuccess Success-Response:
-    {
+    @apiSuccessExample Success-Response:
+{
   "action":"listDirectives",
   "result":"success",
   "data":{
@@ -247,92 +247,92 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/2/directives  -d "techniqueName=copyGitFile" -d "displayName=Copy a test file from shared folder" -d @parameters
-    
-    @apiSuccess Success-response:
+
+    @apiSuccessExample Success-Response:
     {
-  "action":"createDirective",
-  "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
-  "result":"success",
-  "data":{
-    "directives":[{
-      "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
-      "displayName":"Copy a test file from shared folder",
-      "shortDescription":"",
-      "longDescription":"",
-      "techniqueName":"copyGitFile",
-      "techniqueVersion":"1.3",
-      "parameters":{
-        "section":{
-          "name":"sections",
-          "sections":[{
-            "section":{
-              "name":"Copy file and PostHook",
-              "sections":[{
-                "section":{
-                  "name":"Copy file",
-                  "vars":[{
-                    "var":{
-                      "name":"COPYFILE_COMPARE_METHOD",
-                      "value":"mtime"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_DESTINATION",
-                      "value":"/tmp/test2"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_GROUP",
-                      "value":"root"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_NAME",
-                      "value":"/tmp/test"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_OWNER",
-                      "value":"root"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_PERM",
-                      "value":"000"
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_RECURSION",
-                      "value":"0"
-                    }
-                  }]
-                }
-              },{
-                "section":{
-                  "name":"Post-modification hook",
-                  "vars":[{
-                    "var":{
-                      "name":"COPYFILE_POST_HOOK_COMMAND",
-                      "value":""
-                    }
-                  },{
-                    "var":{
-                      "name":"COPYFILE_POST_HOOK_RUN",
-                      "value":"false"
-                    }
-                  }]
-                }
-              }]
-            }
-          }]
-        }
-      },
-      "priority":5,
-      "isEnabled":false,
-      "isSystem":false
-    }]
+    "action":"createDirective",
+    "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
+    "result":"success",
+    "data":{
+      "directives":[{
+        "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
+        "displayName":"Copy a test file from shared folder",
+        "shortDescription":"",
+        "longDescription":"",
+        "techniqueName":"copyGitFile",
+        "techniqueVersion":"1.3",
+        "parameters":{
+          "section":{
+            "name":"sections",
+            "sections":[{
+              "section":{
+                "name":"Copy file and PostHook",
+                "sections":[{
+                  "section":{
+                    "name":"Copy file",
+                    "vars":[{
+                      "var":{
+                        "name":"COPYFILE_COMPARE_METHOD",
+                        "value":"mtime"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_DESTINATION",
+                        "value":"/tmp/test2"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_GROUP",
+                        "value":"root"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_NAME",
+                        "value":"/tmp/test"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_OWNER",
+                        "value":"root"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_PERM",
+                        "value":"000"
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_RECURSION",
+                        "value":"0"
+                      }
+                    }]
+                  }
+                },{
+                  "section":{
+                    "name":"Post-modification hook",
+                    "vars":[{
+                      "var":{
+                        "name":"COPYFILE_POST_HOOK_COMMAND",
+                        "value":""
+                      }
+                    },{
+                      "var":{
+                        "name":"COPYFILE_POST_HOOK_RUN",
+                        "value":"false"
+                      }
+                    }]
+                  }
+                }]
+              }
+            }]
+          }
+        },
+        "priority":5,
+        "isEnabled":false,
+        "isSystem":false
+      }]
+    }
   }
-}
      */
 
 
