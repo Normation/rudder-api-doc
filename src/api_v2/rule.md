@@ -28,7 +28,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
    @apiParamTitle (Multi) Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
 
    @apiParam (Multi) {UUID}        [directives] link one directive to the Rule. value needs to be an existing directive ID.
-   @apiParam (Multi) {Rule target} [targets]    Link one target to the Rule. Rule targets are "group:groupId" "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
+   @apiParam (Multi) {Rule target} [targets]    Link one target to the Rule. Rule targets are "group:groupId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
  */
 
 

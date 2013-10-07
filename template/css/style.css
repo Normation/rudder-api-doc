@@ -158,6 +158,7 @@ pre {
 
 pre.language-json {
 	overflow: auto;
+  max-height: 500px;
 }
 
 pre.language-html {
