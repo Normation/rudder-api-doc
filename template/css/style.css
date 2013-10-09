@@ -340,3 +340,17 @@ tr.del td {
   background-color: #f05050;
   text-decoration: line-through;
 }
+
+.values {
+  float:left;
+}
+
+ul.values {
+  margin : 1px 0px 10px 10px;
+}
+.values li {
+  font-style: oblique;
+  font-size: 13px;
+  color : #777777;
+  list-style: disc inside none;
+}
