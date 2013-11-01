@@ -98,7 +98,7 @@ curl -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.
 
 #### Request parameters
 
-In most cases, datas will be sent using request parameters. for each data you want to change, you need to pass one parameter.
+In most cases, data will be sent using request parameters. for all data you want to change, you need to pass one parameter.
 
 Parameters follow the following schema: 
 
