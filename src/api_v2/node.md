@@ -67,7 +67,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 == [POST] api/nodes/pending/{id}
 
     /**
-    @api {post} /api/nodes/id 4. Change pending Node status
+    @api {post} /api/nodes/pending/id 4. Change pending Node status
     @apiVersion 2.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes
