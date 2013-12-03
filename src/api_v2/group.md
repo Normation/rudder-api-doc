@@ -56,7 +56,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure groupCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/groups -d @nomDeFichierJSON
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/groups -d @JSON-file-name
 
      */
 

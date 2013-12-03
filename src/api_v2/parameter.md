@@ -52,7 +52,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure parameterCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/parameters -d @nomDeFichierJSON
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/parameters -d @JSON-file-name
 
      */
 
