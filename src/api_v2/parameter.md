@@ -34,7 +34,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Parameters
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/parameters
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/parameters
 
 
      */
@@ -52,7 +52,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure parameterCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/parameters -d @JSON-file-name
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/parameters -d @JSON-file-name
 
      */
 
@@ -69,7 +69,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
      
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/parameters/ParameterId
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/parameters/ParameterId
 
     */
 
@@ -85,7 +85,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/2/parameters/ParameterId
+    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/parameters/ParameterId
 
 
     */
@@ -113,7 +113,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/2/parameters/ParameterId -d "displayName=Name of New Parameter"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/parameters/ParameterId -d "displayName=Name of New Parameter"
 
     */
 
