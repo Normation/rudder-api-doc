@@ -22,7 +22,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Directives
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/directives
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/directives
 
     @apiSuccessExample Success-Response:
 {
@@ -246,7 +246,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/2/directives  -d "techniqueName=copyGitFile" -d "displayName=Copy a test file from shared folder" -d @parameters
+    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "techniqueName=copyGitFile" -d "displayName=Copy a test file from shared folder" -d @parameters
 
     @apiSuccessExample Success-Response:
     {
@@ -360,7 +360,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiPAram (Mono) {Technique version} [techniqueVersion=same version as source] Define the technique version used. By default it will used the version of the cloned Directive
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
 
 
      */
@@ -377,7 +377,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure directiveId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/directives/DirectiveID
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/directives/DirectiveID
 
     */
 
@@ -393,7 +393,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure directiveId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/2/directives/DirectiveID
+    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/directives/DirectiveID
 
 
     */
@@ -422,7 +422,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiExample Example usage:
     // Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/2/directives/DirectiveID  -d "displayName=Name of New Directive"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/directives/DirectiveID  -d "displayName=Name of New Directive"
 
 
 

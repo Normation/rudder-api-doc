@@ -43,7 +43,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Get all Rules available in Rudder
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/rules?prettify=true
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/rules?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -99,7 +99,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
  
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/2/rules -d "displayName=Name of New Rule"
+    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/rules -d "displayName=Name of New Rule"
 
      */
 
@@ -118,7 +118,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/2/rules?prettify=true  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/rules?prettify=true  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
@@ -163,7 +163,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/2/rules/06ba8940-ed6c-4102-ba46-93d640a64c36?prettify=true
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/rules/06ba8940-ed6c-4102-ba46-93d640a64c36?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -200,7 +200,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/2/rules/176ad06b-ed02-4da3-8053-16225d217741?prettify=true
+    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/rules/176ad06b-ed02-4da3-8053-16225d217741?prettify=true
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -259,7 +259,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Multi) {Rule target} [targets]    Link one target to the Rule. Rule targets are for groups : "group:groupId", nodes : "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/2/rules/RuleID -d "displayName=Name of Rule"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/rules/RuleID -d "displayName=Name of Rule"
 
 
     */

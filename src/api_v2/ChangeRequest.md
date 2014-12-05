@@ -31,7 +31,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/3/changeRequests -d "status=open"
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/changeRequests -d "status=open"
 
 
     @apiSuccessExample Success-Response:
@@ -111,7 +111,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure changeRequestId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/3/changeRequests/42
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/changeRequests/42
 
     @apiSuccessExample Success-Response:
 {
@@ -162,7 +162,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure changeRequestId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/3/changeRequests/42
+    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/changeRequests/42
 
     @apiSuccessExample Success-Response:
 {
@@ -223,7 +223,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiExample Example usage:
     // Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/3/changeRequests/42/accept -d "status=deployed"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/changeRequests/42/accept -d "status=deployed"
 
     @apiSuccessExample Success-Response:
 {
@@ -280,7 +280,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiExample Example usage:
     // Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/3/changeRequests/42  -d "name=new Name of Change Request" -d "description=add a new description"
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/changeRequests/42  -d "name=new Name of Change Request" -d "description=add a new description"
 
     @apiSuccessExample Success-Response:
 {

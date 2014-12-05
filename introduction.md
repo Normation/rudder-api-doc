@@ -16,7 +16,7 @@ Once you have created an API Account, you can now use the API. A token is genera
 
 For any call to API, you will need to add a **_X-API-Token_** header to your request.
 
-<pre class="language-json"><code>curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/2/rules</code></pre>
+<pre class="language-json"><code>curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/latest/rules</code></pre>
 
 If you perform any action (Creation, Update, Deletion) using the API, the event log generated will record the API account as the actor.
 
@@ -48,6 +48,44 @@ curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> -H <span class=
 </code></pre>
 
 In the future, we may declare some versions as deprecated, in order to remove them in a later version of Rudder, but we will never remove any versions without warning, or without leaving a significant period to allow time for migration.
+
+<h4>Existing versions</h4>
+<table>
+  <thead>
+    <tr>
+          <th style="width: 20%">Version</th>
+          <th style="width: 20%">Rudder versions it appears in</th>
+          <th style="width: 70%">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td class="code">1</td>
+          <td class="code">Never released</td>
+          <td>Experimental version</td>
+      </tr>   
+       <tr>
+          <td class="code">2</td>
+          <td class="code">2.7 - </td>
+          <td>First working version with support for rules, directives, nodes and global parameters</td>
+      </tr>   
+      <tr>
+          <td class="code">3</td>
+          <td class="code">2.8 - </td>
+          <td>Add change request support</td>
+      </tr>
+      <tr>
+          <td class="code">4</td>
+          <td class="code">2.10 - </td>
+          <td>Add inventory support on nodes</td>
+      </tr>
+      <tr>
+          <td class="code">5</td>
+          <td class="code">3.0 - </td>
+          <td>Allow empty query for groups, add key-values support on nodes</td>
+      </tr>
+   </tbody>
+</table>
 
 <span id="api-_-Response"/>
 ## Response format
@@ -93,7 +131,7 @@ Passing parameters to the API can take three forms:
 Parameters in URLs are used to indicate which data you want to interact with. The function will not work if this data is missing.
 
 <pre class="language-json"><code><span class="com"># Get the Rule of ID "id"</span>
-curl -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/<span class="tag">api/2/rules/</span><span class="kwd">id</span>
+curl -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder<span class="tag">/api/latest/rules/</span><span class="kwd">id</span>
 </code></pre>
 
 #### Request parameters
@@ -109,13 +147,13 @@ Parameters follow the following schema:
 * As URL parameters: At the end of your url, put a **?** then your first parameter and then a **&** before next parameters
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  http://rudder.example.com/api/rules/2/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  http://rudder.example.com/rudder/api/rules/latest/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
 </code></pre>
 
 * As request data: You can pass those parameters in the request data, they won't figure in the URL, making it lighter to read, You can pass a file that contains data.
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive (in file directive-info.json) </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/api/rules/2/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directive-info.json</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directive-info.json</span>
 </code></pre>
 
 #### Embedded in JSON
@@ -136,19 +174,19 @@ The (prettified) format is:
  Here is an example with an inlined data:  
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/api/rules/2/id <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span>: <span class="str">"new name"</span>, <span class="str">"enabled"</span>: <span class="kwd">false</span>, <span class="str">"directives"</span>: <span class="str">"directiveId"</span>}'</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span>: <span class="str">"new name"</span>, <span class="str">"enabled"</span>: <span class="kwd">false</span>, <span class="str">"directives"</span>: <span class="str">"directiveId"</span>}'</span>
 </code></pre>
 
 You can also pass a file containing the JSON: 
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/api/rules/2/id <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
 </code></pre>
 
 Note that some parameters cannot be passed in a JSON (general parameters, it will be precised when necessary), and you will need to pass them a URL parameters if you want them to be taken into account (you can't mix JSON and request parameters)
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive with reason message "Reason used" </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "http://rudder.example.com/api/rules/2/id<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "http://rudder.example.com/rudder/api/rules/latest/id<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
 </code></pre>
 
 ### General parameters
@@ -160,70 +198,70 @@ Some parameters are available for almost all API functions. They will be describ
 #### Available for all requests
 
 <table>
-				<thead>
-					<tr>
-						<th style="width: 30%">Field</th>
-						<th style="width: 10%">Type</th>
-						<th style="width: 70%">Description</th>
-					</tr>
-				</thead>
-				<tbody>
-			
-					<tr>
-						<td class="code">prettify <span class="label label-optional">Optional</span></td>
-						<td>Boolean</td>
-					<td>
-					  Determine if the answer should be prettified (human friendly) or not. We recommend using this for debugging purposes, but not for general script usage as this does add some uncessary load on the server side.
-						<p class="default-value">Default value: <code>false</code></p>
-						
-					</td>
-					</tr>
-			
-				</tbody>
-			</table>
+        <thead>
+          <tr>
+            <th style="width: 30%">Field</th>
+            <th style="width: 10%">Type</th>
+            <th style="width: 70%">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+      
+          <tr>
+            <td class="code">prettify <span class="label label-optional">Optional</span></td>
+            <td>Boolean</td>
+          <td>
+            Determine if the answer should be prettified (human friendly) or not. We recommend using this for debugging purposes, but not for general script usage as this does add some uncessary load on the server side.
+            <p class="default-value">Default value: <code>false</code></p>
+            
+          </td>
+          </tr>
+      
+        </tbody>
+      </table>
 
 
 #### Available for modification requests (PUT/POST/DELETE)
 
 <table>
-				<thead>
-					<tr>
-						<th style="width: 30%">Field</th>
-						<th style="width: 10%">Type</th>
-						<th style="width: 70%">Description</th>
-					</tr>
-				</thead>
-				<tbody>
-			
-					<tr>
-						<td class="code">reason <span class="label label-optional">See description </span></td>
-						<td>String</td>
-					<td>
-					  Set the change message. If you set the reason message to be mandatory in /opt/rudder/etc/rudder-web.property (property rudder.ui.changeMessage.mandatory)
-						<p class="default-value">Default value: <code>an empty string</code></p>
-						
-					</td>
-					</tr>	
+        <thead>
+          <tr>
+            <th style="width: 30%">Field</th>
+            <th style="width: 10%">Type</th>
+            <th style="width: 70%">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+      
+          <tr>
+            <td class="code">reason <span class="label label-optional">See description </span></td>
+            <td>String</td>
+          <td>
+            Set the change message. If you set the reason message to be mandatory in /opt/rudder/etc/rudder-web.property (property rudder.ui.changeMessage.mandatory)
+            <p class="default-value">Default value: <code>an empty string</code></p>
+            
+          </td>
+          </tr>  
 
-					<tr>
-						<td class="code">changeRequestName <span class="label label-optional">Optional</span></td>
-						<td>String</td>
-					<td>
-					  Set the change request name, won't be used if workflow are disabled. The default value depends on the function called
-						<p class="default-value">Default value: <code>A default String for each function</code></p>
-						
-					</td>
-					</tr>
+          <tr>
+            <td class="code">changeRequestName <span class="label label-optional">Optional</span></td>
+            <td>String</td>
+          <td>
+            Set the change request name, won't be used if workflow are disabled. The default value depends on the function called
+            <p class="default-value">Default value: <code>A default String for each function</code></p>
+            
+          </td>
+          </tr>
 
-					<tr>
-						<td class="code">changeRequestDescription <span class="label label-optional">Optional </span></td>
-						<td>String</td>
-					<td>
-					  Set the change request description, won't be used if workflow are disabled.
-						<p class="default-value">Default value: <code>an empty string</code></p>
-						
-					</td>
-					</tr>
-			
-				</tbody>
-			</table>
+          <tr>
+            <td class="code">changeRequestDescription <span class="label label-optional">Optional </span></td>
+            <td>String</td>
+          <td>
+            Set the change request description, won't be used if workflow are disabled.
+            <p class="default-value">Default value: <code>an empty string</code></p>
+            
+          </td>
+          </tr>
+      
+        </tbody>
+      </table>
