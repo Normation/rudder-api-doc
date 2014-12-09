@@ -365,6 +365,65 @@ HTTP/1.1 200 OK
 
     */
 
+== [POST] api/nodes/{id}
+
+    /**
+    @api {post} /api/nodes/id 4. Set Node properties
+    @apiVersion 5.0.0
+    @apiName updateNodeProperties
+    @apiGroup Nodes
+
+    @apiStructure nodeId
+
+    @apiDescription This API allows to set "key=value" properties in node. This properties are then returned in the node details under the "properties" key, and they can be used to define group.
+    Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
+
+    @apiExample Given the "properties.json" JSON file with content:
+{ "properties": [
+  { "name": "env_type"    , "value": "production" },
+  { "name": "shell"       , "value": "/bin/sh" },
+  { "name": "utf-8 poetry", "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ" }
+] }
+
+
+    @apiExample Setting keys from "properties.json":
+    curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d @properties.json
+
+    @apiExample Removing the key "utf-8 poetry" from the command line and updating the "env_type" one:
+    curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d '{ "properties": [{ "name":"utf-8 poetry", "value":""}, {"name":"env_type", "value":"deprovisioned"}] }'
+
+    @apiExample Removing the key "env_type" and changing "shell" (no JSON):
+    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type="
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "updateNodeProperties",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "properties": [
+      {
+        "name": "env_type",
+        "value": "production"
+      },
+      {
+        "name": "shell",
+        "value": "/bin/sh"
+      },
+      {
+        "name": "utf-8 poetry",
+        "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ"
+      }
+    ]
+  }
+}
+
+      */
+
+
+
+
 == [DELETE] api/nodes/{id}
 
     /**
