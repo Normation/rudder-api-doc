@@ -10,7 +10,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
    @apiParamTitle (URL parameters) URL parameters
 
-   @apiParam (URL parameters) {UUID} id IF of the Node.
+   @apiParam (URL parameters) {UUID} id ID of the Node.
  */
 
 == [GET] api/nodes 
@@ -22,7 +22,66 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Nodes
     
     @apiExample Example usage:
-        curl -H "X-API-Token: yourToken" http://rudder.example.com/rudder/api/nodes
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "listAcceptedNodes",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "id": "f5ebcc89-fd10-4d0d-8e58-58f4634a99b9",
+        "status": "accepted",
+        "hostname": "node2.rudder.local",
+        "osName": "Centos",
+        "osVersion": "6.3",
+        "machineType": "Virtual"
+      },
+      {
+        "id": "d22d59ce-ce56-4e61-913c-2643681289d3",
+        "status": "accepted",
+        "hostname": "node4.rudder.local",
+        "osName": "Centos",
+        "osVersion": "6.3",
+        "machineType": "Virtual"
+      },
+      {
+        "id": "d348e50e-07a9-4475-b798-3dadc1b01b14",
+        "status": "accepted",
+        "hostname": "node3.rudder.local",
+        "osName": "Centos",
+        "osVersion": "6.3",
+        "machineType": "Virtual"
+      },
+      {
+        "id": "18e56738-f390-470a-a048-81833ff50dda",
+        "status": "accepted",
+        "hostname": "node5",
+        "osName": "Debian",
+        "osVersion": "7.0",
+        "machineType": "Virtual"
+      },
+      {
+        "id": "root",
+        "status": "accepted",
+        "hostname": "server",
+        "osName": "Debian",
+        "osVersion": "7.0",
+        "machineType": "Virtual"
+      },
+      {
+        "id": "332c238d-65aa-4b4b-bd1b-a89749693f61",
+        "status": "accepted",
+        "hostname": "node1.rudder.local",
+        "osName": "Centos",
+        "osVersion": "6.3",
+        "machineType": "Virtual"
+      }
+    ]
+  }
+}
     
      */
 
@@ -35,24 +94,39 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiName listPendingNodes
     @apiGroup Nodes
 
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "listPendingNodes",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "id": "7b13f54f-7ab6-4a45-ada7-9049039b87ca",
+        "status": "pending",
+        "hostname": "node5",
+        "osName": "Debian"
+      },
+      {
+        "id": "80ade5bf-aed9-4f57-8beb-aaaf3e63ec04",
+        "status": "pending",
+        "hostname": "node6",
+        "osName": "Ubuntu"
+      }
+    ]
+  }
+}
+
 
      */
 
 == [GET] api/nodes/{id}
 
     /**
-    @api {get} /api/nodes/id 3. Get Node details
-    @apiVersion 2.0.0
-    @apiName acceptedNodeDetails
-    @apiGroup Nodes
-    
-    @apiStructure nodeId
-    */
-
-== [GET] api/nodes/{id}
-
-    /**
-    @api {get} /api/nodes/id 3. Get Node details
+    @api {get} /api/nodes/{id} 3. Get Node details
     @apiVersion 4.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
@@ -65,7 +139,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/nodes/NodeID\?include=full
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/NodeID\?include=full
 
     @apiSuccessExample Success-Response:
 HTTP/1.1 200 OK
@@ -301,6 +375,37 @@ HTTP/1.1 200 OK
     
 
     @apiStructure nodeId
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X DELETE https://rudder.example.com/rudder/api/latest/nodes/NodeID
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "changePendingNodeStatus",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "id": "80ade5bf-aed9-4f57-8beb-aaaf3e63ec04",
+        "status": "deleted",
+        "hostname": "node6",
+        "osName": "Ubuntu",
+        "osVersion": "12.10",
+        "machineType": "Virtual"
+      }
+    ]
+  }
+}
+
+    @apiErrorExample Error-Response:
+HTTP/1.1 500 Server Error
+{
+  "action": "changePendingNodeStatus",
+  "result": "error",
+  "errorDetails": "Node with ID '80ade5bf-aed9-4f57-8beb-aaaf3e63ec04' was not found"
+}
+
      */
 
 
@@ -315,5 +420,9 @@ HTTP/1.1 200 OK
     @apiStructure nodeId
 
     @apiParam {String} status The new status of the node (refused/accepted)
-    
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST https://rudder.example.com/rudder/api/latest/nodes/pending/NodeID -d "status=accepted"
+
+
      */

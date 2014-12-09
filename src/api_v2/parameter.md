@@ -34,8 +34,24 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Parameters
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/parameters
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/parameters
 
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "listParameters",
+  "result": "success",
+  "data": {
+    "parameters": [
+      {
+        "id": "rudder_file_edit_header",
+        "value": "### Managed by Rudder, edit with care ###",
+        "description": "Default inform message put in header of managed files by Rudder",
+        "overridable": true
+      }
+    ]
+  }
+}
 
      */
 
@@ -52,8 +68,25 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure parameterCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/parameters -d @JSON-file-name
+    curl -H "X-API-Token: yourToken" -H "Content-Type: application/json" -X PUT https://rudder.example.com/rudder/api/latest/parameters -d @JSON-file-name
 
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "createParameter",
+  "id": "rudder_file_edit_footer",
+  "result": "success",
+  "data": {
+    "parameters": [
+      {
+        "id": "rudder_file_edit_footer",
+        "value": "### End of file managed by Rudder ###",
+        "description": "Default inform message put in footer of managed files by Rudder",
+        "overridable": false
+      }
+    ]
+  }
+}
      */
 
 
@@ -69,7 +102,25 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
      
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/parameters/ParameterId
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/parameters/ParameterId
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "parameterDetails",
+  "id": "rudder_file_edit_footer",
+  "result": "success",
+  "data": {
+    "parameters": [
+      {
+        "id": "rudder_file_edit_footer",
+        "value": "### End of file managed by Rudder ###",
+        "description": "Default inform message put in footer of managed files by Rudder",
+        "overridable": false
+      }
+    ]
+  }
+}
 
     */
 
@@ -85,8 +136,34 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiStructure  parameterId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/parameters/ParameterId
+    curl -H "X-API-Token: yourToken" -X DELETE https://rudder.example.com/rudder/api/latest/parameters/ParameterId
 
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "deleteParameter",
+  "id": "rudder_file_edit_footer",
+  "result": "success",
+  "data": {
+    "parameters": [
+      {
+        "id": "rudder_file_edit_footer",
+        "value": "### Edited by Rudder ###",
+        "description": "Default inform message put in footer of managed files by Rudder",
+        "overridable": false
+      }
+    ]
+  }
+}
+
+    @apiErrorExample Error-Response:
+HTTP/1.1 500 Server Error
+{
+  "action": "deleteParameter",
+  "id": "rudder_file_edit_footer",
+  "result": "error",
+  "errorDetails": "Could not delete Parameter rudder_file_edit_footer cause is: Could not find Parameter rudder_file_edit_footer."
+}
 
     */
 
@@ -112,8 +189,25 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
      
     @apiExample Example usage:
-    Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/parameters/ParameterId -d "displayName=Name of New Parameter"
+    curl -H "X-API-Token: yourToken" -X POST https://rudder.example.com/rudder/api/latest/parameters/ParameterId -d "value=### Edited by Rudder ###"
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "updateParameter",
+  "id": "rudder_file_edit_footer",
+  "result": "success",
+  "data": {
+    "parameters": [
+      {
+        "id": "rudder_file_edit_footer",
+        "value": "### Edited by Rudder ###",
+        "description": "Default inform message put in footer of managed files by Rudder",
+        "overridable": false
+      }
+    ]
+  }
+}
 
     */
 
