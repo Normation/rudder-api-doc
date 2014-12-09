@@ -365,10 +365,28 @@ HTTP/1.1 200 OK
 
     */
 
+== [POST] api/nodes/pending/{id}
+
+    /**
+    @api {post} /api/nodes/pending/id 4. Change pending Node status
+    @apiVersion 2.0.0
+    @apiName changeNodeStatus
+    @apiGroup Nodes
+
+    @apiStructure nodeId
+
+    @apiParam {String} status The new status of the node (refused/accepted)
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST https://rudder.example.com/rudder/api/latest/nodes/pending/NodeID -d "status=accepted"
+
+
+     */
+
 == [POST] api/nodes/{id}
 
     /**
-    @api {post} /api/nodes/id 4. Set Node properties
+    @api {post} /api/nodes/id 5. Set Node properties
     @apiVersion 5.0.0
     @apiName updateNodeProperties
     @apiGroup Nodes
@@ -427,7 +445,7 @@ HTTP/1.1 200 OK
 == [DELETE] api/nodes/{id}
 
     /**
-    @api {delete} /api/nodes/id 5. Delete Node
+    @api {delete} /api/nodes/id 6. Delete Node
     @apiVersion 2.0.0
     @apiName deleteNode
     @apiGroup Nodes
@@ -468,20 +486,3 @@ HTTP/1.1 500 Server Error
      */
 
 
-== [POST] api/nodes/pending/{id}
-
-    /**
-    @api {post} /api/nodes/pending/id 4. Change pending Node status
-    @apiVersion 2.0.0
-    @apiName changeNodeStatus
-    @apiGroup Nodes
-
-    @apiStructure nodeId
-
-    @apiParam {String} status The new status of the node (refused/accepted)
-
-    @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X POST https://rudder.example.com/rudder/api/latest/nodes/pending/NodeID -d "status=accepted"
-
-
-     */
