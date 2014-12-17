@@ -1,7 +1,0 @@
-{
-  "name": "Rudder API documentation",
-  "version": "4.0.0",
-  "description": "",
-  "apidoc": "This is a description, it will be ignored if parameter apidocFilename exist.",
-  "apidocFilename": "introduction.md"
-}

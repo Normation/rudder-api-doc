@@ -47,3 +47,13 @@ APIDoc (http://apidocjs.com).
 The build needs NodeJS and npm, see: http://apidocjs.com/#install
 
 To build the whole things, once nodeje is installed, just execute the build.sh script
+
+=== Template update
+
+To update the template from a new version of apidoc you need to get all of the new ${APIDOC_DIRECTORY}/template
+directory content except : 
+- vendor/bootstrap.* that must be taken from this repository
+- index.html that has been modified localy
+
+index.html just has a slight modification located between 2 comments "XXX Local modifications XXX"
+

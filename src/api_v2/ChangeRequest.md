@@ -5,11 +5,16 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/changeRequest/ChangeRequestAPI3.scala
 
 /**
-   @apiDefineStructure changeRequestId
-
-   @apiParamTitle (URL parameters) URL parameters
+   @apiDefine changeRequestId
 
    @apiParam (URL parameters) {integer} id ID of the Change Request.
+ */
+
+/**
+   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
+ */
+/**
+   @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
  */
 
 [GET] api/changeRequests
@@ -22,10 +27,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Change Requests
     
 
-    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
-
-    @apiParam (Mono) {Workflow status} [status=open] The status of change requests you want to display.
-
+    @apiParam (Mono) {WorkflowStatus} [status=open] The status of change requests you want to display.
     <div><span class="values">Possible values: </span><ul class="values"><li>pending validation</li><li>pending deployment</li><li>cancelled</li><li>deployed</li><li>open (pending validation + pending deployment)</li><li>closed (cancelled + deployed)</li><li>all</li></ul></div><br style="clear:both"/>
 
 
@@ -103,12 +105,12 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} /api/changeRequests/id 2. Get a Change Request details
+    @api {get} /api/changeRequests/{id} 2. Get a Change Request details
     @apiVersion 3.0.0
     @apiName changeRequestDetails
     @apiGroup Change Requests
      
-    @apiStructure changeRequestId
+    @apiUse changeRequestId
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/changeRequests/42
@@ -154,12 +156,12 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {delete} /api/changeRequests/id 3. Decline a Change Request
+    @api {delete} /api/changeRequests/{id} 3. Decline a Change Request
     @apiVersion 3.0.0
     @apiName declineChangeRequest
     @apiGroup Change Requests
       
-    @apiStructure changeRequestId
+    @apiUse changeRequestId
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/changeRequests/42
@@ -206,17 +208,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/changeRequests/id/accept 4. Accept a Change Request
+    @api {post} /api/changeRequests/{id}/accept 4. Accept a Change Request
     @apiVersion 3.0.0
     @apiName acceptChangeRequest
     @apiGroup Change Requests
      
-    @apiStructure changeRequestId
+    @apiUse changeRequestId
 
-    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
-
-    @apiParam (Mono) {Workflow status}  status Final status in which the change Request will be after acceptance.
-
+    @apiParam (Mono) {WorkflowStatus}  status Final status in which the change Request will be after acceptance.
     <div><span class="values">Possible values: </span><ul class="values"><li>pending deployment</li><li>deployed</li></ul></div><br style="clear:both"/>
     
 
@@ -266,14 +265,12 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/changeRequests/id 5. Update a Change Request
+    @api {post} /api/changeRequests/{id} 5. Update a Change Request
     @apiVersion 3.0.0
     @apiName updateChangeRequest
     @apiGroup Change Requests
      
-    @apiStructure changeRequestId
-
-    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+    @apiUse changeRequestId
 
     @apiParam (Mono) {String}  [name]         Name the Change Request.
     @apiParam (Mono) {String}  [description]  Description of the Change Request.
