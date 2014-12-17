@@ -13,7 +13,7 @@ Mailing list, irc:: http://www.rudder-project.org/foswiki/Community/
 
 === Authors
 
-Normation http://normation.com
+Normation http://www.normation.com
 
 - Francois "fanf" Armand francois.armand@normation.com
 
@@ -32,6 +32,8 @@ http://www.rudder-project.org/HowToContribute
 === Synopsis
 
 This project allows to build the documentation for the REST API of Rudder. 
+
+It is published on http://www.rudder-project.org/rudder-api-doc/
 
 
 === Usage
