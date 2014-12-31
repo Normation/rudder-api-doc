@@ -25,7 +25,7 @@ If you perform any action (Creation, Update, Deletion) using the API, the event 
 
 Each time the API is extended with new features (new functions, new parameters, new responses, ...), we will increment the version number of the API. This will allow you to keep your existing scripts (based on previous behavior). Versions will always be integers (no 2.1 or 3.3, just 2, 3, 4, ...).
 
-The initial REST API is numbered 2, to differentiate it with the partial API already avaiable. One notable exeception is the magic *latest* version, which will always point to the most recent version available (use at your own risk!) (note that this "magic" version is currently only supported in the URL access described below, not via the **_X-API-Version_** header - see http://www.rudder-project.org/redmine/issues/3817).
+The initial REST API is numbered 2, to differentiate it with the partial API already avaiable. One notable exeception is the magic *latest* version, which will always point to the most recent version available (use at your own risk!).
 
 We added two ways to choose API version used:
 
@@ -134,6 +134,7 @@ Parameters in URLs are used to indicate which data you want to interact with. Th
 curl -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder<span class="tag">/api/latest/rules/</span><span class="kwd">id</span>
 </code></pre>
 
+
 #### Request parameters
 
 In most cases, data will be sent using request parameters. for all data you want to change, you need to pass one parameter.
@@ -147,13 +148,13 @@ Parameters follow the following schema:
 * As URL parameters: At the end of your url, put a **?** then your first parameter and then a **&** before next parameters
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  http://rudder.example.com/rudder/api/rules/latest/id<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span>  http://rudder.example.com/rudder/api/rules/latest/{id}<span class="kwd">?</span><span class="tag">"displayName=my new name"</span><span class="kwd">&</span><span class="tag">"enabled=false"</span><span class="kwd">&</span><span class="tag">"directives=aDirectiveId"</span>
 </code></pre>
 
 * As request data: You can pass those parameters in the request data, they won't figure in the URL, making it lighter to read, You can pass a file that contains data.
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive (in file directive-info.json) </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directive-info.json</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/rules/latest/{id} <span class="kwd">-d</span> <span class="tag">"displayName=my new name"</span> <span class="kwd">-d</span> <span class="tag">"enabled=false"</span> <span class="kwd">-d</span> <span class="tag">@directive-info.json</span>
 </code></pre>
 
 #### Embedded in JSON
@@ -174,19 +175,19 @@ The (prettified) format is:
  Here is an example with an inlined data:  
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span>: <span class="str">"new name"</span>, <span class="str">"enabled"</span>: <span class="kwd">false</span>, <span class="str">"directives"</span>: <span class="str">"directiveId"</span>}'</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/{id} <span class="kwd">-d</span> <span class="tag">'{ <span class="str">"displayName"</span>: <span class="str">"new name"</span>, <span class="str">"enabled"</span>: <span class="kwd">false</span>, <span class="str">"directives"</span>: <span class="str">"directiveId"</span>}'</span>
 </code></pre>
 
 You can also pass a file containing the JSON: 
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/id <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> http://rudder.example.com/rudder/api/rules/latest/{id} <span class="kwd">-d</span> <span class="tag">@jsonParam</span>
 </code></pre>
 
 Note that some parameters cannot be passed in a JSON (general parameters, it will be precised when necessary), and you will need to pass them a URL parameters if you want them to be taken into account (you can't mix JSON and request parameters)
 
 <pre class="language-json"><code><span class="com"># Update the Rule 'id' with a new name, disabled, and setting it one directive with reason message "Reason used" </span>
-curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "http://rudder.example.com/rudder/api/rules/latest/id<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
+curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"Content-Type: application/json"</span> "http://rudder.example.com/rudder/api/rules/latest/{id}<span class="tag">?reason=Reason used"</span> -d @jsonParam <span class="kwd">-d "reason=Reason ignored"</span>
 </code></pre>
 
 ### General parameters

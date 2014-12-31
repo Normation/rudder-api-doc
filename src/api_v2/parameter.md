@@ -5,17 +5,20 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/parameter/ParameterAPI2.scala
 
 /**
-   @apiDefineStructure parameterId
-
-   @apiParamTitle (URL parameters) URL parameters
+   @apiDefine parameterId
 
    @apiParam (URL parameters) {String} id ID/name of the Parameter.
  */
 
- /**
-   @apiDefineStructure parameterCreation
+/**
+   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
+ */
+/**
+   @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
+ */
 
-   @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+ /**
+   @apiDefine parameterCreation
 
    @apiParam (Mono) {String} id             ID/name of the Parameter to create.
    @apiParam (Mono) {String} [description]  Description of the Parameter.
@@ -65,7 +68,7 @@ HTTP/1.1 200 OK
     @apiName createGroup
     @apiGroup Parameters
 
-    @apiStructure parameterCreation
+    @apiUse parameterCreation
     
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -H "Content-Type: application/json" -X PUT https://rudder.example.com/rudder/api/latest/parameters -d @JSON-file-name
@@ -99,7 +102,7 @@ HTTP/1.1 200 OK
     @apiName parameterDetails
     @apiGroup Parameters
 
-    @apiStructure  parameterId
+    @apiUse  parameterId
      
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/parameters/ParameterId
@@ -133,7 +136,7 @@ HTTP/1.1 200 OK
     @apiName deleteGroup
     @apiGroup Parameters
      
-    @apiStructure  parameterId
+    @apiUse  parameterId
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X DELETE https://rudder.example.com/rudder/api/latest/parameters/ParameterId
@@ -178,9 +181,7 @@ HTTP/1.1 500 Server Error
     @apiGroup Parameters
 
 
-    @apiStructure  parameterId
-
-   @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+    @apiUse  parameterId
 
    @apiParam (Mono) {String} [description]  Description of the Parameter.
    @apiParam (Mono) {String} [value]        Value of the Parameter.

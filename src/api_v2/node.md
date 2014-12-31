@@ -6,11 +6,16 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
 /**
-   @apiDefineStructure nodeId
-
-   @apiParamTitle (URL parameters) URL parameters
+   @apiDefine nodeId
 
    @apiParam (URL parameters) {UUID} id ID of the Node.
+ */
+
+/**
+   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
+ */
+/**
+   @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
  */
 
 == [GET] api/nodes 
@@ -131,9 +136,7 @@ HTTP/1.1 200 OK
     @apiName acceptedNodeDetails
     @apiGroup Nodes
     
-    @apiStructure nodeId
-
-   @apiParamTitle (Multi) Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
+    @apiUse nodeId
 
    @apiParam (Multi) {String}        [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding them to the list, possible values are keys from json answer. 
 
@@ -368,12 +371,12 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/pending/{id}
 
     /**
-    @api {post} /api/nodes/pending/id 4. Change pending Node status
+    @api {post} /api/nodes/pending/{id} 4. Change pending Node status
     @apiVersion 2.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes
 
-    @apiStructure nodeId
+    @apiUse nodeId
 
     @apiParam {String} status The new status of the node (refused/accepted)
 
@@ -386,17 +389,18 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/{id}
 
     /**
-    @api {post} /api/nodes/id 5. Set Node properties
+    @api {post} /api/nodes/{id} 5. Set Node properties
     @apiVersion 5.0.0
     @apiName updateNodeProperties
     @apiGroup Nodes
 
-    @apiStructure nodeId
+    @apiUse nodeId
 
     @apiDescription This API allows to set "key=value" properties in node. This properties are then returned in the node details under the "properties" key, and they can be used to define group.
     Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
 
-    @apiExample Given the "properties.json" JSON file with content:
+    @apiExample Initial content
+# Given the "properties.json" JSON file with content:
 { "properties": [
   { "name": "env_type"    , "value": "production" },
   { "name": "shell"       , "value": "/bin/sh" },
@@ -404,14 +408,17 @@ HTTP/1.1 200 OK
 ] }
 
 
-    @apiExample Setting keys from "properties.json":
-    curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d @properties.json
+    @apiExample Set key
+# Setting keys from "properties.json":
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d @properties.json
 
-    @apiExample Removing the key "utf-8 poetry" from the command line and updating the "env_type" one:
-    curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d '{ "properties": [{ "name":"utf-8 poetry", "value":""}, {"name":"env_type", "value":"deprovisioned"}] }'
+    @apiExample Remove key
+# Removing the key "utf-8 poetry" from the command line and updating the "env_type" one:
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d '{ "properties": [{ "name":"utf-8 poetry", "value":""}, {"name":"env_type", "value":"deprovisioned"}] }'
 
-    @apiExample Removing the key "env_type" and changing "shell" (no JSON):
-    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type="
+    @apiExample Remove key (bis)
+# Removing the key "env_type" and changing "shell" (no JSON):
+curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type="
 
     @apiSuccessExample Success-Response:
 HTTP/1.1 200 OK
@@ -445,13 +452,13 @@ HTTP/1.1 200 OK
 == [DELETE] api/nodes/{id}
 
     /**
-    @api {delete} /api/nodes/id 6. Delete Node
+    @api {delete} /api/nodes/{id} 6. Delete Node
     @apiVersion 2.0.0
     @apiName deleteNode
     @apiGroup Nodes
     
 
-    @apiStructure nodeId
+    @apiUse nodeId
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X DELETE https://rudder.example.com/rudder/api/latest/nodes/NodeID

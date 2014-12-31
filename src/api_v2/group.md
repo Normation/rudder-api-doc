@@ -5,17 +5,20 @@ Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/group/GroupAPI2.scala
 
 /**
-   @apiDefineStructure groupId
-
-   @apiParamTitle (URL parameters) URL parameters
+   @apiDefine groupId
 
    @apiParam (URL parameters) {UUID} id The id of the Group you want
  */
 
- /**
-   @apiDefineStructure groupCreation
+/**
+   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
+ */
+/**
+   @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
+ */
 
-   @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+ /**
+   @apiDefine groupCreation
 
 
    @apiParam (Mono) {String}  displayName        Name of the Group to create.
@@ -52,8 +55,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiName createGroup
     @apiGroup Groups
 
-    @apiParam (Mono) {Group category ID} nodeGroupCategory In which category this nodeGroup should be created in
-    @apiStructure groupCreation
+    @apiParam (Mono) {GroupCategoryID} nodeGroupCategory In which category this nodeGroup should be created in
+    @apiUse groupCreation
     
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/groups -d @JSON-file-name
@@ -71,7 +74,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Groups
 
     @apiParam (Mono) {UUID} source The id of the Group the clone will be based onto. if this parameter is missing there will be only a Group creation
-    @apiStructure groupCreation
+    @apiUse groupCreation
     
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/groups -d “groups=GroupID”
@@ -87,7 +90,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiName groupDetails
     @apiGroup Groups
 
-    @apiStructure  groupId
+    @apiUse  groupId
      
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/groups/GroupID
@@ -103,7 +106,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiName deleteGroup
     @apiGroup Groups
      
-    @apiStructure  groupId
+    @apiUse  groupId
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/groups/GroupID
@@ -122,9 +125,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup Groups
 
 
-    @apiStructure  groupId
-
-    @apiParamTitle (Mono) Mono valued parameters - Those parameters will only work with one value
+    @apiUse  groupId
 
     @apiParam (Mono) {String}  [displayName] Name of the Group.
     @apiParam (Mono) {String}  [description] Description of the Group.
@@ -142,10 +143,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {post} /api/groups/:id/reload 5. Reload a Group
+    @api {post} /api/groups/{id}/reload 5. Reload a Group
     @apiVersion 2.0.0
     @apiName reloadGroup
     @apiGroup Groups
 
-    @apiStructure  groupId
+    @apiUse  groupId
     */
