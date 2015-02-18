@@ -395,6 +395,7 @@ HTTP/1.1 200 OK
     @apiGroup Nodes
 
     @apiUse nodeId
+    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value.
 
     @apiDescription This API allows to set "key=value" properties in node. This properties are then returned in the node details under the "properties" key, and they can be used to define group.
     Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
