@@ -55,7 +55,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiName createGroup
     @apiGroup Groups
 
-    @apiParam (Mono) {GroupCategoryID} nodeGroupCategory In which category this nodeGroup should be created in
+    @apiParam (Mono) {GroupCategoryID} category In which category this nodeGroup should be created in
     @apiUse groupCreation
     
     @apiExample Example usage:
