@@ -9,7 +9,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 /**
    @apiDefine ruleId
 
-   @apiParam (URL parameters) {UUID} id ID of he Rule
+   @apiParam (URL parameters) {UUID} id ID of the Rule
  */
 
 /**
@@ -32,6 +32,12 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
    @apiParam (Multi) {RuleTarget} [targets]    Link one target to the Rule. Rule targets are "group:groupId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
  */
 
+/**
+   @apiDefine categoryId
+
+   @apiParam (URL parameters) {UUID} id ID of the Rule category
+ */
+
 
 [GET] api/rules
 -----------------
@@ -44,7 +50,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Get all Rules available in Rudder
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/rules?prettify=true
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/rules?prettify=true'
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -100,7 +106,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
  
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/rules -d "displayName=Name of New Rule"
+    curl -H "X-API-Token: yourToken -X PUT 'http://rudder.example.com/rudder/api/latest/rules' -d "displayName=Name of New Rule"
 
      */
 
@@ -119,7 +125,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse ruleCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/rules?prettify=true  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
+    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/rules?prettify=true'  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
 
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
@@ -164,7 +170,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/rules/06ba8940-ed6c-4102-ba46-93d640a64c36?prettify=true
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/rules/06ba8940-ed6c-4102-ba46-93d640a64c36?prettify=true'
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -201,7 +207,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse ruleId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/rules/176ad06b-ed02-4da3-8053-16225d217741?prettify=true
+    curl -H "X-API-Token: yourToken" -X DELETE 'http://rudder.example.com/rudder/api/latest/rules/176ad06b-ed02-4da3-8053-16225d217741?prettify=true'
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -256,7 +262,275 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Multi) {Ruletarget} [targets]    Link one target to the Rule. Rule targets are for groups : "group:groupId", nodes : "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/rules/RuleID -d "displayName=Name of Rule"
+    curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/rules/RuleID' -d "displayName=Name of Rule"
 
 
     */
+
+
+[GET] api/rules/tree
+-----------------
+
+    /**
+    @api {get} /api/rules/tree 7. Get Rules tree 
+    @apiVersion 6.0.0
+    @apiName GetRuleTree
+    @apiGroup Rules
+    @apiDescription Get all Rules available in Rudder and their cateogries in a Tree
+    
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/rules/tree?prettify=true'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "GetRuleTree",
+  "result": "success",
+  "data": {
+    "ruleCategories": {
+      "id": "rootRuleCategory",
+      "name": "Rules",
+      "description": "This is the main category of Rules",
+      "parent": "rootRuleCategory",
+      "categories": [
+        {
+          "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+          "name": "Dev category",
+          "description": "",
+          "parent": "rootRuleCategory",
+          "categories": [
+            {
+              "id": "f45ec2fd-69f4-4669-9c22-1af3abe2a107",
+              "name": "Specific dev category",
+              "description": "",
+              "parent": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+              "categories": [
+                
+              ],
+              "rules": [
+                {
+                   "id": "b7fda4e7-3616-4e99-89b0-8ffadaf6b0f0",
+                   "displayName": "my specific Rule",
+                   "shortDescription": "",
+                   "longDescription": "",
+                   "directives": [],
+                   "targets": [],
+                   "enabled": true,
+                   "system": false
+                }
+              ]
+            }
+          ],
+          "rules": [
+            {
+              "id": "f2aa50a9-961c-4cce-a266-380cffcdce32",
+              "displayName": "dev Rule",
+              "shortDescription": "",
+              "longDescription": "",
+              "directives": [],
+              "targets": [],
+              "enabled": true,
+              "system": false
+            }
+          ]
+        }
+      ],
+      "rules": [
+        {
+          "id": "43cde273-5bb0-466f-8850-7d3fdde03253",
+          "displayName": "Global security policy",
+          "shortDescription": "",
+          "longDescription": "",
+          "directives": [],
+          "targets": [],
+          "enabled": true,
+          "system": false
+        },
+        {
+          "id": "32377fd7-02fd-43d0-aab7-28460a91347b",
+          "displayName": "Global configuration for all nodes",
+          "shortDescription": "",
+          "longDescription": "This Rule was created automatically when Rudder was installed. It can be used to target Directives to all nodes (including the Rudder root server itself), or deleted if you would rather create your own set of Rules (it will never be created again).",
+          "directives": [
+            "bff45fe2-8233-4d28-96aa-78b0390b548b"
+          ],
+          "targets": [
+            {
+              "include": {
+                "or": [
+                  "special:all",
+                  "special:all_exceptPolicyServers",
+                  "special:all_nodes_without_role"
+                ]
+              },
+              "exclude": {
+                "or": [
+                  
+                ]
+              }
+            }
+          ],
+          "enabled": false,
+          "system": false
+        }
+      ]
+    }
+  }
+}
+
+     */
+
+
+[GET] api/rules/categories/{id}
+--------------------------
+
+    /**
+    @api {get} /api/rules/categories/{id} 8. Get a Rule category details
+    @apiVersion 6.0.0
+    @apiName getRuleCategoryDetails
+    @apiGroup Rules
+    @apiDescription Get the details of a Rule category, whose ID is specified in the URL
+    
+    @apiUse categoryId
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/rules/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "getRuleCategoryDetails",
+  "result": "success",
+  "data": {
+    "ruleCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "another",
+      "description": "",
+      "parent": "rootRuleCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "rules": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+
+    */
+
+[DELETE] api/rules/categories/{id}
+--------------------------
+
+    /**
+    @api {get} /api/rules/categories/{id} 9. Delete a Rule category
+    @apiVersion 6.0.0
+    @apiName deleteRuleCategory
+    @apiGroup Rules
+    @apiDescription Delete a Rule category. It must have no child rules and no children categories
+    
+    @apiUse categoryId
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X DELETE 'http://rudder.example.com/rudder/api/latest/rules/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "deleteRuleCategory",
+  "result": "success",
+  "data": {
+    "ruleCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "another",
+      "description": "",
+      "parent": "rootRuleCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "rules": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+
+    */
+
+[POST] api/rules/categories/{id}
+--------------------------
+
+    /**
+    @api {post} /api/rules/categories/{id} 10. Update a Rule Category
+    @apiVersion 6.0.0
+    @apiName updateRuleCategory
+    @apiGroup Rules
+    @apiDescription Modify any parameters of a Rule category. Missing parameters means to not modify that parameter
+    
+    @apiUse categoryId
+
+    @apiParam (Mono) {String}  [name]      Name of the Rule category.
+   @apiParam (Mono) {String}  [description] Description of the Rule category.
+   @apiParam (Mono) {UUID}    [Parent]      Id of the parent Rule category
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/rules/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true' -d "name=new category name"
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "updateRuleCategory",
+  "result": "success",
+  "data": {
+    "ruleCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "new category name",
+      "description": "",
+      "parent": "rootRuleCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "rules": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+    */
+
+
+[PUT] api/rules/categories
+-----------------
+
+    /**
+    @api {put} /api/rules/categories 11. Create a new Rule category.
+    @apiVersion 6.0.0
+    @apiName createRuleCategory
+    @apiGroup Rules
+    @apiDescription Create a new Rule category in Rudder. You can define all of its parameters, but you need at least its name
+    
+    @apiParam (Mono) {String}  name          Name of the Rule category.
+    @apiParam (Mono) {String}  [description] Description of the Rule category.
+    @apiParam (Mono) {UUID}    [parent]      Id of the parent Rule category
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/rules/categories' -d "name=new category" -d "parent=4306143d-eabf-4478-b7b1-1616f4aa02b5" -d "description=A new category created via API'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "createRuleCategory",
+  "result": "success",
+  "data": {
+    "ruleCategories": {
+      "id": "370521d0-b05c-4ba6-b3e9-c391887897a4",
+      "name": "new category name",
+      "description": "A new category created via API",
+      "parent": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "categories": [],
+      "rules": []
+    }
+  }
+}
+
+
+     */
+
