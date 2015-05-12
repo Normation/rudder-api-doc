@@ -90,6 +90,83 @@ HTTP/1.1 200 OK
     
      */
 
+== [GET] api/nodes 
+
+    /**
+    @api {get} /api/nodes 1. List accepted Nodes
+    @apiVersion 6.0.0
+    @apiName listAcceptedNodes
+    @apiGroup Nodes
+
+    @apiDescription That function allow you to get details of accepted Nodes. You can make query on those Nodes based on inventory criterion. You can use the same queries than those sued in NodeGroup queries
+
+    @apiParam (Mono) {Query}      query A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replace by the three following (select, composition, where) 
+    @apiParam (Mono) {String}          [composition=and] Boolean operator to use between each criteria. Other value is "And"
+    @apiParam (Mono) {String}          [select=node] What kid of data we wnt to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'
+    @apiParam (Mono) {Criterion} where The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding them to the list, possible values are keys from json answer. 
+    
+    @apiExample Example usage:
+     # Get all nodes having a hostname strating with node1 and based on Linux
+     curl -H "X-API-Token: yourToken" 'https://rudder.example.com/rudder/api/latest/nodes' -d 'where=[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"},{"objectType":"node","attribute":"nodeHostname","comparator":"regex","value":"node1.*"}]'
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "listAcceptedNodes",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "architectureDescription": "x86_64-linux-thread-multi",
+        "managementTechnology": [
+          {
+            "name": "CFEngine Community"
+          }
+        ],
+        "hostname": "node1",
+        "lastInventoryDate": "2015-04-30 13:50",
+        "status": "accepted",
+        "ipAddresses": [
+          "127.0.0.1",
+          "10.0.2.15",
+          "192.168.42.81"
+        ],
+        "machine": {
+          "id": "35898d4d-a117-6d94-5bf2-2e956de3f6e8",
+          "type": "Virtual",
+          "provider": "vbox",
+          "manufacturer": "innotek GmbH",
+          "serialNumber": "0"
+        },
+        "properties": [
+          {
+            "name": "utf-8 poetry",
+            "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ"
+          },
+          {
+            "name": "env_type",
+            "value": "dev"
+          }
+        ],
+        "ram": 244,
+        "os": {
+          "type": "Linux",
+          "name": "Debian",
+          "version": "7.2",
+          "fullName": "Debian GNU/Linux 7.2 (wheezy)",
+          "kernelVersion": "3.2.0-4-amd64"
+        },
+        "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e",
+        "policyServerId": "root"
+      }
+    ]
+  }
+}
+
+     */
+
+
 
 == [GET] api/nodes/pending
 
@@ -127,6 +204,49 @@ HTTP/1.1 200 OK
 
 
      */
+
+== [GET] api/nodes/pending
+
+    /**
+    @api {get} /api/nodes/pending 2. List pending Nodes
+    @apiVersion 6.0.0
+    @apiName listPendingNodes
+    @apiGroup Nodes
+
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending -d include=minimal
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "listPendingNodes",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e",
+        "hostname": "node1",
+        "status": "pending"
+      },
+      {
+        "id": "f6223b0e-e2aa-4d1f-b6d1-74de8ea8e513",
+        "hostname": "node3.rudder.local",
+        "status": "pending"
+      },
+      {
+        "id": "root",
+        "hostname": "server.rudder.local",
+        "status": "pending"
+      }
+    ]
+  }
+}
+
+
+     */
+
 
 == [GET] api/nodes/{id}
 
