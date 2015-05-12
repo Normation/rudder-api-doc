@@ -30,6 +30,16 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
  */
 
+/**
+   @apiDefine categoryId
+
+   @apiParam (URL parameters) {UUID} id ID of the Group category
+ */
+
+
+
+
+
 [GET] api/groups
 -----------------
 
@@ -77,7 +87,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse groupCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/groups -d “groups=GroupID”
+    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/groups' -d “groups=GroupID”
 
      */
 
@@ -93,7 +103,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse  groupId
      
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/groups/GroupID
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/groups/GroupID'
 
     */
 
@@ -109,7 +119,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse  groupId
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/groups/GroupID
+    curl -H "X-API-Token: yourToken" -X DELETE 'http://rudder.example.com/rudder/api/latest/groups/GroupID'
 
 
     */
@@ -135,7 +145,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
      
     @apiExample Example usage:
     Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/groups/GroupID -d "displayName=Name of New Group"
+    curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/groups/GroupID' -d "displayName=Name of New Group"
 
     */
 
@@ -150,3 +160,314 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiUse  groupId
     */
+
+[GET] api/groups/tree
+-----------------
+
+    /**
+    @api {get} /api/groups/tree 8. Get Groups tree 
+    @apiVersion 6.0.0
+    @apiName GetGroupTree
+    @apiGroup Groups
+    @apiDescription Get all Groups available in Rudder and their cateogries in a Tree
+    
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X GET http://rudder.example.com/rudder/api/latest/groups/tree?prettify=true
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "GetGroupTree",
+  "result": "success",
+  "data": {
+    "groupCategories": {
+      "id": "GroupRoot",
+      "name": "Root of the group and group categories",
+      "description": "This is the root category for the groups (both dynamic and static) and group categories",
+      "parent": "GroupRoot",
+      "categories": [
+        {
+          "id": "SystemGroups",
+          "name": "System groups",
+          "description": "That category holds all the system and special target",
+          "parent": "GroupRoot",
+          "categories": [],
+          "groups": [
+            {
+              "id": "hasPolicyServer-root",
+              "displayName": "All nodes managed by root policy server",
+              "description": "All nodes known by Rudder directly connected to the root server",
+              "query": {
+                "select": "nodeAndPolicyServer",
+                "composition": "And",
+                "where": [
+                  {
+                    "objectType": "node",
+                    "attribute": "policyServerId",
+                    "comparator": "eq",
+                    "value": "root"
+                  }
+                ]
+              },
+              "nodeIds": [
+                "dd404bda-2785-4959-abaa-8f37a0bbd85e",
+                "f6223b0e-e2aa-4d1f-b6d1-74de8ea8e513",
+                "root"
+              ],
+              "isDynamic": true,
+              "isEnabled": true
+            }
+          ]
+        },
+        {
+          "id": "38dd2107-a73b-45fb-916d-e110312abb87",
+          "name": "production groups",
+          "description": "",
+          "parent": "GroupRoot",
+          "categories": [
+            
+          ],
+          "groups": [
+            {
+              "id": "79d83ff9-24d8-4be6-b1f7-cbb1c173f7a5",
+              "displayName": "Linux nodes",
+              "description": "",
+              "query": {
+                "select": "node",
+                "composition": "And",
+                "where": [
+                  {
+                    "objectType": "node",
+                    "attribute": "OS",
+                    "comparator": "eq",
+                    "value": "Linux"
+                  }
+                ]
+              },
+              "nodeIds": [
+                
+              ],
+              "isDynamic": false,
+              "isEnabled": true
+            }
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "id": "af208515-c2f2-4577-bbf4-9fffebbe6629",
+          "displayName": "Test Clients",
+          "description": "",
+          "query": {
+            "select": "node",
+            "composition": "Or",
+            "where": [
+              {
+                "objectType": "node",
+                "attribute": "nodeHostname",
+                "comparator": "regex",
+                "value": "servername.*company.net"
+              },
+              {
+                "objectType": "node",
+                "attribute": "nodeHostname",
+                "comparator": "regex",
+                "value": "lt serverbla.*company.net"
+              }
+            ]
+          },
+          "nodeIds": [
+            
+          ],
+          "isDynamic": true,
+          "isEnabled": true
+        },
+        {
+          "id": "d7634b2d-7189-422b-9971-24c29b75da46",
+          "displayName": "Test Clients",
+          "description": "",
+          "query": {
+            "select": "node",
+            "composition": "Or",
+            "where": [
+              {
+                "objectType": "node",
+                "attribute": "nodeHostname",
+                "comparator": "regex",
+                "value": "servername.*company.net"
+              },
+              {
+                "objectType": "node",
+                "attribute": "nodeHostname",
+                "comparator": "regex",
+                "value": "lt serverbla.*company.net"
+              }
+            ]
+          },
+          "nodeIds": [
+            
+          ],
+          "isDynamic": true,
+          "isEnabled": true
+        }
+      ]
+    }
+  }
+}
+
+     */
+
+
+[GET] api/groups/categories/{id}
+--------------------------
+
+    /**
+    @api {get} /api/groups/categories/{id} 9. Get a Group category details
+    @apiVersion 6.0.0
+    @apiName getGroupCategoryDetails
+    @apiGroup Groups
+    @apiDescription Get the details of a Group category, whose ID is specified in the URL
+    
+    @apiUse categoryId
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/groups/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "getGroupCategoryDetails",
+  "result": "FR Groups",
+  "data": {
+    "groupCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "another",
+      "description": "",
+      "parent": "rootGroupCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "groups": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+
+    */
+
+[DELETE] api/groups/categories/{id}
+--------------------------
+
+    /**
+    @api {get} /api/groups/categories/{id} 10. Delete a Group category
+    @apiVersion 6.0.0
+    @apiName deleteGroupCategory
+    @apiGroup Groups
+    @apiDescription Delete a Group category. It must have no child groups and no children categories
+    
+    @apiUse categoryId
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X DELETE 'http://rudder.example.com/rudder/api/latest/groups/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "deleteGroupCategory",
+  "result": "success",
+  "data": {
+    "groupCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "FR groups",
+      "description": "",
+      "parent": "rootGroupCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "groups": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+
+    */
+
+[POST] api/groups/categories/{id}
+--------------------------
+
+    /**
+    @api {post} /api/groups/categories/{id} 11. Update a Group Category
+    @apiVersion 6.0.0
+    @apiName updateGroupCategory
+    @apiGroup Groups
+    @apiDescription Modify any parameters of a Group category. Missing parameters means to not modify that parameter
+    
+    @apiUse categoryId
+
+    @apiParam (Mono) {String}  [name]      Name of the Group category.
+   @apiParam (Mono) {String}  [description] Description of the Group category.
+   @apiParam (Mono) {UUID}    [Parent]      Id of the parent Group category
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/groups/categories/4306143d-eabf-4478-b7b1-1616f4aa02b5?prettify=true' -d "name=new category name"
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "updateGroupCategory",
+  "result": "success",
+  "data": {
+    "groupCategories": {
+      "id": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "name": "new category name",
+      "description": "",
+      "parent": "rootGroupCategory",
+      "categories": [
+        "6c676103-0abf-4614-b0bd-19768e1bec15"
+      ],
+      "groups": [
+        "16fd4e1a-0364-4123-8a84-ff34caee5bf6"
+      ]
+    }
+  }
+}
+
+    */
+
+
+[PUT] api/groups/categories
+-----------------
+
+    /**
+    @api {put} /api/groups/categories 12. Create a new Group category.
+    @apiVersion 6.0.0
+    @apiName createGroupCategory
+    @apiGroup Groups
+    @apiDescription Create a new Group category in Rudder. You can define all of its parameters, but you need at least its name
+    
+
+   @apiParam (Mono) {String}  name          Name of the Group category.
+   @apiParam (Mono) {String}  [description] Description of the Group category.
+   @apiParam (Mono) {UUID}    [parent]      Id of the parent Group category
+ 
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/groups/categories?prettify=true' -d "name=new category name" -d "parent=4306143d-eabf-4478-b7b1-1616f4aa02b5" -d "description=A new category created via API'
+    @apiSuccessExample Success-Response:
+      HTTP/1.1 200 OK
+{
+  "action": "createGroupCategory",
+  "result": "success",
+  "data": {
+    "groupCategories": {
+      "id": "370521d0-b05c-4ba6-b3e9-c391887897a4",
+      "name": "new category name",
+      "description": "A new category created via API",
+      "parent": "4306143d-eabf-4478-b7b1-1616f4aa02b5",
+      "categories": [],
+      "groups": []
+    }
+  }
+}
+
+     */
+
