@@ -65,7 +65,7 @@ HTTP/1.1 200 OK
     /**
     @api {put} /api/parameters 3. Create a new Parameter
     @apiVersion 2.0.0
-    @apiName createGroup
+    @apiName createParameter
     @apiGroup Parameters
 
     @apiUse parameterCreation
@@ -133,7 +133,7 @@ HTTP/1.1 200 OK
     /**
     @api {delete} /api/parameters/{id} 5. Delete a Parameter
     @apiVersion 2.0.0
-    @apiName deleteGroup
+    @apiName deleteParameter
     @apiGroup Parameters
      
     @apiUse  parameterId
@@ -177,7 +177,7 @@ HTTP/1.1 500 Server Error
     /**
     @api {post} /api/parameters/{id} 4. Update a Parameter
     @apiVersion 2.0.0
-    @apiName updateGroup
+    @apiName updateParameter
     @apiGroup Parameters
 
 
