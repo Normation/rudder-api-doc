@@ -88,6 +88,11 @@ period of time to allow migration from previous versions.
       <td class="code">3.0</td>
       <td>Allow empty query for groups, add key-values support on nodes</td>
     </tr>
+    <tr>
+      <td class="code">6</td>
+      <td class="code">3.1</td>
+      <td>Add compliance support</td>
+    </tr>
   </tbody>
 </table>
 
