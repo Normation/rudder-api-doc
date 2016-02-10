@@ -93,6 +93,11 @@ period of time to allow migration from previous versions.
       <td class="code">3.1</td>
       <td>Add compliance support</td>
     </tr>
+    <tr>
+      <td class="code">7</td>
+      <td class="code">3.2</td>
+      <td>Add 'level' option in compliance API</td>
+    </tr>
   </tbody>
 </table>
 
