@@ -250,7 +250,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiDescription Get the compliance details of all Nodes
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET 'https://rudder.example.com/rudder/api/compliance/nodes?prettify=true'
+    curl -H "X-API-Token: yourToken" -X GET 'https://rudder.example.com/rudder/api/latest/compliance/nodes?prettify=true'
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
@@ -356,7 +356,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     
     @apiUse nodeId
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/compliance/nodes/root?prettify=true'
+    curl -H "X-API-Token: yourToken" -X GET 'http://rudder.example.com/rudder/api/latest/compliance/nodes/root?prettify=true'
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK
       {
