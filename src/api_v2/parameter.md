@@ -33,7 +33,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     /**
     @api {get} /api/parameters 1. List all Parameters
     @apiVersion 2.0.0
-    @apiName listGroups
+    @apiName listParameters
     @apiGroup Parameters
     
     @apiExample Example usage:
