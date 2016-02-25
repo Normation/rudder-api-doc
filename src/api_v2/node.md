@@ -216,7 +216,7 @@ HTTP/1.1 200 OK
     @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending -d include=minimal
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending?include=minimal
 
     @apiSuccessExample Success-Response:
 HTTP/1.1 200 OK
