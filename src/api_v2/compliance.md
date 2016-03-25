@@ -47,93 +47,67 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "rules": [
-            {
-              "directives": [
-                {
-                  "components": [
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "None"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "ZMD process"
-                    },
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "RHEL/CentOS/SuSE packages"
-                    },
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "Post-modification hook"
-                    }
-                  ],
-                  "complianceDetails": {
-                    "noReport": 100
-                  },
-                  "compliance": 0,
-                  "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
-                }
-              ],
-              "mode": "full-compliance",
+          "rules": [{
+            "directives": [{
+              "components": [{
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "None"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "ZMD process"
+              }, {
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "RHEL/CentOS/SuSE packages"
+              }, {
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "Post-modification hook"
+              }],
               "complianceDetails": {
                 "noReport": 100
               },
               "compliance": 0,
-              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-            }
-          ]
+              "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
+            }],
+            "mode": "full-compliance",
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+          }]
         },
         "result": "success",
         "action": "getRulesCompliance"
@@ -158,16 +132,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "rules": [
-            {
-              "mode": "full-compliance",
-              "complianceDetails": {
-                "noReport": 100
-              },
-              "compliance": 0,
-              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-            }
-          ]
+          "rules": [{
+            "mode": "full-compliance",
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+          }]
         },
         "result": "success",
         "action": "getRulesCompliance"
@@ -193,92 +165,66 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "rules": [
-            {
-              "directives": [
-                {
-                  "components": [
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "None"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "ZMD process"
-                    },
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "RHEL/CentOS/SuSE packages"
-                    },
-                    {
-                      "nodes": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "id": "root"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "name": "Post-modification hook"
-                    }
-                  ],
-                  "complianceDetails": {
-                    "noReport": 100
-                  },
-                  "compliance": 0,
-                  "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
-                }
-              ],
+          "rules": [{
+            "directives": [{
+              "components": [{
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "None"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "ZMD process"
+              }, {
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "RHEL/CentOS/SuSE packages"
+              }, {
+                "nodes": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "id": "root"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "name": "Post-modification hook"
+              }],
               "complianceDetails": {
                 "noReport": 100
               },
               "compliance": 0,
-              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-            }
-          ]
+              "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
+            }],
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+          }]
         },
         "result": "success",
         "action": "getRuleCompliance"
@@ -304,16 +250,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "rules": [
-            {
-              "complianceDetails": {
-                "noReport": 100
-              },
-              "compliance": 0,
-              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-              "mode": "full-compliance"
-            }
-          ]
+          "rules": [{
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+            "mode": "full-compliance"
+          }]
         },
         "result": "success",
         "action": "getRuleCompliance"
@@ -337,86 +281,64 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "nodes": [
-            {
-              "rules": [
-                {
-                  "directives": [
-                    {
-                      "components": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "None"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "ZMD process"
-                        },
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "RHEL/CentOS/SuSE packages"
-                        },
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "Post-modification hook"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
-                    }
-                  ],
+          "nodes": [{
+            "rules": [{
+              "directives": [{
+                "components": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "None"
+                  }],
                   "complianceDetails": {
                     "noReport": 100
                   },
                   "compliance": 0,
-                  "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-                }
-              ],
+                  "name": "ZMD process"
+                }, {
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "complianceDetails": {
+                    "noReport": 100
+                  },
+                  "compliance": 0,
+                  "name": "RHEL/CentOS/SuSE packages"
+                }, {
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "complianceDetails": {
+                    "noReport": 100
+                  },
+                  "compliance": 0,
+                  "name": "Post-modification hook"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
+              }],
               "complianceDetails": {
                 "noReport": 100
               },
               "compliance": 0,
-              "id": "root"
-            }
-          ]
+              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+            }],
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "root"
+          }]
         },
         "result": "success",
         "action": "getNodesCompliance"
@@ -442,16 +364,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "nodes": [
-            {
-              "complianceDetails": {
-                "noReport": 100
-              },
-              "compliance": 0,
-              "id": "root"
-              "mode": full-compliance",
-            }
-          ]
+          "nodes": [{
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "root"
+            "mode": full - compliance ",
+          }]
         },
         "result": "success",
         "action": "getNodesCompliance"
@@ -478,86 +398,64 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       HTTP/1.1 200 OK
       {
         "data": {
-          "nodes": [
-            {
-              "rules": [
-                {
-                  "directives": [
-                    {
-                      "components": [
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "None"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "ZMD process"
-                        },
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "RHEL/CentOS/SuSE packages"
-                        },
-                        {
-                          "values": [
-                            {
-                              "reports": [
-                                {
-                                  "status": "noReport"
-                                }
-                              ],
-                              "value": "httpd"
-                            }
-                          ],
-                          "complianceDetails": {
-                            "noReport": 100
-                          },
-                          "compliance": 0,
-                          "name": "Post-modification hook"
-                        }
-                      ],
-                      "complianceDetails": {
-                        "noReport": 100
-                      },
-                      "compliance": 0,
-                      "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
-                    }
-                  ],
+          "nodes": [{
+            "rules": [{
+              "directives": [{
+                "components": [{
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "None"
+                  }],
                   "complianceDetails": {
                     "noReport": 100
                   },
                   "compliance": 0,
-                  "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
-                }
-              ],
+                  "name": "ZMD process"
+                }, {
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "complianceDetails": {
+                    "noReport": 100
+                  },
+                  "compliance": 0,
+                  "name": "RHEL/CentOS/SuSE packages"
+                }, {
+                  "values": [{
+                    "reports": [{
+                      "status": "noReport"
+                    }],
+                    "value": "httpd"
+                  }],
+                  "complianceDetails": {
+                    "noReport": 100
+                  },
+                  "compliance": 0,
+                  "name": "Post-modification hook"
+                }],
+                "complianceDetails": {
+                  "noReport": 100
+                },
+                "compliance": 0,
+                "id": "3225efda-0ede-4de8-8b96-abb901fa86d8"
+              }],
               "complianceDetails": {
                 "noReport": 100
               },
               "compliance": 0,
-              "id": "root"
-            }
-          ]
+              "id": "32377fd7-02fd-43d0-aab7-28460a91347b"
+            }],
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "root"
+          }]
         },
         "result": "success",
         "action": "getNodeCompliance"
@@ -582,17 +480,17 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       {
         "data": {
           "nodes": [
-              "mode": "full-compliance",
-              "complianceDetails": {
-                "noReport": 100
-              },
-              "compliance": 0,
-              "id": "root"
-            }
-          ]
-        },
-        "result": "success",
-        "action": "getNodeCompliance"
+            "mode": "full-compliance",
+            "complianceDetails": {
+              "noReport": 100
+            },
+            "compliance": 0,
+            "id": "root"
+          }
+        ]
+      },
+      "result": "success",
+      "action": "getNodeCompliance"
       }
 
       */
