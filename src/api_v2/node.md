@@ -102,9 +102,9 @@ HTTP/1.1 200 OK
 
     @apiParam (Mono) {Query}      query A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replace by the three following (select, composition, where) 
     @apiParam (Mono) {String}          [composition=and] Boolean operator to use between each criteria. Other value is "And"
-    @apiParam (Mono) {String}          [select=node] What kid of data we wnt to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'
+    @apiParam (Mono) {String}          [select=node] What kind of data we want to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'
     @apiParam (Mono) {Criterion} where The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
-    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding them to the list, possible values are keys from json answer. 
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
     
     @apiExample Example usage:
      # Get all nodes having a hostname strating with node1 and based on Linux
@@ -213,7 +213,7 @@ HTTP/1.1 200 OK
     @apiName listPendingNodes
     @apiGroup Nodes
 
-    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending?include=minimal
@@ -258,7 +258,7 @@ HTTP/1.1 200 OK
     
     @apiUse nodeId
 
-   @apiParam (Multi) {String}        [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). you can add fields you want by adding them to the list, possible values are keys from json answer. 
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
 
 
     @apiExample Example usage:
