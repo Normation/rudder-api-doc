@@ -69,12 +69,12 @@ period of time to allow migration from previous versions.
       <td>Experimental version</td>
     </tr>
     <tr>
-      <td class="code">2</td>
+      <td class="code">2 (deprecated)</td>
       <td class="code">2.7</td>
       <td>First working version with support for rules, directives, nodes and global parameters</td>
     </tr>
     <tr>
-      <td class="code">3</td>
+      <td class="code">3 (deprecated)</td>
       <td class="code">2.8</td>
       <td>Add change request support</td>
     </tr>
