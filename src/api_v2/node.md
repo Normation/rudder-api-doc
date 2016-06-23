@@ -106,11 +106,21 @@ HTTP/1.1 200 OK
     @apiParam (Mono) {Criterion} where The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
     @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
     
-    @apiExample Example usage:
-     # Get all nodes having a hostname strating with node1 and based on Linux
-     curl -H "X-API-Token: yourToken" 'https://rudder.example.com/rudder/api/latest/nodes' -d 'where=[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"},{"objectType":"node","attribute":"nodeHostname","comparator":"regex","value":"node1.*"}]'
+    @apiExample Example usage (curl):
+     # Get all nodes having a hostname starting with node1 and based on Linux
+     curl -H "X-API-Token: yourToken" 'https://rudder.example.com/rudder/api/latest/nodes?where=\[\{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"\},\{"objectType":"node","attribute":"nodeHostname","comparator":"regex","value":"node1.*"\}\]'
 
-    @apiSuccessExample Success-Response:
+    @apiExample Example usage (python-requests):
+     # Get all nodes having a hostname starting with node1 and based on Linux and only display minmal information (id, hostname, status)
+     url = "https://rudder.example.com/rudder/api/latest/nodes"
+     linux = {"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}
+     node1 = {"objectType":"node","attribute":"nodeHostname","comparator":"regex","value":"node1.*"}
+     where = [ linux, node1 ]
+     params = { "where" : json.dumps(where), "include" : "minimal" }
+     headers = { "X-API-TOKEN" : "yourToken" }
+     requests.get(url, params = params, headers = headers, verify = False)
+
+    @apiSuccessExample Success Response (curl):
 HTTP/1.1 200 OK
 {
   "action": "listAcceptedNodes",
@@ -159,6 +169,22 @@ HTTP/1.1 200 OK
         },
         "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e",
         "policyServerId": "root"
+      }
+    ]
+  }
+}
+
+    @apiSuccessExample Success Response (python-requests):
+HTTP/1.1 200 OK
+{
+  "action": "listAcceptedNodes",
+  "result": "success",
+  "data": {
+    "nodes": [
+      {
+        "hostname": "node1",
+        "status": "accepted",
+        "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e",
       }
     ]
   }
