@@ -9,15 +9,17 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
    @apiDefine nodeId
 
    @apiParam (URL parameters) {UUID} id ID of the Node.
- */
-
+*/
 /**
-   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
+  @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
  */
 /**
-   @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
+  @apiDefine Multi Multi valued parameters - Those parameters need to be entered several times, they will add each other to form a list.
  */
-
+/**
+  @apiDefine Query Query parameters - Those parameters will be used to filter Nodes, based on group definition query system
+ */
+/
 == [GET] api/nodes 
 
     /**
@@ -98,13 +100,13 @@ HTTP/1.1 200 OK
     @apiName listAcceptedNodes
     @apiGroup Nodes
 
-    @apiDescription That function allow you to get details of accepted Nodes. You can make query on those Nodes based on inventory criterion. You can use the same queries than those sued in NodeGroup queries
+    @apiDescription That function allow you to get details of accepted Nodes. You can make query on those Nodes based on inventory criterion. You can use the same queries than those used in NodeGroup queries
 
-    @apiParam (Mono) {Query}      query A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replace by the three following (select, composition, where) 
-    @apiParam (Mono) {String}          [composition=and] Boolean operator to use between each criteria. Other value is "And"
-    @apiParam (Mono) {String}          [select=node] What kind of data we want to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'
-    @apiParam (Mono) {Criterion} where The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
-    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
+    @apiParam (Multi) {String}   [include=default]  Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter
+    @apiParam (Query) {Query}     query             A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replaced by the three following (select, composition, where) 
+    @apiParam (Query) {Criterion} where             The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
+    @apiParam (Query) {String}    [composition=and] Boolean operator to use between each criteria. Other value is "And". Only used if 'where' is defined.
+    @apiParam (Query) {String}    [select=node]     What kind of data we want to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'. Only used if where is defined.
     
     @apiExample Example usage (curl):
      # Get all nodes having a hostname starting with node1 and based on Linux
@@ -184,7 +186,7 @@ HTTP/1.1 200 OK
       {
         "hostname": "node1",
         "status": "accepted",
-        "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e",
+        "id": "dd404bda-2785-4959-abaa-8f37a0bbd85e"
       }
     ]
   }
