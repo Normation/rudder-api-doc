@@ -426,3 +426,30 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
     */
+
+[POST] api/directives/{id}/check
+--------------------------
+
+    /**
+    @api {post} /api/directives/{id}/check 7. Check that update on a Directive is valid
+    @apiVersion 2.0.0
+    @apiName checkDirective
+    @apiGroup Directives
+     
+    @apiUse directiveId
+
+    @apiParam (Mono) {String}  [displayName]      Name of the Directive to create.
+    @apiParam (Mono) {String}  [shortDescription] Short description of the Directive.
+    @apiParam (Mono) {String}  [longDescription]  Long description of the Directive.
+    @apiParam (Mono) {JSON}    [parameters]       Directive parameters.
+    @apiParam (Mono) {Boolean} [enabled]          Enable/disable the Directive.
+    @apiParam (Mono) {Int}     [priority]         Directive priority. Determine which value to use if there is Directives based on the same technique applied to a Node.
+    @apiParam (Mono) {TechniqueVersion} [techniqueVersion] Technique Version.
+
+    @apiExample Example usage:
+    // Update display name: 
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/directives/DirectiveID/check  -d "displayName=Name of New Directive"
+
+
+
+    */
