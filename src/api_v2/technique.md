@@ -475,8 +475,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
           }
         },
         "priority": 5,
-        "isEnabled": true,
-        "isSystem": false
+        "enabled": true,
+        "system": false
       }
     ]
   }
@@ -726,8 +726,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
           }
         },
         "priority": 5,
-        "isEnabled": true,
-        "isSystem": false
+        "enabled": true,
+        "system": false
       }
     ]
   }

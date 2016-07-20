@@ -46,7 +46,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"Remove unused security policy",
       "description":"",
       "status":"Pending validation",
-      "isAcceptable":true,
+      "acceptable":true,
       "created by":"jon.doe",
       "changes":{
         "directives":[],
@@ -71,7 +71,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"Add new package policy for Redhat nodes",
       "description":"",
       "status":"Pending deployment",
-      "isAcceptable":false,
+      "acceptable":false,
       "created by":"jon.doe",
       "changes":{
         "directives":[],
@@ -126,7 +126,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"Remove unused security policy",
       "description":"",
       "status":"Pending validation",
-      "isAcceptable":true,
+      "acceptable":true,
       "created by":"jon.doe",
       "changes":{
         "directives":[],
@@ -177,7 +177,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"Remove unused security policy",
       "description":"",
       "status":"Cancelled",
-      "isAcceptable":true,
+      "acceptable":true,
       "created by":"jon.doe",
       "changes":{
         "directives":[],
@@ -235,7 +235,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"Remove unused security policy",
       "description":"",
       "status":"Deployed",
-      "isAcceptable":true,
+      "acceptable":true,
       "created by":"jon.doe",
       "changes":{
         "directives":[],
@@ -290,7 +290,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "name":"new Name of Change Request",
       "description":"add a new description",
       "status":"Pending validation",
-      "isAcceptable":true,
+      "acceptable":true,
       "created by":"jon.doe",
       "changes":{
         "directives":[],

@@ -118,6 +118,10 @@ All responses from the API are in the JSON format.
 * __Success__ responses are sent with the 200 HTTP (Success) code
 * __Error__ responses are sent with a HTTP error code (mostly 5xx ...)
 
+### Non compliant data in response
+
+We used to send reponse data that could not be used as parameter. This mostly concerns Boolean fields (like 'enabled', 'dynamic'), that were send in response prefixed by 'is', ie 'isEnabled'. This prevented usage of this data in request using this response as parameter. We harmonized response and parameters in versions 2.11.23, 3.11.12 and 3.2.5 of Rudder, by always sending unprefixed version. To be backward compatible, we added an option to send old data ('isXXX') in response. That option is disabled on new instance, and will be enabled on upgrade of existing servers.
+
 <span id="api-_-HTTP"/>
 ## HTTP method
 
