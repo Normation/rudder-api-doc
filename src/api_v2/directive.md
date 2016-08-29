@@ -250,93 +250,93 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "techniqueName=copyGitFile" -d "displayName=Copy a test file from shared folder" -d @parameters
+    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/directives -H "Content-type: application/json" -d @directive.json
+
+    @apiExample directive.json details:
+{
+  "id": "cf2a6c72-18ae-4f82-a12c-0b887792db41",
+  "displayName": "Example Directive",
+  "shortDescription": "This in an example Directive to use in Rudder api documentation",
+  "longDescription": "",
+  "techniqueName": "genericVariableDefinition",
+  "techniqueVersion": "2.0",
+  "parameters": {
+    "section": {
+      "name": "sections",
+      "sections": [
+        {
+          "section": {
+            "name": "Variable definition",
+            "vars": [
+              {
+                "var": {
+                  "name": "GENERIC_VARIABLE_CONTENT",
+                  "value": "new variable content"
+                }
+              },
+              {
+                "var": {
+                  "name": "GENERIC_VARIABLE_NAME",
+                  "value": "new_variable"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "priority": 3,
+  "enabled": true,
+  "system": false
+}
+
 
     @apiSuccessExample Success-Response:
-    {
-    "action":"createDirective",
-    "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
-    "result":"success",
-    "data":{
-      "directives":[{
-        "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
-        "displayName":"Copy a test file from shared folder",
-        "shortDescription":"",
-        "longDescription":"",
-        "techniqueName":"copyGitFile",
-        "techniqueVersion":"1.3",
-        "parameters":{
-          "section":{
-            "name":"sections",
-            "sections":[{
-              "section":{
-                "name":"Copy file and PostHook",
-                "sections":[{
-                  "section":{
-                    "name":"Copy file",
-                    "vars":[{
-                      "var":{
-                        "name":"COPYFILE_COMPARE_METHOD",
-                        "value":"mtime"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_DESTINATION",
-                        "value":"/tmp/test2"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_GROUP",
-                        "value":"root"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_NAME",
-                        "value":"/tmp/test"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_OWNER",
-                        "value":"root"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_PERM",
-                        "value":"000"
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_RECURSION",
-                        "value":"0"
-                      }
-                    }]
+{
+  "action":"createDirective",
+  "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
+  "result":"success",
+  "data":{
+    "directives":[{
+      "id": "cf2a6c72-18ae-4f82-a12c-0b887792db41",
+      "displayName": "Example Directive",
+      "shortDescription": "This in an example Directive to use in Rudder api documentation",
+      "longDescription": "",
+      "techniqueName": "genericVariableDefinition",
+      "techniqueVersion": "2.0",
+      "parameters": {
+        "section": {
+          "name": "sections",
+          "sections": [
+            {
+              "section": {
+                "name": "Variable definition",
+                "vars": [
+                  {
+                    "var": {
+                      "name": "GENERIC_VARIABLE_CONTENT",
+                      "value": "new variable content"
+                    }
+                  },
+                  {
+                    "var": {
+                      "name": "GENERIC_VARIABLE_NAME",
+                      "value": "new_variable"
+                    }
                   }
-                },{
-                  "section":{
-                    "name":"Post-modification hook",
-                    "vars":[{
-                      "var":{
-                        "name":"COPYFILE_POST_HOOK_COMMAND",
-                        "value":""
-                      }
-                    },{
-                      "var":{
-                        "name":"COPYFILE_POST_HOOK_RUN",
-                        "value":"false"
-                      }
-                    }]
-                  }
-                }]
+                ]
               }
-            }]
-          }
-        },
-        "priority":5,
-        "enabled":false,
-        "system":false
-      }]
-    }
+            }
+          ]
+        }
+      },
+      "priority": 3,
+      "enabled": true,
+      "system": false
+    }]
   }
+}
      */
 
 
@@ -423,9 +423,88 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {TechniqueVersion} [techniqueVersion] Technique Version.
 
     @apiExample Example usage:
-    // Update display name: 
-    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/directives/DirectiveID  -d "displayName=Name of New Directive"
+    # Change long description, priority and a value in parameters
+    curl -H "X-API-Token: yourToken" -X POST http://rudder.example.com/rudder/api/latest/directives/cf2a6c72-18ae-4f82-a12c-0b887792db41 -H "Content-type: application/json" -d @directive.json
 
+    @apiExample directive.json details:
+{
+  "longDescription": "Add a loooooooooooong description",
+  "parameters": {
+    "section": {
+      "name": "sections",
+      "sections": [
+        {
+          "section": {
+            "name": "Variable definition",
+            "vars": [
+              {
+                "var": {
+                  "name": "GENERIC_VARIABLE_CONTENT",
+                  "value": "Change Variable Content"
+                }
+              },
+              {
+                "var": {
+                  "name": "GENERIC_VARIABLE_NAME",
+                  "value": "new_variable"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "priority": 5
+}
+
+
+    @apiSuccessExample Success-Response:
+{
+  "action":"createDirective",
+  "id":"7fb1349e-1f2c-4fca-9c5a-e5858a5b132e",
+  "result":"success",
+  "data":{
+    "directives":[{
+      "id": "cf2a6c72-18ae-4f82-a12c-0b887792db41",
+      "displayName": "Example Directive",
+      "shortDescription": "This in an example Directive to use in Rudder api documentation",
+      "longDescription": "Add a loooooooooooong description",
+      "techniqueName": "genericVariableDefinition",
+      "techniqueVersion": "2.0",
+      "parameters": {
+        "section": {
+          "name": "sections",
+          "sections": [
+            {
+              "section": {
+                "name": "Variable definition",
+                "vars": [
+                  {
+                    "var": {
+                      "name": "GENERIC_VARIABLE_CONTENT",
+                      "value": "Change Variable Content"
+                    }
+                  },
+                  {
+                    "var": {
+                      "name": "GENERIC_VARIABLE_NAME",
+                      "value": "new_variable"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "priority": 5,
+      "enabled": true,
+      "system": false
+     
+    }]
+  }
+}
 
 
     */
