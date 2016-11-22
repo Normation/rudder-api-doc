@@ -615,7 +615,7 @@ HTTP/1.1 200 OK
     @apiSuccessExample Success-Response:
 HTTP/1.1 200 OK
 {
-  "action": "changePendingNodeStatus",
+  "action": "deleteNode",
   "result": "success",
   "data": {
     "nodes": [
@@ -634,7 +634,7 @@ HTTP/1.1 200 OK
     @apiErrorExample Error-Response:
 HTTP/1.1 500 Server Error
 {
-  "action": "changePendingNodeStatus",
+  "action": "deleteNode",
   "result": "error",
   "errorDetails": "Node with ID '80ade5bf-aed9-4f57-8beb-aaaf3e63ec04' was not found"
 }
