@@ -877,6 +877,110 @@ HTTP/1.1 200 OK
       */
 
 
+== [POST] api/nodes/applyPolicy
+
+    /**
+    @api {post} /api/nodes/{id} 7. Trigger all agent run
+    @apiVersion 8.0.0
+    @apiName applyPolicyAllNodes 
+    @apiGroup Nodes
+
+    @apiParam (Multi) {class}       classes Set class passed as parameter to make it available during agent run.
+
+    @apiDescription This API allows to trigger an agent run on the target node. Response contains a json stating if agent could be started on each node, but not if the run went fine and do not display any output from it. You can see the result of the run in Rudder web interface or in the each agent logs
+
+
+    @apiExample Run agent  
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/applyPolicy
+
+    @apiSuccessExample 
+{
+  "action": "applyPolicyAllNodes",
+  "result": "success",
+  "data": [
+    {
+      "id": "edd9a756-ac7e-4820-8e75-83225ebcabec",
+      "hostname": "relay.rudder.local",
+      "result": "Started"
+    },
+    {
+      "id": "root",
+      "hostname": "server.rudder.local",
+      "result": "Started"
+    }
+  ]
+}
+
+      */
+
+
+
+== [POST] api/nodes/{id}/applyPolicy
+
+    /**
+    @api {post} /api/nodes/{id} 8. Trigger an agent run
+    @apiVersion 8.0.0
+    @apiName applyPolicy 
+    @apiGroup Nodes
+
+    @apiUse nodeId
+    @apiParam (Multi) {class}       classes Set class passed as parameter to make it available during agent run.
+
+    @apiDescription This API allows to trigger an agent run on the target node. Response is a stream of the actual agent run on the node (no json output).
+
+
+    @apiExample Run agent  
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/root/applyPolicy
+
+    @apiSuccessExample 
+Rudder agent 4.1.0~alpha1~git201701101529-jessie0 (CFEngine Core 3.10.0)
+Node uuid: root
+Start execution with config [20170110-161552-3325af7a]
+
+M| State         Technique                 Component                 Key                Message
+E| compliant     Common                    Update                                       Rudder ncf instance already up to date on this root server. No action required.
+E| compliant     Common                    ncf Initialization                           The ncf initialization was correct
+E| compliant     Common                    Security parameters                          The internal environment security is acceptable
+E| compliant     Common                    Red Button                                   Red Button is not in effect, continuing as normal...
+E| n/a           Common                    Process checking                             CFEngine proccesses check is done by the rudder-agent CRON job
+E| compliant     Common                    CRON Daemon                                  Cron daemon status was correct
+E| compliant     Common                    Log system for reports                       Logging system for report centralization is already correctly configured
+E| compliant     Common                    Binaries update                              The CFEngine binaries in /var/rudder/cfengine-community/bin are up to date
+E| compliant     DistributePolicy          Configure ncf                                Configure ncf was correct
+E| compliant     DistributePolicy          Propagate promises                           All files have been propagated
+E| compliant     DistributePolicy          Send inventories to CMDB                     No inventory to send
+E| compliant     Inventory                 inventory                                    Next inventory scheduled between 00:00 and 06:00
+E| compliant     server-roles              Check logrotate configur|                    The logrotate configuration is correct
+E| compliant     server-roles              Check LDAP in rudder-web|                    The Rudder Webapp configuration files are OK (checked LDAP password)
+E| compliant     server-roles              Check LDAP credentials                       The OpenLDAP configuration file is OK (checked rootdn password)
+E| compliant     server-roles              Check SQL in rudder-weba|                    The Rudder Webapp configuration files are OK (checked SQL password)
+E| compliant     server-roles              Check SQL credentials                        The Rudder PostgreSQL user account's password is correct and works
+E| compliant     server-roles              Check rudder-passwords.c|                    The Rudder passwords file is present and secure
+E| compliant     server-roles              Check allowed networks c|                    The Rudder allowed networks configuration is OK
+E| compliant     server-roles              Check WebDAV credentials                     The Rudder WebDAV user and password are OK
+E| compliant     server-roles              Check apache process                         Check apache process running was correct
+E| compliant     server-roles              Check apache boot script                     Check apache boot starting parameters was correct
+E| compliant     server-roles              Check jetty process                          Check jetty process running was correct
+E| compliant     server-roles              Check configuration-repo|                    The /var/rudder/configuration-repository directory is present
+E| compliant     server-roles              Check configuration-repo|                    The /var/rudder/configuration-repository GIT lock file is not present or not older than 5 minutes
+E| compliant     server-roles              Check rudder status                          The http://localhost:8080/rudder/api/status web application is running
+E| compliant     server-roles              Check endpoint status                        The http://localhost:8080/endpoint/api/status web application is running
+E| compliant     server-roles              Check slapd process                          Check slapd process running was correct
+E| compliant     server-roles              Check PostgreSQL configu|                    There is no need of specific postgresql configuration on this system
+E| compliant     server-roles              Check postgresql process                     Check postgresql process running was correct
+E| compliant     server-roles              Check postgresql boot sc|                    Check postgresql boot starting parameters was correct
+E| n/a           server-roles              Send metrics to rudder-p|                    Sending metrics to rudder-project is not enabled. Skipping.
+
+## Summary #####################################################################
+32 components verified in 4 directives
+   => 32 components in Enforce mode
+         -> 30 compliant
+               -> 2 not-applicable
+               execution time: 2.39s
+################################################################################
+
+      */
+
 
 
 == [DELETE] api/nodes/{id}
