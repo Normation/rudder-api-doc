@@ -29,6 +29,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
    @apiParam (Mono) {Boolean} [enabled=true]     enabled the Rule at creation. But this parameter can be overriden : if you want to create Rule with directives and Rule targets directly with workflow enabled, the Rule will be created disabled (to prevent creating active Rule without validation). But this parameter can be overriden. Used to be 'isEnabled' in response, look <a href="#non-compliant-data-in-response">here</a> for more details.
    @apiParam (Multi) {UUID}       [directives] link one directive to the Rule. value needs to be an existing directive ID.
    @apiParam (Multi) {RuleTarget} [targets]    Link one target to the Rule. Rule targets are "group:groupId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
+   @apiParam (Multi) {Tag}        [tags]       Tags linked to this Rule. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag.
  */
 
 /**
@@ -260,6 +261,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiParam (Multi) {UUID}       [directives] Link one directive to the Rule. value needs to be an existing directive ID.
     @apiParam (Multi) {Ruletarget} [targets]    Link one target to the Rule. Rule targets are for groups : "group:groupId", nodes : "node:nodeId" and the special targets : "special:all" and "special:all_exceptPolicyServers".
+   @apiParam (Multi) {Tag}        [tags]       Tags linked to this Rule. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag.
     @apiExample Example usage:
     Update display name: 
     curl -H "X-API-Token: yourToken" -X POST 'http://rudder.example.com/rudder/api/latest/rules/RuleID' -d "displayName=Name of Rule"

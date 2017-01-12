@@ -247,6 +247,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {Boolean}           [enabled=true]                              Enable the Directive at creation. This parameter can be overriden. Used to be 'isEnabled' in response, look <a href="#non-compliant-data-in-response">here</a> for more details.
     @apiParam (Mono) {TechniqueVersion}  [techniqueVersion=latest Technique version] In which version your tehcnique should be created.
     @apiParam (Mono) {Int}               [priority]                                  Directive priority. Determines which value to use if there are several Directives based on the same technique applied to a Node.
+    @apiParam (Multi) {Tag}              [tags]                                      Tags linked to this directive. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag.
+ 
 
     
     @apiExample Example usage:
@@ -260,6 +262,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
   "longDescription": "",
   "techniqueName": "genericVariableDefinition",
   "techniqueVersion": "2.0",
+  "tags": {
+    "env" : "production",
+    "country" : "FR"
+  },
   "parameters": {
     "section": {
       "name": "sections",
@@ -305,6 +311,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "longDescription": "",
       "techniqueName": "genericVariableDefinition",
       "techniqueVersion": "2.0",
+      "tags": {
+        "env" : "production",
+        "country" : "FR"
+      },
       "parameters": {
         "section": {
           "name": "sections",
@@ -361,6 +371,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiParam (Mono) {Int} [priority=5]                                Directive priority. Determines which value to use if there are several Directives based on the same technique applied to a Node.
     @apiPAram (Mono) {TechniqueVersion} [techniqueVersion=same version as source] Define the technique version used. By default it will used the version of the cloned Directive
+    @apiParam (Multi) {Tag}              [tags]                        Tags linked to this directive. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag. 
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
@@ -421,6 +432,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiParam (Mono) {Int}     [priority]         Directive priority. Determines which value to use if there are several Directives based on the same technique applied to a Node.
     @apiParam (Mono) {TechniqueVersion} [techniqueVersion] Technique Version.
+    @apiParam (Multi) {Tag}              [tags]   Tags linked to this directive. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag.
+
 
     @apiExample Example usage:
     # Change long description, priority and a value in parameters
@@ -472,6 +485,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       "longDescription": "Add a loooooooooooong description",
       "techniqueName": "genericVariableDefinition",
       "techniqueVersion": "2.0",
+      "tags": {
+        "env" : "production",
+        "country" : "FR"
+      },
       "parameters": {
         "section": {
           "name": "sections",
@@ -528,6 +545,8 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiParam (Mono) {Int}     [priority]         Directive priority. Determines which value to use if there are several Directives based on the same technique applied to a Node.
     @apiParam (Mono) {TechniqueVersion} [techniqueVersion] Technique Version.
+    @apiParam (Multi) {Tag}              [tags]   Tags linked to this directive. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag.
+
 
     @apiExample Example usage:
     // Update display name: 
