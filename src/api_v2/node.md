@@ -539,7 +539,7 @@ HTTP/1.1 200 OK
     /**
     @api {post} /api/nodes/{id} 5. Set Node properties
     @apiVersion 5.0.0
-    @apiName updateNodeProperties
+    @apiName updateNode
     @apiGroup Nodes
 
     @apiUse nodeId
@@ -593,6 +593,106 @@ HTTP/1.1 200 OK
   }
 }
 
+      */
+
+== [POST] api/nodes/{id}
+
+    /**
+    @api {post} /api/nodes/{id} 5. Update Node settings
+    @apiVersion 8.0.0
+    @apiName updateNode
+    @apiGroup Nodes
+
+    @apiUse nodeId
+    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value. Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
+    @apiParam {PolicyMode}       policy In which mode the node will apply its configuration policy. You can choose between "audit" and "enfoce" modes, or "default" to use the global mode
+
+    @apiDescription This API allows to update the node settings.
+
+    @apiExample Initial content
+# Given the "data.json" JSON file with content:
+{ "properties": [
+  { "name": "env_type"    , "value": "production" },
+  { "name": "shell"       , "value": "/bin/sh" },
+  { "name": "utf-8 poetry", "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ" }
+] 
+, "policyMode" : "audit"
+}
+
+
+    @apiExample Set properties and change to audit mode
+# Setting properties from "data.json" and policy mode to audit:
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d @properties.json
+
+    @apiExample Remove one property, change another one
+# Removing the key "utf-8 poetry" from the command line and updating the "env_type" one:
+curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d '{ "properties": [{ "name":"utf-8 poetry", "value":""}, {"name":"env_type", "value":"deprovisioned"}] }'
+
+    @apiExample Remove a property, change another one and switch to default mode
+# Removing the key "env_type" and changing "shell" and use default policy mode:
+curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type=" -d "policyMode=default"
+
+    @apiSuccessExample Set properties and change to audit mode:
+HTTP/1.1 200 OK
+{
+  "action": "updateNode",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "policyMode": "audit",
+    "properties": [
+      {
+        "name": "env_type",
+        "value": "production"
+      },
+      {
+        "name": "shell",
+        "value": "/bin/sh"
+      },
+      {
+        "name": "utf-8 poetry",
+        "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ"
+      }
+    ]
+  }
+}
+
+    @apiSuccessExample Remove property and modify another one:
+HTTP/1.1 200 OK
+{
+  "action": "updateNode",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "policyMode": "audit",
+    "properties": [
+      {
+        "name": "env_type",
+        "value": "deprovisioned"
+      },
+      {
+        "name": "shell",
+        "value": "/bin/sh"
+      }
+    ]
+  }
+}
+    @apiSuccessExample Remove a property, modify another and change to audit mode:
+HTTP/1.1 200 OK
+{
+  "action": "updateNode",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "policyMode": "default",
+    "properties": [
+      {
+        "name": "shell",
+        "value": "/bin/false"
+      }
+    ]
+  }
+}
       */
 
 
