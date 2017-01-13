@@ -46,7 +46,7 @@ APIDoc (http://apidocjs.com).
 
 The build needs NodeJS and npm, see: http://apidocjs.com/#install
 
-To build the whole things, once nodeje is installed, just execute the build.sh script
+To build the whole things, once nodejs is installed, just execute the build.sh script
 
 === Template update
 

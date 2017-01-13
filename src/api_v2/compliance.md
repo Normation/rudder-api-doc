@@ -38,7 +38,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/compliance/rules 1. Display compliance of all Rules
     @apiVersion 6.0.0
     @apiName getRulesCompliance
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get compliance of all Rules available in Rudder
     
     @apiExample Example usage:
@@ -121,7 +121,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/compliance/rules 1. Display compliance of all Rules
     @apiVersion 7.0.0
     @apiName getRulesCompliance
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get compliance of all Rules available in Rudder
 
     @apiUse ruleLevel
@@ -154,7 +154,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/compliance/rules/{id} 2. Get a Rule compliance details
     @apiVersion 6.0.0
     @apiName getRuleCompliance
-    @apiGroup compliance 
+    @apiGroup Compliance 
     @apiDescription Get the compliance details of one Rule, whose ID is specified in the URL
     
     @apiUse ruleId
@@ -238,7 +238,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} /api/compliance/rules/{id} 2. Get a Rule compliance details
     @apiVersion 7.0.0
     @apiName getRuleCompliance
-    @apiGroup compliance 
+    @apiGroup Compliance 
     @apiDescription Get the compliance details of one Rule, whose ID is specified in the URL
     
     @apiUse ruleId
@@ -272,7 +272,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} api/compliance/nodes 3. Get all Nodes compliance 
     @apiVersion 6.0.0
     @apiName getNodesCompliance 
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get the compliance details of all Nodes
     
     @apiExample Example usage:
@@ -353,7 +353,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} api/compliance/nodes 3. Get all Nodes compliance 
     @apiVersion 7.0.0
     @apiName getNodesCompliance 
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get the compliance details of all Nodes
     
     @apiUse nodeLevel
@@ -388,7 +388,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} api/compliance/nodes/{id} 4. Get Compliance details of a Node 
     @apiVersion 6.0.0
     @apiName getNodeCompliance
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get compliance details of the Node passed as parameter
     
     @apiUse nodeId
@@ -467,7 +467,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @api {get} api/compliance/nodes/{id} 4. Get Compliance details of a Node 
     @apiVersion 7.0.0
     @apiName getNodeCompliance
-    @apiGroup compliance
+    @apiGroup Compliance
     @apiDescription Get compliance details of the Node passed as parameter
     
     @apiUse nodeId

@@ -1,7 +1,7 @@
 
 This file describe REST API v2 for nodes.
 
-Corresponding code is available here: 
+Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/node/NodeAPI2.scala
 
 
@@ -20,14 +20,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
   @apiDefine Query Query parameters - Those parameters will be used to filter Nodes, based on group definition query system
  */
 /
-== [GET] api/nodes 
+== [GET] api/nodes
 
     /**
     @api {get} /api/nodes 1. List accepted Nodes
     @apiVersion 2.0.0
     @apiName listAcceptedNodes
     @apiGroup Nodes
-    
+
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes
 
@@ -89,10 +89,10 @@ HTTP/1.1 200 OK
     ]
   }
 }
-    
+
      */
 
-== [GET] api/nodes 
+== [GET] api/nodes
 
     /**
     @api {get} /api/nodes 1. List accepted Nodes
@@ -103,11 +103,11 @@ HTTP/1.1 200 OK
     @apiDescription That function allow you to get details of accepted Nodes. You can make query on those Nodes based on inventory criterion. You can use the same queries than those used in NodeGroup queries
 
     @apiParam (Multi) {String}   [include=default]  Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter
-    @apiParam (Query) {Query}     query             A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replaced by the three following (select, composition, where) 
+    @apiParam (Query) {Query}     query             A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replaced by the three following (select, composition, where)
     @apiParam (Query) {Criterion} where             The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
     @apiParam (Query) {String}    [composition=and] Boolean operator to use between each criteria. Other value is "And". Only used if 'where' is defined.
     @apiParam (Query) {String}    [select=node]     What kind of data we want to include. Here we can get policy servers/relay by setting 'nodeAndPolicyServer'. Only used if where is defined.
-    
+
     @apiExample Example usage (curl):
      # Get all nodes having a hostname starting with node1 and based on Linux
      curl -H "X-API-Token: yourToken" 'https://rudder.example.com/rudder/api/latest/nodes?where=\[\{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"\},\{"objectType":"node","attribute":"nodeHostname","comparator":"regex","value":"node1.*"\}\]'
@@ -241,7 +241,7 @@ HTTP/1.1 200 OK
     @apiName listPendingNodes
     @apiGroup Nodes
 
-    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter
 
     @apiExample Example usage:
     curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending?include=minimal
@@ -275,18 +275,43 @@ HTTP/1.1 200 OK
 
      */
 
+== [POST] api/nodes/fetchData
+
+
+    /**
+    @api {get} /api/nodes/{id} 3. Update properties from data source - all nodes
+    @apiVersion 4.0.0
+    @apiName fetchDataAllNodes
+    @apiGroup Nodes
+
+    @apiDescription This API allows to trigger the update of properties coming from
+    data sources for all nodes. The call is asynchrone.
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/fetchData
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "fetchDataAllNodes",
+  "result": "success",
+  "data": "Data for all nodes, for all configured data sources are going to be updated"
+}
+
+    */
+
 
 == [GET] api/nodes/{id}
 
     /**
-    @api {get} /api/nodes/{id} 3. Get Node details
+    @api {get} /api/nodes/{id} 4. Get Node details
     @apiVersion 4.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
-    
+
     @apiUse nodeId
 
-    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter 
+    @apiParam (Multi) {String}         [include=default] Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter
 
 
     @apiExample Example usage:
@@ -519,7 +544,7 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/pending/{id}
 
     /**
-    @api {post} /api/nodes/pending/{id} 4. Change pending Node status
+    @api {post} /api/nodes/pending/{id} 5. Change pending Node status
     @apiVersion 2.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes
@@ -537,7 +562,7 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/{id}
 
     /**
-    @api {post} /api/nodes/{id} 5. Set Node properties
+    @api {post} /api/nodes/{id} 6. Set Node properties
     @apiVersion 5.0.0
     @apiName updateNode
     @apiGroup Nodes
@@ -701,11 +726,11 @@ HTTP/1.1 200 OK
 == [DELETE] api/nodes/{id}
 
     /**
-    @api {delete} /api/nodes/{id} 6. Delete Node
+    @api {delete} /api/nodes/{id} 7. Delete Node
     @apiVersion 2.0.0
     @apiName deleteNode
     @apiGroup Nodes
-    
+
 
     @apiUse nodeId
 
@@ -741,4 +766,28 @@ HTTP/1.1 500 Server Error
 
      */
 
+== [POST] api/nodes/{id}/fetchData
 
+    /**
+    @api {post} /api/nodes/{id}/fetchData 8. Update properties from data source - one node
+    @apiVersion 9.0.0
+    @apiName fetchDataOneNode
+    @apiGroup Nodes
+
+    @apiUse nodeId
+
+    @apiDescription This API allows to trigger the update of properties coming from
+    data sources for that node. The call is asynchrone.
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID/fetchData
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "fetchDataOneNode",
+  "result": "success",
+  "data": "Data for node 'nodeID', for all configured data sources, is going to be updated"
+}
+
+      */

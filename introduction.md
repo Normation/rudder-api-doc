@@ -98,6 +98,16 @@ period of time to allow migration from previous versions.
       <td class="code">3.2</td>
       <td>Add 'level' option in compliance API</td>
     </tr>
+    <tr>
+      <td class="code">8</td>
+      <td class="code">4.0</td>
+      <td>Add 'applyPolicy' for nodes and new settings API</td>
+    </tr>
+    <tr>
+      <td class="code">9</td>
+      <td class="code">4.1</td>
+      <td>Add 'datasource' API, trigger datasource fetch for node, tags on directive and rules</td>
+    </tr>
   </tbody>
 </table>
 
