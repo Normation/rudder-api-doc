@@ -275,32 +275,6 @@ HTTP/1.1 200 OK
 
      */
 
-== [POST] api/nodes/fetchData
-
-
-    /**
-    @api {get} /api/nodes/{id} 3. Update properties from data source - all nodes
-    @apiVersion 4.0.0
-    @apiName fetchDataAllNodes
-    @apiGroup Nodes
-
-    @apiDescription This API allows to trigger the update of properties coming from
-    data sources for all nodes. The call is asynchrone.
-
-    @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/fetchData
-
-    @apiSuccessExample Success-Response:
-HTTP/1.1 200 OK
-{
-  "action": "fetchDataAllNodes",
-  "result": "success",
-  "data": "Data for all nodes, for all configured data sources are going to be updated"
-}
-
-    */
-
-
 == [GET] api/nodes/{id}
 
     /**
@@ -640,7 +614,7 @@ HTTP/1.1 200 OK
   { "name": "env_type"    , "value": "production" },
   { "name": "shell"       , "value": "/bin/sh" },
   { "name": "utf-8 poetry", "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ" }
-] 
+]
 , "policyMode" : "audit"
 }
 
@@ -765,29 +739,3 @@ HTTP/1.1 500 Server Error
 }
 
      */
-
-== [POST] api/nodes/{id}/fetchData
-
-    /**
-    @api {post} /api/nodes/{id}/fetchData 8. Update properties from data source - one node
-    @apiVersion 9.0.0
-    @apiName fetchDataOneNode
-    @apiGroup Nodes
-
-    @apiUse nodeId
-
-    @apiDescription This API allows to trigger the update of properties coming from
-    data sources for that node. The call is asynchrone.
-
-    @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID/fetchData
-
-    @apiSuccessExample Success-Response:
-HTTP/1.1 200 OK
-{
-  "action": "fetchDataOneNode",
-  "result": "success",
-  "data": "Data for node 'nodeID', for all configured data sources, is going to be updated"
-}
-
-      */

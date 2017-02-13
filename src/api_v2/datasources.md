@@ -10,6 +10,11 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
   @apiParam (URL parameters) {String} id Unique identifier of the data source.
 */
 /**
+  @apiDefine nodeId
+
+  @apiParam (URL parameters) {String} id Unique identifier of a node.
+*/
+/**
   @apiDefine Mono Mono valued parameters - Those parameters will only work with one value
 */
 /**
@@ -24,6 +29,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 /**
   @apiDefine POSTseePUT For "Update" parameters, see "Create". Only id is not modifiable.
 */
+
 
 
 [GET] api/datasources
@@ -49,13 +55,14 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
             "id": "test-data-source-1",
             "description": "Data from http://jsonplaceholder.typicode.com",
             "type": {
-              "name": "http",
+              "name": "HTTP",
               "parameters": {
                 "url": "http://jsonplaceholder.typicode.com/users/1",
                 "headers": {},
+                "params": {},
                 "path": "",
                 "checkSsl": false,
-                "requestTimeout": 5,
+                "requestTimeout": 30,
                 "requestMethod": "GET",
                 "requestMode": {
                   "name": "byNode"
@@ -67,10 +74,10 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
               "onNewNode": true,
               "schedule": {
                 "type": "scheduled",
-                "duration": 5
+                "duration": 3600
               }
             },
-            "updateTimeout": 5,
+            "updateTimeout": 30,
             "enabled": true
           }
         ]
@@ -147,7 +154,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {String}        name                            The human readable name of the data source to create.
     @apiParam (Mono) {String}        description                     Description of the goal of the data source to create.
     @apiParam (Mono) {Boolean}       enabled                         Enable or disable data source.
-    @apiParam (Mono) {Int}           updateTimeout                   Duration in minute before aborting data source update. The main goal is to prevent never ending requests. If a periodicity if configured, you should set that timeout at a lower value.
+    @apiParam (Mono) {Int}           updateTimeout                   Duration in seconds before aborting data source update. The main goal is to prevent never ending requests. If a periodicity if configured, you should set that timeout at a lower value.
     @apiParam (Mono) {JSON}          runParameters                   Parameters to configure when the data source is fetched to update node properties. See below for details.    
     @apiParam (Mono) {Boolean}       runParameters.onGeneration      Trigger a fetch at the begining of a policy generation
     @apiParam (Mono) {Boolean}       runParameters.onNewNode         Trigger a fetch when a new node is accepted, for that node
@@ -155,19 +162,20 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Mono) {String=
                      "scheduled",
                      "notscheduled"} runParameters.schedule.type     "scheduled": enable periodic update; "notscheduled": disable them
-    @apiParam (Mono) {Int}           runParameters.schedule.duration duration in minutes between the end of an update, and the start of the following.
+    @apiParam (Mono) {Int}           runParameters.schedule.duration duration in seconds between the end of an update, and the start of the following.
     @apiParam (Mono) {JSON}          type                            Define and configure data source type. For now, only "http" data source is supported. See below for its Configuration
-    @apiParam (Mono) {String="http"} type.name                       Data source type name. Only "http" is supported for now.
+    @apiParam (Mono) {String="HTTP"} type.name                       Data source type name. Only "http" is supported for now.
     @apiParam (Mono) {JSON}          type.parameters                 Data source type specific parameters. See below for HTTP data source parameters.
 
 
     @apiParam (HTTP) {String}              url            URL to contact. Rudder expansion available.
     @apiParam (HTTP) {String="GET","POST"} requestMethod  HTTP method to use to contact the URL.
-    @apiParam (HTTP) {JSON}                headers        A JSON object of "header-key":"header-value" to add to the query. Rudder expansion available in value.
+    @apiParam (HTTP) {JSON}                headers        Represent HTTP headers for the query. JSON array of {"name":"xxx","value":"yyy"}. Rudder expansion available.
+    @apiParam (HTTP) {JSON}                headers        Represent HTTP parameters for the query. JSON  array of {"name":"xxx","value":"yyy"}. Rudder expansion available.
     @apiParam (HTTP) {String}              path           JSON path (as defined in https://github.com/jayway/JsonPath/, without the leading "$.") to find the interesting
                                                           sub-json or string/number/boolean value in the answer. Let empty to use the whole answer as value.  
     @apiParam (HTTP) {Boolean}             checkSsl       Check SSL certificate validity for https. Must be set to false for self-signed certificate
-    @apiParam (HTTP) {Int}                 requestTimeout Timeout in minute for each HTTP request
+    @apiParam (HTTP) {Int}                 requestTimeout Timeout in seconds for each HTTP request
     @apiParam (HTTP) {JSON}                requestMode    Configure the strategy used to query the HTTP data source. For now, only a node by node strategy is available (see below)
     @apiParam (HTTP) {String="byNode"}     requestMode.name Name of the strategy to use. For now, only available is "byNode": make one request for each node
 
@@ -180,13 +188,13 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
   "id": "test-data-source-2",
   "description": "Data from http://jsonplaceholder.typicode.com",
   "type": {
-    "name": "http",
+    "name": "HTTP",
     "parameters": {
       "url": "http://jsonplaceholder.typicode.com/users/1",
       "headers": {},
       "path": "",
       "checkSsl": false,
-      "requestTimeout": 5,
+      "requestTimeout": 30,
       "requestMethod": "GET",
       "requestMode": {
         "name": "byNode"
@@ -198,10 +206,10 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
     "onNewNode": true,
     "schedule": {
       "type": "scheduled",
-      "duration": 5
+      "duration": 3600
     }
   },
-  "updateTimeout": 5,
+  "updateTimeout": 30,
   "enabled": true
 }
 
@@ -217,13 +225,13 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
         "id": "test-data-source-2",
         "description": "Data from http://jsonplaceholder.typicode.com",
         "type": {
-          "name": "http",
+          "name": "HTTP",
           "parameters": {
             "url": "http://jsonplaceholder.typicode.com/users/1",
             "headers": {},
             "path": "",
             "checkSsl": false,
-            "requestTimeout": 5,
+            "requestTimeout": 30,
             "requestMethod": "GET",
             "requestMode": {
               "name": "byNode"
@@ -235,10 +243,10 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
           "onNewNode": true,
           "schedule": {
             "type": "scheduled",
-            "duration": 5
+            "duration": 3600
           }
         },
-        "updateTimeout": 5,
+        "updateTimeout": 30,
         "enabled": true
       }
     ]
@@ -260,7 +268,7 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 
     @apiUse datasourceId
 
-    @apiParam (POSTseePUT) {String} AllParameters See above. 
+    @apiParam (POSTseePUT) {String} AllParameters See above.
 
 
     @apiExample Example usage:
@@ -284,13 +292,13 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
             "id": "test-data-source-1",
             "description": "This data source is temporarly no more used and so disabled",
             "type": {
-              "name": "http",
+              "name": "HTTP",
               "parameters": {
                 "url": "http://jsonplaceholder.typicode.com/users/1",
                 "headers": {},
                 "path": "",
                 "checkSsl": false,
-                "requestTimeout": 5,
+                "requestTimeout": 30,
                 "requestMethod": "GET",
                 "requestMode": {
                   "name": "byNode"
@@ -302,10 +310,10 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
               "onNewNode": true,
               "schedule": {
                 "type": "scheduled",
-                "duration": 5
+                "duration": 3600
               }
             },
-            "updateTimeout": 5,
+            "updateTimeout": 30,
             "enabled": false
           }
         ]
@@ -320,18 +328,18 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 [DELETE] api/datasources/{id}
 --------------------------
 
-        /**
-        @api {delete} /api/datasources/{id} 5. Delete a Directive
-        @apiVersion 9.0.0
-        @apiName deleteDirective
-        @apiGroup DataSources
+  /**
+  @api {delete} /api/datasources/{id} 5. Delete a DataSources
+  @apiVersion 9.0.0
+  @apiName deleteDataSource
+  @apiGroup DataSources
 
-        @apiUse directiveId
+  @apiUse datasourceId
 
-        @apiExample Example usage:
-        curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/datasources/DataSourceID
+  @apiExample Example usage:
+  curl -H "X-API-Token: yourToken" -X DELETE http://rudder.example.com/rudder/api/latest/datasources/DataSourceID
 
-        @apiSuccessExample Success-Response:
+  @apiSuccessExample Success-Response:
 {
   "action": "getDataSource",
   "result": "success",
@@ -346,3 +354,112 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 }
 
         */
+
+
+
+
+[POST] api/datasources/reload
+-----------------------------
+
+  /**
+  @api {post} /api/datasources/reload 6. Update properties from data source - all nodes
+  @apiVersion 4.0.0
+  @apiName fetchDataAllNodes
+  @apiGroup DataSources
+
+  @apiDescription This API allows to trigger the update of properties coming from
+  data sources for all nodes. The call is asynchrone.
+
+  @apiExample Example usage:
+  curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/datasources/reload
+
+  @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+"action": "fetchDataAllNodes",
+"result": "success",
+"data": "Data for all nodes, for all configured data sources are going to be updated"
+}
+
+  */
+[POST] api/datasources/reload/{datasourceId}
+----------------------------------
+
+  /**
+  @api {post} api/datasources/reload/{datasourceId} 7. Update properties from data source with ID ${datasourceId} - all nodes
+  @apiVersion 9.0.0
+  @apiName fetchDataAllNodes
+  @apiGroup DataSources
+
+  @apiUse datasourceId
+
+  @apiDescription This API allows to trigger the update of properties coming from
+  data sources for all nodes. The call is asynchrone.
+
+  @apiExample Example usage:
+  curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/fetchData
+
+  @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+"action": "fetchDataAllNodes",
+"result": "success",
+"data": "Data for all nodes, for all configured data sources are going to be updated"
+}
+
+  */
+
+
+[POST] api/datasources/reload/nodes/{nodeId}
+--------------------------
+    /**
+    @api {post} /api/nodes/{id}/fetchData 8. Update properties from data source - node with ID ${nodeId}
+    @apiVersion 9.0.0
+    @apiName fetchDataOneNode
+    @apiGroup DataSources
+
+    @apiUse nodeId
+
+    @apiDescription This API allows to trigger the update of properties coming from
+    data sources for that node. The call is asynchrone.
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID/fetchData
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "fetchDataOneNode",
+  "result": "success",
+  "data": "Data for node 'nodeID', for all configured data sources, is going to be updated"
+}
+
+      */
+
+
+[POST] api/datasources/reload/{datasourceId}/nodes/{nodeId}
+--------------------------
+    /**
+    @api {post} /api/nodes/{id}/fetchData 9. Update properties from data source ${datasourceId} - node ${nodeId}
+    @apiVersion 9.0.0
+    @apiName fetchDataOneNode
+    @apiGroup DataSources
+
+    @apiUse datasourceId
+    @apiUse nodeId
+
+    @apiDescription This API allows to trigger the update of properties coming from
+    data source with ID ${datasourceId} for that node. The call is asynchrone.
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID/fetchData
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "fetchDataOneNode",
+  "result": "success",
+  "data": "Data for node 'nodeID', for all configured data sources, is going to be updated"
+}
+
+      */
