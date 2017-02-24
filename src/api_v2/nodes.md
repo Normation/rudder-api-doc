@@ -102,7 +102,7 @@ HTTP/1.1 200 OK
 
     @apiDescription That function allow you to get details of accepted Nodes. You can make query on those Nodes based on inventory criterion. You can use the same queries than those used in NodeGroup queries
 
-    @apiParam (Multi) {String}   [include=default]  Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter
+    @apiParam (Multi) {String}   [include=default]  Level of information to include from the node inventory. Some base levels are defined (minimal, default, full). You can add fields you want to a base level by adding them to the list, possible values are keys from json answer. If you don't provide a base level, they will be added to default base level, so if you only want os details, use "minimal,os" as the value for this parameter. Details of returned properties at each level are given in the dedicated menu entry.
     @apiParam (Query) {Query}     query             A query json object like we use as query in NodeGroups. A three field json object { 'composition' : 'and', 'select' : 'node', 'where' : [{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}, That parameter can be replaced by the three following (select, composition, where)
     @apiParam (Query) {Criterion} where             The criterion you want to find for your nodes like '[{"objectType":"node","attribute":"OS","comparator":"eq","value":"Linux"}]}'
     @apiParam (Query) {String}    [composition=and] Boolean operator to use between each criteria. Other value is "And". Only used if 'where' is defined.
@@ -192,9 +192,191 @@ HTTP/1.1 200 OK
   }
 }
 
-     */
+*/
 
+== Node information level details
 
+  /**
+    @apiDefine IncludeMinimal Properties returned by include=minimal
+   */
+  /**
+    @apiDefine IncludeDefault Properties returned by include=default
+   */
+  /**
+    @apiDefine IncludeFull    Properties returned by include=full
+  */
+/**
+@api {Response format documentation} /api/nodes/pending,/api/nodes,/api/nodes/{nodeId} 0. Node information format
+@apiVersion 6.0.0
+@apiGroup Nodes
+
+@apiDescription Here, we are describing all the available properties on node details on each of the three level: minimal, default and full.
+As explain in documentation for the "include" parameters in relevants API call, you can also specify the list of included first level
+properties you want to get.
+
+A value is returned *only* if it is defined for the node. For example, "license" are rarelly defined for
+Linux software and so software won't have that data.
+
+  @apiParam (IncludeMinimal) {String} id       Rudder unique node identifier
+  @apiParam (IncludeMinimal) {String} hostname Fully qualified name of the node
+  @apiParam (IncludeMinimal) {String} status   Status of the node in Rudder (pending, accepted, deleted)
+
+  @apiParam (IncludeDefault) {String} [architectureDescription] Information about CPU architecture (32/64 bits)
+  @apiParam (IncludeDefault) {String} [description] A human intended description of the node
+  @apiParam (IncludeDefault) {JSON}   ipAddresses Array of all IPs (v4 and v6) for the node
+  @apiParam (IncludeDefault) {String} [lastInventoryDate] Date and time (yyyy-MM-dd HH:mm) of the last generated inventory report (node time)
+  @apiParam (IncludeDefault) {JSON}   [machine] Information about the underlying machine
+  @apiParam (IncludeDefault) {String} [machine.id] Rudder unique identifier for the machine
+  @apiParam (IncludeDefault) {String} [machine.type] Phtsical or Virtual machine
+  @apiParam (IncludeDefault) {String} [machine.provider] In the case of VM, the VM technologie
+  @apiParam (IncludeDefault) {String} [machine.manufacturer] Information about machine manufacturer
+  @apiParam (IncludeDefault) {String} [machine.serialNumber] If available, a unique identifier provided by the machine
+  @apiParam (IncludeDefault) {JSON}   os Rudder unique node identifier
+  @apiParam (IncludeDefault) {String} os.type Familly of the OS (Windows/Linux/AIX/FreeBSD/...)
+  @apiParam (IncludeDefault) {String} os.name OS name (distribution for Linux, name for Windows, ...)
+  @apiParam (IncludeDefault) {String} os.version OS Version (depend of the OS Familly and name)
+  @apiParam (IncludeDefault) {String} os.fullName The long, detailled name as reported by the OS
+  @apiParam (IncludeDefault) {String} [os.servicePack] Service pack level
+  @apiParam (IncludeDefault) {String} os.kernelVersion Version of the kernel
+  @apiParam (IncludeDefault) {JSON}   managementTechnology Array of management agents and their type running on the node
+  @apiParam (IncludeDefault) {JSON}   managementTechnology.name    Agent name (Community, enterprise, ..)
+  @apiParam (IncludeDefault) {JSON}   managementTechnology.version Agent version
+  @apiParam (IncludeDefault) {String} policyServerId Rudder unique ID of the policy server from which the node get its policies
+  @apiParam (IncludeDefault) {JSON}   properties Array of node properties (either set by user or filled by third party sources)
+  @apiParam (IncludeDefault) {String} properties.name] Property name
+  @apiParam (IncludeDefault) {JSON}   properties.value Property value, which can be a string or a full-fledge JSON data object
+  @apiParam (IncludeDefault) {String} [policyMode] Rudder policy mode for the node ("enforce", "audit", or "default" if the node follows the global configuration)
+  @apiParam (IncludeDefault) {String} [ram] Available RAM (in MB)
+  @apiParam (IncludeDefault) {JSON}   [timezone] Node time zone information
+  @apiParam (IncludeDefault) {String} [timezone.name] Timezone name
+  @apiParam (IncludeDefault) {String} [timezone.offset] Timezone offset to UTC
+
+  @apiParam (IncludeFull) {JSON}   [accounts] Array of user accounts declared in the node
+  @apiParam (IncludeFull) {JSON}   [bios] BIOS information
+  @apiParam (IncludeFull) {String} [bios.name] BIOS name
+  @apiParam (IncludeFull) {String} [bios.version] BIOS version
+  @apiParam (IncludeFull) {String} [bios.editor] BIOS editor
+  @apiParam (IncludeFull) {String} [bios.quantity] Number of BIOS on the machine
+  @apiParam (IncludeFull) {String} [bios.description] System provided description of the BIOS (long name)
+  @apiParam (IncludeFull) {String} [bios.releaseDate] Release date of the BIOS
+  @apiParam (IncludeFull) {JSON}   [controllers] Array of physical controller information objects
+  @apiParam (IncludeFull) {String} [controllers.name] Controller name
+  @apiParam (IncludeFull) {String} [controllers.type] Controller type
+  @apiParam (IncludeFull) {String} [controllers.quantity] Quantity of that controller
+  @apiParam (IncludeFull) {String} [controllers.description] System provided description of the controller
+  @apiParam (IncludeFull) {String} [controllers.manufacturer] Controller manufacturer
+  @apiParam (IncludeFull) {JSON}   [environmentVariables] Array of environement variable objects defined on the node in the context of the agent
+  @apiParam (IncludeFull) {String} [environmentVariables.name] Environment Variable name
+  @apiParam (IncludeFull) {String} [environmentVariables.value] Environment Variable value
+  @apiParam (IncludeFull) {JSON}   [fileSystems] Array of file system objects declared on the node.
+  @apiParam (IncludeFull) {String} [fileSystems.name] Type of file system (ext4, swap, etc)
+  @apiParam (IncludeFull) {String} [fileSystems.mountPoint] Mount point
+  @apiParam (IncludeFull) {String} [fileSystems.description] Description of the file system
+  @apiParam (IncludeFull) {String} [fileSystems.fileCount] Number of files
+  @apiParam (IncludeFull) {String} [fileSystems.freeSpace] Free space remaining
+  @apiParam (IncludeFull) {String} [fileSystems.totalSpace] Total space allocated to the file system
+  @apiParam (IncludeFull) {String} [managementTechnologyDetails] Array of additionnal information about management technologie
+  @apiParam (IncludeFull) {JSON}   [managementTechnologyDetails.cfengineKeys] Array of public key used by the agent
+  @apiParam (IncludeFull) {String} [managementTechnologyDetails.cfengineUser] User account used by the agent
+  @apiParam (IncludeFull) {JSON}   [memories] Array of memory slot information objects
+  @apiParam (IncludeFull) {String} [memories.name] Name of the memory slot or memory module
+  @apiParam (IncludeFull) {String} [memories.speed] Memory speed (frequency)
+  @apiParam (IncludeFull) {String} [memories.type] Memory slot type
+  @apiParam (IncludeFull) {String} [memories.caption] Manufacturer provided information about the module
+  @apiParam (IncludeFull) {String} [memories.quantity] Number of modules in that slot
+  @apiParam (IncludeFull) {String} [memories.capacity] Size of modules
+  @apiParam (IncludeFull) {String} [memories.slotNumber] Slot number
+  @apiParam (IncludeFull) {String} [memories.description] System provided description
+  @apiParam (IncludeFull) {String} [memories.serialNumber] Serial number of the module.
+  @apiParam (IncludeFull) {JSON}   [networkInterfaces] Detailled information about registered network interfaces on the node
+  @apiParam (IncludeFull) {String} [networkInterfaces.name] Interface name (for ex "eth0")
+  @apiParam (IncludeFull) {String} [networkInterfaces.mask] network interface mask
+  @apiParam (IncludeFull) {String} [networkInterfaces.type] information about the type of network interface
+  @apiParam (IncludeFull) {String} [networkInterfaces.speed] information about synchronisation speed
+  @apiParam (IncludeFull) {String} [networkInterfaces.status] network interface status (enable or not, up or down)
+  @apiParam (IncludeFull) {String} [networkInterfaces.dhcpServer] DHCP server managing that network interface
+  @apiParam (IncludeFull) {String} [networkInterfaces.macAddress] MAC addresse of the network interface
+  @apiParam (IncludeFull) {JSON}   [networkInterfaces.ipAddresses] Array of IP addresses for that network interface
+  @apiParam (IncludeFull) {JSON}   [ports] Array of physical port information objects
+  @apiParam (IncludeFull) {String} [ports.name] Port name
+  @apiParam (IncludeFull) {String} [ports.type] Port type
+  @apiParam (IncludeFull) {String} [ports.quantity] quantity of similar ports
+  @apiParam (IncludeFull) {String} [ports.description] system provided description of the port
+  @apiParam (IncludeFull) {JSON}   [processes] Array of process information objects
+  @apiParam (IncludeFull) {String} [processes.pid] PID of the process
+  @apiParam (IncludeFull) {String} [processes.tty] TTY to which the process is attached
+  @apiParam (IncludeFull) {String} [processes.name] Process name
+  @apiParam (IncludeFull) {String} [processes.user] User account who started the process
+  @apiParam (IncludeFull) {String} [processes.started] Status of the process (finished, running, etc)
+  @apiParam (IncludeFull) {String} [processes.memory] Memory allocated to the process (at inventory time)
+  @apiParam (IncludeFull) {String} [processes.cpuUsage] CPU used by the process (at inventory time)
+  @apiParam (IncludeFull) {String} [processes.virtualMemory] Virtual memory allocated to the process (at inventory time)
+  @apiParam (IncludeFull) {String} [processes.description] System provided description about the process
+  @apiParam (IncludeFull) {JSON}   [processors] Array of CPU information objects.
+  @apiParam (IncludeFull) {String} [processors.name] CPU name
+  @apiParam (IncludeFull) {String} [processors.arch] CPU architecture type
+  @apiParam (IncludeFull) {String} [processors.model] CPU model
+  @apiParam (IncludeFull) {String} [processors.familyName]
+  @apiParam (IncludeFull) {String} [processors.manufacturer]
+  @apiParam (IncludeFull) {String} [processors.quantity] Number of CPU with these features
+  @apiParam (IncludeFull) {String} [processors.core] Number of core for that CPU
+  @apiParam (IncludeFull) {String} [processors.speed] Speed (frequency) of the CPU
+  @apiParam (IncludeFull) {String} [processors.cpuid] identifier of the CPU
+  @apiParam (IncludeFull) {String} [processors.thread] Number of thread by core for the CPU
+  @apiParam (IncludeFull) {String} [processors.externalClock] External clock used by the CPU
+  @apiParam (IncludeFull) {String} [processors.stepping] Stepping or power management information
+  @apiParam (IncludeFull) {String} [processors.description] system provided description of the CPU
+  @apiParam (IncludeFull) {JSONT}  [slots] Array of physical extension slot information objects
+  @apiParam (IncludeFull) {String} [slots.name] Slot name or identifier
+  @apiParam (IncludeFull) {String} [slots.status] Slot status (used, powered, etc)
+  @apiParam (IncludeFull) {String} [slots.quantity] quantity of similar slots
+  @apiParam (IncludeFull) {String} [slots.description] system provided description of the slots
+  @apiParam (IncludeFull) {JSON}   [software] Array of software on the node. This can be huge (thousands)
+  @apiParam (IncludeFull) {String} [software.name] Name of the software (as reported by the node)
+  @apiParam (IncludeFull) {String} [software.version] Version of the software
+  @apiParam (IncludeFull) {String} [software.editor] Editor of the software
+  @apiParam (IncludeFull) {String} [software.description] A description of the software
+  @apiParam (IncludeFull) {String} [software.releaseDate] Release date of the software
+  @apiParam (IncludeFull) {JSON}   [software.license] Information about the license
+  @apiParam (IncludeFull) {String} [software.license.oem] Is this an OEM license (and information)
+  @apiParam (IncludeFull) {String} [software.license.name] License name
+  @apiParam (IncludeFull) {String} [software.license.productId] License product identifier
+  @apiParam (IncludeFull) {String} [software.license.productKey] License key
+  @apiParam (IncludeFull) {String} [software.license.description] License description
+  @apiParam (IncludeFull) {String} [software.license.expirationDate] License expiration date
+  @apiParam (IncludeFull) {JSON}   [sound] Array of sound card information object
+  @apiParam (IncludeFull) {String} [sound.name] Sound card name
+  @apiParam (IncludeFull) {String} [sound.quantity] quantity of similar sound cards
+  @apiParam (IncludeFull) {String} [sound.description] system provided description of the sound card
+  @apiParam (IncludeFull) {JSON}   [storage] Array of storage (disks) information objects
+  @apiParam (IncludeFull) {String} [storage.name] Storage name
+  @apiParam (IncludeFull) {String} [storage.type] Storage type
+  @apiParam (IncludeFull) {String} [storage.size] Storage size in MB
+  @apiParam (IncludeFull) {String} [storage.model] Storage model
+  @apiParam (IncludeFull) {String} [storage.firmware] Storage firmware information
+  @apiParam (IncludeFull) {String} [storage.quantity] quantity of similar storage
+  @apiParam (IncludeFull) {String} [storage.description] system provided information about the storage
+  @apiParam (IncludeFull) {String} [storage.manufacturer] Storage manufacturer
+  @apiParam (IncludeFull) {String} [storage.serialNumber] Storage serial number
+  @apiParam (IncludeFull) {JSON}   [videos] Array of video card information objects
+  @apiParam (IncludeFull) {String} [videos.name] Video card name
+  @apiParam (IncludeFull) {String} [videos.memory] quantity of memory for that video card
+  @apiParam (IncludeFull) {String} [videos.chipset] information about video card chipset
+  @apiParam (IncludeFull) {String} [videos.quantity] quantity of similar video cards
+  @apiParam (IncludeFull) {String} [videos.resolution] resolution used by that video card at inventory time
+  @apiParam (IncludeFull) {String} [videos.description] system provided description for that video card
+  @apiParam (IncludeFull) {JSON}   [virtualMachines] Array of hosted virtual machine information objects
+  @apiParam (IncludeFull) {String} [virtualMachines.name] Name of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.type] Type of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.uuid] Unique identifier of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.vcpu] Number of virtual CPU allocated to the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.owner] Owner of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.status] Status (up, starting, etc) of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.memory] Memory allocated to the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.subsystem] Technologie of the hosted virtual machine
+  @apiParam (IncludeFull) {String} [virtualMachines.description] system provided description of the hosted virtual machine
+
+    */
 
 == [GET] api/nodes/pending
 
