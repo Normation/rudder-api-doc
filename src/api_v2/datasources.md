@@ -386,7 +386,7 @@ HTTP/1.1 200 OK
 ----------------------------------
 
   /**
-  @api {post} api/datasources/reload/{datasourceId} 7. Update properties from data source with ID ${datasourceId} - all nodes
+  @api {post} /api/datasources/reload/{datasourceId} 7. Update properties from data source with ID ${datasourceId} - all nodes
   @apiVersion 9.0.0
   @apiName fetchDataAllNodes
   @apiGroup DataSources

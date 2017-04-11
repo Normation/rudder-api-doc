@@ -269,7 +269,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 --------------------------
 
     /**
-    @api {get} api/compliance/nodes 3. Get all Nodes compliance 
+    @api {get} /api/compliance/nodes 3. Get all Nodes compliance 
     @apiVersion 6.0.0
     @apiName getNodesCompliance 
     @apiGroup Compliance
@@ -350,7 +350,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
 
     /**
-    @api {get} api/compliance/nodes 3. Get all Nodes compliance 
+    @api {get} /api/compliance/nodes 3. Get all Nodes compliance 
     @apiVersion 7.0.0
     @apiName getNodesCompliance 
     @apiGroup Compliance
@@ -385,7 +385,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 -----------------
 
     /**
-    @api {get} api/compliance/nodes/{id} 4. Get Compliance details of a Node 
+    @api {get} /api/compliance/nodes/{id} 4. Get Compliance details of a Node 
     @apiVersion 6.0.0
     @apiName getNodeCompliance
     @apiGroup Compliance
@@ -464,7 +464,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
       */
 
     /**
-    @api {get} api/compliance/nodes/{id} 4. Get Compliance details of a Node 
+    @api {get} /api/compliance/nodes/{id} 4. Get Compliance details of a Node 
     @apiVersion 7.0.0
     @apiName getNodeCompliance
     @apiGroup Compliance
