@@ -250,7 +250,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/latest/directives -H "Content-type: application/json" -d @directive.json
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/directives -H "Content-type: application/json" -d @directive.json
 
     @apiExample directive.json details:
 {
