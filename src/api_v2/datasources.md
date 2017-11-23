@@ -1,5 +1,5 @@
 
-This file describe REST API v9 for data sources.
+This file describes REST API v9 for data sources.
 
 Corresponding code is available here:
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/DataSourceApi9.scala

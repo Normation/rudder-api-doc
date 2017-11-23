@@ -1,5 +1,5 @@
 
-This file describe REST API v2 for Groups.
+This file describes REST API v2 for Groups.
 
 Corresponding code is available here: 
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/group/GroupAPI2.scala

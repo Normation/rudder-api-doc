@@ -1,5 +1,5 @@
 
-This file describe REST API v2 for Parameters.
+This file describes REST API v2 for Parameters.
 
 Corresponding code is available here: 
 https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/normation/rudder/web/rest/parameter/ParameterAPI2.scala
