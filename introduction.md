@@ -69,22 +69,22 @@ period of time to allow migration from previous versions.
       <td>Experimental version</td>
     </tr>
     <tr>
-      <td class="code">2 (deprecated)</td>
+      <td class="code">2 (deleted)</td>
       <td class="code">2.7</td>
       <td>First working version with support for rules, directives, nodes and global parameters</td>
     </tr>
     <tr>
-      <td class="code">3 (deprecated)</td>
+      <td class="code">3 (deleted)</td>
       <td class="code">2.8</td>
       <td>Add change request support</td>
     </tr>
     <tr>
-      <td class="code">4</td>
+      <td class="code">4 (deprecated)</td>
       <td class="code">2.10</td>
       <td>Add inventory support on nodes</td>
     </tr>
     <tr>
-      <td class="code">5</td>
+      <td class="code">5 (deprecated)</td>
       <td class="code">3.0</td>
       <td>Allow empty query for groups, add key-values support on nodes</td>
     </tr>
@@ -104,9 +104,24 @@ period of time to allow migration from previous versions.
       <td>Add 'applyPolicy' for nodes and new settings API</td>
     </tr>
     <tr>
-      <td class="code">9</td>
+      <td class="code">8</td>
       <td class="code">4.1</td>
-      <td>Add 'datasource' API, trigger datasource fetch for node, tags on directive and rules</td>
+      <td>Add tags on directive and rules</td>
+    </tr>
+    <tr>
+      <td class="code">9</td>
+      <td class="code">Plugin datasource (4.1 and more)</td>
+      <td>Add 'datasource' API, trigger datasource fetch for node</td>
+    </tr>
+    <tr>
+      <td class="code">9</td>
+      <td class="code">4.2</td>
+      <td>Add internal 'ncf' API</td>
+    </tr>
+    <tr>
+      <td class="code">10</td>
+      <td class="code">4.2</td>
+      <td>Remove option to use Reverse DNS lookups from Settings API</td>
     </tr>
   </tbody>
 </table>
