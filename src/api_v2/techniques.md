@@ -239,7 +239,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     /**
     @api {get} /api/techniques/{name}/directives 2. List all Directives based on all version of a Technique
     @apiVersion 6.0.0
-    @apiName listDirectives 
+    @apiName listTechniquesDirectives 
     @apiGroup Techniques
      
     @apiParam (URL parameters) {String} name Name of the Technique.
@@ -249,7 +249,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     @apiSuccessExample Success Response:
 {
-  "action": "listDirectives",
+  "action": "listTechniquesDirectives",
   "result": "success",
   "data": {
     "directives": [
