@@ -30,7 +30,7 @@ to keep your existing scripts (based on previous behavior). Versions will always
 
 The versions start with version 2, since version 1 used to be a non-REST basic API for internal purposes. A notable exception is the *latest* version, which will always point to the most recent version available.
 
-You may want to select the API version to call:
+You can change the version of the API used by setting it either within the url or in a header:
 
 * the URL: each URL is prefixed by its version id, like */api/version/function*.
 
@@ -203,7 +203,7 @@ curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.
 
 Instead of passing parameters one by one, you can instead supply a JSON object containing all you want to do. You'll also have to set the *Content-Type* header to **application/json** (without it the JSON content would be ignored).
 
-The supplied file must contains a valid JSON object: strings need quotes, booleans and integers don't, ...
+The supplied file must contain a valid JSON: strings need quotes, booleans and integers don't, ...
 
 The (human readable) format is:
 

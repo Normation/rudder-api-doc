@@ -165,7 +165,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiVersion 2.0.0
     @apiName ruleDetails
     @apiGroup Rules
-    @apiDescription Get details for one rule by specifying its ID in the URL
+    @apiDescription Get details for one Rule by specifying its ID in the URL
     
     @apiUse ruleId
 
