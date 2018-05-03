@@ -30,9 +30,9 @@ to keep your existing scripts (based on previous behavior). Versions will always
 
 The versions start with version 2, since version 1 used to be a non-REST basic API for internal purposes. A notable exception is the *latest* version, which will always point to the most recent version available.
 
-It is possible to select the API version you want to use in:
+You may want to select the API version to call:
 
-* the URL: each URL can be prefixed by the version you want to use, like */api/version/function*.
+* the URL: each URL is prefixed by its version id, like */api/version/function*.
 
 <pre class="language-json"><code><span class="com"># Version 5</span>
 curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/<span class="kwd">2</span>/rules
@@ -203,7 +203,7 @@ curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.
 
 Instead of passing parameters one by one, you can instead supply a JSON object containing all you want to do. You'll also have to set the *Content-Type* header to **application/json** (without it the JSON content would be ignored).
 
-The supplied file should be valid JSON: strings need quotes, booleans and integers don't, ...
+The supplied file must contains a valid JSON object: strings need quotes, booleans and integers don't, ...
 
 The (human readable) format is:
 
@@ -234,7 +234,8 @@ curl -X POST -H <span class="str">"X-API-Token: yourToken"</span> -H <span class
 
 ### General parameters
 
-Some parameters are available for almost all API functions. They will be described in this section. None of them can be used in JSON parameters, and will need to be passed as request parameters
+Some parameters are available for almost all API functions. They will be described in this section.
+They must be part of the request and can't be submit in a JSON form.
 
 #### Available for all requests
 

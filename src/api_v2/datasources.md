@@ -42,7 +42,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiGroup DataSources
 
     @apiExample Example usage:
-    curl -k -H "X-API-Token: yourToken" -X GET 'https://192.168.44.2/rudder/api/latest/datasources'
+    curl -H "X-API-Token: yourToken" -X GET 'https://rudder.example.com/rudder/api/latest/datasources'
 
     @apiSuccessExample Success-Response:
     {
