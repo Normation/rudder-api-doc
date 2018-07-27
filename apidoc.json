@@ -5,7 +5,7 @@
   "title": "Rudder API documentation",
   "header": {
     "title": "",
-    "filename": "introduction.md"
+    "filename": "src/introduction.md"
   },
   "order": [
     "Compliance",
