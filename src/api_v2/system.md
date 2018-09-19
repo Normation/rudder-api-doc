@@ -112,7 +112,7 @@ HTTP/1.1 200 OK
     @apiGroup System
 
     @apiExample Example usage (curl):
-     curl -H "X-API-Token: yourToken" -X POST 'https://rudder.example.com/rudder/api/latest/regenerate/policies'
+     curl -H "X-API-Token: yourToken" -X POST 'https://rudder.example.com/rudder/api/latest/system/regenerate/policies'
 
     @apiSuccessExample Success Response (curl):
 HTTP/1.1 200 OK
@@ -134,7 +134,7 @@ HTTP/1.1 200 OK
     @apiGroup System
 
     @apiExample Example usage (curl):
-     curl -H "X-API-Token: yourToken" -X POST 'https://rudder.example.com/rudder/api/latest/update/policies'
+     curl -H "X-API-Token: yourToken" -X POST 'https://rudder.example.com/rudder/api/latest/system/update/policies'
 
     @apiSuccessExample Success Response (curl):
 HTTP/1.1 200 OK
