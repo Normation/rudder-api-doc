@@ -120,8 +120,8 @@ period of time to allow migration from previous versions.
     </tr>
     <tr>
       <td class="code">10</td>
-      <td class="code">4.2</td>
-      <td>Remove option to use Reverse DNS lookups from Settings API</td>
+      <td class="code">4.3</td>
+      <td>Add global compliance, Remove option to use Reverse DNS lookups from Settings API</td>
     </tr>
     <tr>
       <td class="code">11</td>
