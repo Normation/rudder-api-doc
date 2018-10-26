@@ -123,6 +123,12 @@ period of time to allow migration from previous versions.
       <td class="code">4.2</td>
       <td>Remove option to use Reverse DNS lookups from Settings API</td>
     </tr>
+    <tr>
+      <td class="code">11</td>
+      <td class="code">5.0</td>
+      <td>New system API (replacing old localhost v1 api): status, maintenance operations and server behavior</td>
+    </tr>
+ 
   </tbody>
 </table>
 
