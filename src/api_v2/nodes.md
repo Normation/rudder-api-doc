@@ -224,6 +224,7 @@ Linux software and so software won't have that data.
   @apiParam (IncludeDefault) {String} [architectureDescription] Information about CPU architecture (32/64 bits)
   @apiParam (IncludeDefault) {String} [description] A human intended description of the node
   @apiParam (IncludeDefault) {JSON}   ipAddresses Array of all IPs (v4 and v6) for the node
+  @apiParam (IncludeDefault) {String} [lastRunDate] (Rudder 5.0.9 and up) Date and time (yyyy-MM-dd HH:mm) of the last run, if one is available (node time)
   @apiParam (IncludeDefault) {String} [lastInventoryDate] Date and time (yyyy-MM-dd HH:mm) of the last generated inventory report (node time)
   @apiParam (IncludeDefault) {JSON}   [machine] Information about the underlying machine
   @apiParam (IncludeDefault) {String} [machine.id] Rudder unique identifier for the machine
