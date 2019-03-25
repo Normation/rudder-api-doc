@@ -89,12 +89,12 @@ period of time to allow migration from previous versions.
       <td>Allow empty query for groups, add key-values support on nodes</td>
     </tr>
     <tr>
-      <td class="code">6</td>
+      <td class="code">6 (deprecated)</td>
       <td class="code">3.1</td>
       <td>Add compliance support</td>
     </tr>
     <tr>
-      <td class="code">7</td>
+      <td class="code">7 (deprecated)</td>
       <td class="code">3.2</td>
       <td>Add 'level' option in compliance API</td>
     </tr>
@@ -121,7 +121,7 @@ period of time to allow migration from previous versions.
     <tr>
       <td class="code">10</td>
       <td class="code">4.3</td>
-      <td>Add global compliance, Remove option to use Reverse DNS lookups from Settings API</td>
+      <td>Add global compliance, Add Version Info, Remove option to use Reverse DNS lookups from Settings API</td>
     </tr>
     <tr>
       <td class="code">11</td>
