@@ -37,6 +37,33 @@ HTTP/1.1 200 OK
   }
 }
 
+== [GET] api/system/info
+
+    /**
+    @api {get} /api/system/info 1. Get information about Rudder version
+    @apiVersion 11.0.0
+    @apiName getSystemInfo
+    @apiGroup System
+
+    @apiExample Example usage:
+    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/system/info
+
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+{
+  "action": "getSystemInfo",
+  "result": "success",
+  "data": {
+    "rudder": {
+      "major-version": "5.0",
+      "full-version": "5.0.9-SNAPSHOT",
+      "build-time": "2019-03-25T10:11:23Z"
+    }
+  }
+}
+
+
+
      */
 
 == [POST] api/system/reload
