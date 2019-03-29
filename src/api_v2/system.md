@@ -15,7 +15,7 @@ This file describes system REST API
 /**
   @apiDefine Query Query parameters - Those parameters will be used to filter Nodes, based on group definition query system
  */
-/
+
 == [GET] api/system/status
 
     /**
@@ -37,10 +37,12 @@ HTTP/1.1 200 OK
   }
 }
 
+    */
+
 == [GET] api/system/info
 
     /**
-    @api {get} /api/system/info 1. Get information about Rudder version
+    @api {get} /api/system/info 2. Get information about Rudder version
     @apiVersion 11.0.0
     @apiName getSystemInfo
     @apiGroup System
@@ -69,7 +71,7 @@ HTTP/1.1 200 OK
 == [POST] api/system/reload
 
     /**
-    @api {post} /api/system/reload 2. Reload both techniques and dynamic groups
+    @api {post} /api/system/reload 3. Reload both techniques and dynamic groups
     @apiVersion 11.0.0
     @apiName reloadAll
     @apiGroup System
@@ -91,7 +93,7 @@ HTTP/1.1 200 OK
 == [POST] api/system/techniques/reload
 
     /**
-    @api {post} /api/reload/techniques 3. Reload Technique library
+    @api {post} /api/reload/techniques 4. Reload Technique library
     @apiVersion 11.0.0
     @apiName reloadTechniques
     @apiGroup System
@@ -112,7 +114,7 @@ HTTP/1.1 200 OK
 == [POST] api/system/reload/groups
 
     /**
-    @api {post} /api/system/reload/groups 4. Reload dynamic groups
+    @api {post} /api/system/reload/groups 5. Reload dynamic groups
     @apiVersion 11.0.0
     @apiName reloadGroups
     @apiGroup System
@@ -133,7 +135,7 @@ HTTP/1.1 200 OK
 == [POST] api/system/regenerate/policies
 
     /**
-    @api {post} /api/regenerate/policies 5. Trigger a new policy generation
+    @api {post} /api/regenerate/policies 6. Trigger a new policy generation
     @apiVersion 11.0.0
     @apiName regeneratePolicies
     @apiGroup System
