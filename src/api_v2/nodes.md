@@ -881,7 +881,7 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/applyPolicy
 
     /**
-    @api {post} /api/nodes/{id} 7. Trigger all agent run
+    @api {post} /api/nodes/applyPolicy 7. Trigger all agent run
     @apiVersion 8.0.0
     @apiName applyPolicyAllNodes 
     @apiGroup Nodes
@@ -894,7 +894,8 @@ HTTP/1.1 200 OK
     @apiExample Run agent  
 curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/applyPolicy
 
-    @apiSuccessExample 
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
 {
   "action": "applyPolicyAllNodes",
   "result": "success",
@@ -919,7 +920,7 @@ curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" ht
 == [POST] api/nodes/{id}/applyPolicy
 
     /**
-    @api {post} /api/nodes/{id} 8. Trigger an agent run
+    @api {post} /api/nodes/{id}/applyPolicy 8. Trigger an agent run
     @apiVersion 8.0.0
     @apiName applyPolicy 
     @apiGroup Nodes
@@ -933,7 +934,9 @@ curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" ht
     @apiExample Run agent  
 curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/root/applyPolicy
 
-    @apiSuccessExample 
+    @apiSuccessExample Success-Response:
+HTTP/1.1 200 OK
+
 Rudder agent 4.1.0~alpha1~git201701101529-jessie0 (CFEngine Core 3.10.0)
 Node uuid: root
 Start execution with config [20170110-161552-3325af7a]
