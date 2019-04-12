@@ -3,6 +3,7 @@
 Rudder exposes a REST API, enabling the user to interact with Rudder without using the webapp, for example in scripts or cronjobs.
 
 <span id="api-_-Authentication"/>
+
 ## Authentication
 
 Authenticating against the API is mandatory for every request, as sensitive information like inventories or configuration rules may get exposed.
@@ -23,6 +24,7 @@ On any call to the API, you will need to add a **_X-API-Token_** header to your 
 If you perform any action (Creation, Update, Deletion) using the API, the event log generated will record the API account as the user.
 
 <span id="api-_-Versioning"/>
+
 ## Versioning
 
 Each time the API is extended with new features (new functions, new parameters, new responses, ...), it will be assigned a new version number. This will allow you
@@ -133,6 +135,7 @@ period of time to allow migration from previous versions.
 </table>
 
 <span id="api-_-Response"/>
+
 ## Response format
 
 All responses from the API are in the JSON format.
@@ -154,6 +157,7 @@ All responses from the API are in the JSON format.
 We used to send reponse data that could not be used as parameter. This mostly concerns Boolean fields (like 'enabled', 'dynamic'), that were send in response prefixed by 'is', ie 'isEnabled'. This prevented usage of this data in request using this response as parameter. We harmonized response and parameters in versions 2.11.23, 3.11.12 and 3.2.5 of Rudder, by always sending unprefixed version. To be backward compatible, we added an option to send old data ('isXXX') in response. That option is disabled on new instance, and will be enabled on upgrade of existing servers.
 
 <span id="api-_-HTTP"/>
+
 ## HTTP method
 
 Rudder's REST API is based on the usage of HTTP methods (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). We use them to indicate what action will be done by the request. Currently, we use four of them:
@@ -164,6 +168,7 @@ Rudder's REST API is based on the usage of HTTP methods (http://www.w3.org/Proto
 * **POST**: update existing objects (Update a Directive, Reload a Group, ...)
 
 <span id="api-_-Parameters"/>
+
 ## Parameters
 
 To use Rudder API, you may need to pass data attributes to the API. Most of them depends on the called function and will be described below, in the corresponding function's section. Some are common to almost all functions and are described here:
