@@ -24,79 +24,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/nodes 1. List accepted Nodes
-    @apiVersion 2.0.0
-    @apiName listAcceptedNodes
-    @apiGroup Nodes
-
-    @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes
-
-    @apiSuccessExample Success-Response:
-HTTP/1.1 200 OK
-{
-  "action": "listAcceptedNodes",
-  "result": "success",
-  "data": {
-    "nodes": [
-      {
-        "id": "f5ebcc89-fd10-4d0d-8e58-58f4634a99b9",
-        "status": "accepted",
-        "hostname": "node2.rudder.local",
-        "osName": "Centos",
-        "osVersion": "6.3",
-        "machineType": "Virtual"
-      },
-      {
-        "id": "d22d59ce-ce56-4e61-913c-2643681289d3",
-        "status": "accepted",
-        "hostname": "node4.rudder.local",
-        "osName": "Centos",
-        "osVersion": "6.3",
-        "machineType": "Virtual"
-      },
-      {
-        "id": "d348e50e-07a9-4475-b798-3dadc1b01b14",
-        "status": "accepted",
-        "hostname": "node3.rudder.local",
-        "osName": "Centos",
-        "osVersion": "6.3",
-        "machineType": "Virtual"
-      },
-      {
-        "id": "18e56738-f390-470a-a048-81833ff50dda",
-        "status": "accepted",
-        "hostname": "node5",
-        "osName": "Debian",
-        "osVersion": "7.0",
-        "machineType": "Virtual"
-      },
-      {
-        "id": "root",
-        "status": "accepted",
-        "hostname": "server",
-        "osName": "Debian",
-        "osVersion": "7.0",
-        "machineType": "Virtual"
-      },
-      {
-        "id": "332c238d-65aa-4b4b-bd1b-a89749693f61",
-        "status": "accepted",
-        "hostname": "node1.rudder.local",
-        "osName": "Centos",
-        "osVersion": "6.3",
-        "machineType": "Virtual"
-      }
-    ]
-  }
-}
-
-     */
-
-== [GET] api/nodes
-
-    /**
-    @api {get} /api/nodes 1. List accepted Nodes
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName listAcceptedNodes
     @apiGroup Nodes
 
@@ -207,7 +135,7 @@ HTTP/1.1 200 OK
   */
 /**
 @api {Response format documentation} /api/nodes/pending,/api/nodes,/api/nodes/{nodeId} 0. Node information format
-@apiVersion 6.0.0
+@apiVersion 8.0.0
 @apiGroup Nodes
 
 @apiDescription Here, we are describing all the available properties on node details on each of the three level: minimal, default and full.
@@ -383,44 +311,7 @@ Linux software and so software won't have that data.
 
     /**
     @api {get} /api/nodes/pending 2. List pending Nodes
-    @apiVersion 2.0.0
-    @apiName listPendingNodes
-    @apiGroup Nodes
-
-    @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" https://rudder.example.com/rudder/api/latest/nodes/pending
-
-    @apiSuccessExample Success-Response:
-HTTP/1.1 200 OK
-{
-  "action": "listPendingNodes",
-  "result": "success",
-  "data": {
-    "nodes": [
-      {
-        "id": "7b13f54f-7ab6-4a45-ada7-9049039b87ca",
-        "status": "pending",
-        "hostname": "node5",
-        "osName": "Debian"
-      },
-      {
-        "id": "80ade5bf-aed9-4f57-8beb-aaaf3e63ec04",
-        "status": "pending",
-        "hostname": "node6",
-        "osName": "Ubuntu"
-      }
-    ]
-  }
-}
-
-
-     */
-
-== [GET] api/nodes/pending
-
-    /**
-    @api {get} /api/nodes/pending 2. List pending Nodes
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName listPendingNodes
     @apiGroup Nodes
 
@@ -462,7 +353,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {get} /api/nodes/{id} 4. Get Node details
-    @apiVersion 4.0.0
+    @apiVersion 8.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
 
@@ -702,7 +593,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/pending/{id} 5. Change pending Node status
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes
 
@@ -720,7 +611,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/{id} 6. Set Node properties
-    @apiVersion 5.0.0
+    @apiVersion 8.0.0
     @apiName updateNode
     @apiGroup Nodes
 
@@ -991,7 +882,7 @@ E| n/a           server-roles              Send metrics to rudder-p|            
 
     /**
     @api {delete} /api/nodes/{id} 7. Delete Node
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName deleteNode
     @apiGroup Nodes
 

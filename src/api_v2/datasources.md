@@ -363,7 +363,7 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 
   /**
   @api {post} /api/datasources/reload 6. Update properties from data source - all nodes
-  @apiVersion 4.0.0
+  @apiVersion 9.0.0
   @apiName fetchDataAllNodes
   @apiGroup DataSources
 

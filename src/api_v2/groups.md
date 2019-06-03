@@ -45,7 +45,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/groups 1. List all Groups
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName listGroups
     @apiGroup Groups
     
@@ -61,7 +61,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/groups 3. Create a new Group
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName createGroup
     @apiGroup Groups
 
@@ -95,7 +95,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/groups 7. Clone a Group
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName cloneGroup
     @apiGroup Groups
 
@@ -112,7 +112,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/groups/{id} 2. Get Group details
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName groupDetails
     @apiGroup Groups
 
@@ -128,7 +128,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {delete} /api/groups/{id} 6. Delete a Group
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName deleteGroup
     @apiGroup Groups
      
@@ -146,7 +146,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/groups/{id} 4. Update a Group
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName updateGroup
     @apiGroup Groups
 
@@ -172,7 +172,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/groups/{id}/reload 5. Reload a Group
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName reloadGroup
     @apiGroup Groups
 
@@ -184,7 +184,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/groups/tree 8. Get Groups tree 
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName GetGroupTree
     @apiGroup Groups
     @apiDescription Get all Groups available in Rudder and their cateogries in a Tree
@@ -340,7 +340,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/groups/categories/{id} 9. Get a Group category details
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName getGroupCategoryDetails
     @apiGroup Groups
     @apiDescription Get the details of a Group category, whose ID is specified in the URL
@@ -378,7 +378,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/groups/categories/{id} 10. Delete a Group category
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName deleteGroupCategory
     @apiGroup Groups
     @apiDescription Delete a Group category. It must have no child groups and no children categories
@@ -416,7 +416,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/groups/categories/{id} 11. Update a Group Category
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName updateGroupCategory
     @apiGroup Groups
     @apiDescription Modify any parameters of a Group category. Missing parameters means to not modify that parameter
@@ -458,7 +458,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/groups/categories 12. Create a new Group category.
-    @apiVersion 6.0.0
+    @apiVersion 8.0.0
     @apiName createGroupCategory
     @apiGroup Groups
     @apiDescription Create a new Group category in Rudder. You can define all of its parameters, but you need at least its name

@@ -30,14 +30,15 @@ If you perform any action (Creation, Update, Deletion) using the API, the event 
 Each time the API is extended with new features (new functions, new parameters, new responses, ...), it will be assigned a new version number. This will allow you
 to keep your existing scripts (based on previous behavior). Versions will always be integers (no 2.1 or 3.3, just 2, 3, 4, ...) or "latest".
 
-The versions start with version 2, since version 1 used to be a non-REST basic API for internal purposes. A notable exception is the *latest* version, which will always point to the most recent version available.
+The versions start with version 8, which was the version of Rudder 4.1. All changes from previous version have been merged together to make the documentation lighter.
+A notable exception is the *latest* version, which will always point to the most recent version available.
 
 You can change the version of the API used by setting it either within the url or in a header:
 
 * the URL: each URL is prefixed by its version id, like */api/version/function*.
 
-<pre class="language-json"><code><span class="com"># Version 5</span>
-curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/<span class="kwd">2</span>/rules
+<pre class="language-json"><code><span class="com"># Version 10</span>
+curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/<span class="kwd">10</span>/rules
 <span class="com"># Latest</span>
 curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.example.com/rudder/api/<span class="kwd">latest</span>/rules
 <span class="com"># Wrong (not an integer) => 404 not found</span>
@@ -46,8 +47,8 @@ curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> http://rudder.e
 
 * the HTTP headers. You can add the **_X-API-Version_** header to your request. The value needs to be an integer or "latest".
 
-<pre class="language-json"><code><span class="com"># Version 2</span>
-curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"X-API-Version: <span class="kwd">2</span>" http://rudder.example.com/rudder/api/rules</span>
+<pre class="language-json"><code><span class="com"># Version 10</span>
+curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"X-API-Version: <span class="kwd">10</span>" http://rudder.example.com/rudder/api/rules</span>
 <span class="com"># Wrong => Error response indicating which versions are available</span>
 curl -X GET -H <span class="str">"X-API-Token: yourToken"</span> -H <span class="str">"X-API-Version: <span class="kwd">3.14</span>" http://rudder.example.com/rudder/api/rules</span>
 </code></pre>
@@ -71,44 +72,9 @@ period of time to allow migration from previous versions.
       <td>Experimental version</td>
     </tr>
     <tr>
-      <td class="code">2 (deleted)</td>
-      <td class="code">2.7</td>
-      <td>First working version with support for rules, directives, nodes and global parameters</td>
-    </tr>
-    <tr>
-      <td class="code">3 (deleted)</td>
-      <td class="code">2.8</td>
-      <td>Add change request support</td>
-    </tr>
-    <tr>
-      <td class="code">4 (deprecated)</td>
-      <td class="code">2.10</td>
-      <td>Add inventory support on nodes</td>
-    </tr>
-    <tr>
-      <td class="code">5 (deprecated)</td>
-      <td class="code">3.0</td>
-      <td>Allow empty query for groups, add key-values support on nodes</td>
-    </tr>
-    <tr>
-      <td class="code">6 (deprecated)</td>
-      <td class="code">3.1</td>
-      <td>Add compliance support</td>
-    </tr>
-    <tr>
-      <td class="code">7 (deprecated)</td>
-      <td class="code">3.2</td>
-      <td>Add 'level' option in compliance API</td>
-    </tr>
-    <tr>
-      <td class="code">8</td>
-      <td class="code">4.0</td>
-      <td>Add 'applyPolicy' for nodes and new settings API</td>
-    </tr>
-    <tr>
-      <td class="code">8</td>
-      <td class="code">4.1</td>
-      <td>Add tags on directive and rules</td>
+      <td class="code">2 to 8 (deprecated)</td>
+      <td class="code">4.1 and before</td>
+      <td>These versions provided the core set of API features for rules, directives, nodes global parameters, change requests and compliance</td>
     </tr>
     <tr>
       <td class="code">9</td>
@@ -116,12 +82,12 @@ period of time to allow migration from previous versions.
       <td>Add 'datasource' API, trigger datasource fetch for node</td>
     </tr>
     <tr>
-      <td class="code">9</td>
+      <td class="code">9 (deprecated)</td>
       <td class="code">4.2</td>
       <td>Add internal 'ncf' API</td>
     </tr>
     <tr>
-      <td class="code">10</td>
+      <td class="code">10 (deprecated)</td>
       <td class="code">4.3</td>
       <td>Add global compliance, Add Version Info, Remove option to use Reverse DNS lookups from Settings API</td>
     </tr>

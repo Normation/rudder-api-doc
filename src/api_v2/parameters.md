@@ -32,7 +32,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/parameters 1. List all Parameters
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName listParameters
     @apiGroup Parameters
     
@@ -64,7 +64,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {put} /api/parameters 3. Create a new Parameter
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName createParameter
     @apiGroup Parameters
 
@@ -98,7 +98,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {get} /api/parameters/{id} 2. Get Parameter details
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName parameterDetails
     @apiGroup Parameters
 
@@ -132,7 +132,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {delete} /api/parameters/{id} 5. Delete a Parameter
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName deleteParameter
     @apiGroup Parameters
      
@@ -176,7 +176,7 @@ HTTP/1.1 500 Server Error
 
     /**
     @api {post} /api/parameters/{id} 4. Update a Parameter
-    @apiVersion 2.0.0
+    @apiVersion 8.0.0
     @apiName updateParameter
     @apiGroup Parameters
 
