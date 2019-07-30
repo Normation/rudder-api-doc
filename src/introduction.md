@@ -72,24 +72,9 @@ period of time to allow migration from previous versions.
       <td>Experimental version</td>
     </tr>
     <tr>
-      <td class="code">2 to 8 (deprecated)</td>
-      <td class="code">4.1 and before</td>
-      <td>These versions provided the core set of API features for rules, directives, nodes global parameters, change requests and compliance</td>
-    </tr>
-    <tr>
-      <td class="code">9</td>
-      <td class="code">Plugin datasource (4.1 and more)</td>
-      <td>Add 'datasource' API, trigger datasource fetch for node</td>
-    </tr>
-    <tr>
-      <td class="code">9 (deprecated)</td>
-      <td class="code">4.2</td>
-      <td>Add internal 'ncf' API</td>
-    </tr>
-    <tr>
-      <td class="code">10 (deprecated)</td>
-      <td class="code">4.3</td>
-      <td>Add global compliance, Add Version Info, Remove option to use Reverse DNS lookups from Settings API</td>
+      <td class="code">2 to 10 (deprecated)</td>
+      <td class="code">4.3 and before</td>
+      <td>These versions provided the core set of API features for rules, directives, nodes global parameters, change requests and compliance, rudder settings and system API</td>
     </tr>
     <tr>
       <td class="code">11</td>

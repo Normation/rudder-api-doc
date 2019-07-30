@@ -24,7 +24,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/nodes 1. List accepted Nodes
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listAcceptedNodes
     @apiGroup Nodes
 
@@ -135,7 +135,7 @@ HTTP/1.1 200 OK
   */
 /**
 @api {Response format documentation} /api/nodes/pending,/api/nodes,/api/nodes/{nodeId} 0. Node information format
-@apiVersion 8.0.0
+@apiVersion 10.0.0
 @apiGroup Nodes
 
 @apiDescription Here, we are describing all the available properties on node details on each of the three level: minimal, default and full.
@@ -311,7 +311,7 @@ Linux software and so software won't have that data.
 
     /**
     @api {get} /api/nodes/pending 2. List pending Nodes
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listPendingNodes
     @apiGroup Nodes
 
@@ -353,7 +353,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {get} /api/nodes/{id} 4. Get Node details
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName acceptedNodeDetails
     @apiGroup Nodes
 
@@ -593,7 +593,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/pending/{id} 5. Change pending Node status
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName changeNodeStatus
     @apiGroup Nodes
 
@@ -611,7 +611,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/{id} 6. Update Node settings and properties
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName updateNode
     @apiGroup Nodes
 
@@ -818,7 +818,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/applyPolicy 7. Trigger all agent run
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName applyPolicyAllNodes 
     @apiGroup Nodes
 
@@ -857,7 +857,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/nodes/{id}/applyPolicy 8. Trigger an agent run
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName applyPolicy 
     @apiGroup Nodes
 
@@ -927,7 +927,7 @@ E| n/a           server-roles              Send metrics to rudder-p|            
 
     /**
     @api {delete} /api/nodes/{id} 7. Delete Node
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName deleteNode
     @apiGroup Nodes
 

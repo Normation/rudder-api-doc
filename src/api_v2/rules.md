@@ -44,7 +44,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/rules 1. List all Rules
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listRules
     @apiGroup Rules
     @apiDescription Get all Rules available in Rudder
@@ -97,7 +97,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/rules 3. Create a new Rule
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName createRule
     @apiGroup Rules
     @apiDescription Create a new Rule in Rudder. You can define all of its parameters, but you need at least its name
@@ -116,7 +116,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/rules 6. Clone a Rule
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName cloneRule
     @apiGroup Rules
     @apiDescription Create a new Rule based on an existing Rule. you can still modify its parameters, but you need at least to specify the name of the new Rule 
@@ -162,7 +162,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/rules/{id} 2. Get a Rule details
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName ruleDetails
     @apiGroup Rules
     @apiDescription Get details for one Rule by specifying its ID in the URL
@@ -199,7 +199,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {delete} /api/rules/{id} 5. Delete a Rule
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName deleteRule
     @apiGroup Rules
     @apiDescription Delete the Rule having the ID passed in the URL
@@ -246,7 +246,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/rules/{id} 4. Update a Rule
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName updateRule
     @apiGroup Rules
     @apiDescription Modify any parameters of a Rule. Missing parameters means to not modify that parameter
@@ -275,7 +275,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/rules/tree 7. Get Rules tree 
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName GetRuleTree
     @apiGroup Rules
     @apiDescription Get all Rules available in Rudder and their cateogries in a Tree
@@ -387,7 +387,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/rules/categories/{id} 8. Get a Rule category details
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName getRuleCategoryDetails
     @apiGroup Rules
     @apiDescription Get the details of a Rule category, whose ID is specified in the URL
@@ -425,7 +425,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/rules/categories/{id} 9. Delete a Rule category
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName deleteRuleCategory
     @apiGroup Rules
     @apiDescription Delete a Rule category. It must have no child rules and no children categories
@@ -463,7 +463,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/rules/categories/{id} 10. Update a Rule Category
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName updateRuleCategory
     @apiGroup Rules
     @apiDescription Modify any parameters of a Rule category. Missing parameters means to not modify that parameter
@@ -505,7 +505,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/rules/categories 11. Create a new Rule category.
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName createRuleCategory
     @apiGroup Rules
     @apiDescription Create a new Rule category in Rudder. You can define all of its parameters, but you need at least its name

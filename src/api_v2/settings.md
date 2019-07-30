@@ -20,7 +20,7 @@ https://github.com/Normation/rudder/blob/branches/rudder/4.1/rudder-web/src/main
 
 /**
 @api {Response format documentation} /api/settings 0. List of all available settings
-@apiVersion 8.0.0
+@apiVersion 10.0.0
 @apiGroup Settings
 
 @apiDescription Here is the list of all settings that can be managed within Rudder.
@@ -112,7 +112,7 @@ https://github.com/Normation/rudder/blob/branches/rudder/4.1/rudder-web/src/main
 
     /**
     @api {get} /api/settings 1. List all Settings
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName getAllSettings
     @apiGroup Settings
 
@@ -207,7 +207,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {get} /api/settings/{id} 2. Get Setting value
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName getSetting
     @apiGroup Settings
 
@@ -236,7 +236,7 @@ HTTP/1.1 200 OK
 
     /**
     @api {post} /api/settings/{id} 3. Update a Setting
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName modifySetting
     @apiGroup Settings
 

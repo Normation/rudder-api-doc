@@ -22,7 +22,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/changeRequests 1. List all Changes Requests
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listChangeRequests
     @apiGroup Change Requests
     
@@ -106,7 +106,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/changeRequests/{id} 2. Get a Change Request details
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName changeRequestDetails
     @apiGroup Change Requests
      
@@ -157,7 +157,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {delete} /api/changeRequests/{id} 3. Decline a Change Request
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName declineChangeRequest
     @apiGroup Change Requests
       
@@ -209,7 +209,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/changeRequests/{id}/accept 4. Accept a Change Request
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName acceptChangeRequest
     @apiGroup Change Requests
      
@@ -266,7 +266,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {post} /api/changeRequests/{id} 5. Update a Change Request
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName updateChangeRequest
     @apiGroup Change Requests
      

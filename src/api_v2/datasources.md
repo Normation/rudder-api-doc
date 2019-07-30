@@ -37,7 +37,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/datasources 1. List all DataSources
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName getAllDataSources
     @apiGroup DataSources
 
@@ -92,7 +92,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/datasources/{id} 2. Get a data sources details
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName getDataSource
     @apiGroup DataSources
 
@@ -146,7 +146,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {put} /api/datasources 3. Create a new Data Source
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName createDataSource
     @apiGroup DataSources
 
@@ -262,7 +262,7 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 
     /**
     @api {post} /api/datasources/{id} 4. Update a Data Source
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName updateDataSource
     @apiGroup DataSources
 
@@ -330,7 +330,7 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 
   /**
   @api {delete} /api/datasources/{id} 5. Delete a DataSources
-  @apiVersion 9.0.0
+  @apiVersion 10.0.0
   @apiName deleteDataSource
   @apiGroup DataSources
 
@@ -363,7 +363,7 @@ curl -H "X-API-Token: yourToken -X PUT http://rudder.example.com/rudder/api/late
 
   /**
   @api {post} /api/datasources/reload 6. Update properties from data source - all nodes
-  @apiVersion 9.0.0
+  @apiVersion 10.0.0
   @apiName fetchDataAllNodes
   @apiGroup DataSources
 
@@ -387,7 +387,7 @@ HTTP/1.1 200 OK
 
   /**
   @api {post} /api/datasources/reload/{datasourceId} 7. Update properties from data source with ID ${datasourceId} - all nodes
-  @apiVersion 9.0.0
+  @apiVersion 10.0.0
   @apiName fetchDataAllNodes
   @apiGroup DataSources
 
@@ -414,7 +414,7 @@ HTTP/1.1 200 OK
 --------------------------
     /**
     @api {post} /api/nodes/{id}/fetchData 8. Update properties from data source - node with ID ${nodeId}
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName fetchDataOneNode
     @apiGroup DataSources
 
@@ -441,7 +441,7 @@ HTTP/1.1 200 OK
 --------------------------
     /**
     @api {post} /api/nodes/{id}/fetchData 9. Update properties from data source ${datasourceId} - node ${nodeId}
-    @apiVersion 9.0.0
+    @apiVersion 10.0.0
     @apiName fetchDataOneNode
     @apiGroup DataSources
 

@@ -19,7 +19,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/techniques 1. List all Techniques
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listTechniques
     @apiGroup Techniques
     
@@ -238,7 +238,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/techniques/{name}/directives 2. List all Directives based on all version of a Technique
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listTechniquesDirectives 
     @apiGroup Techniques
      
@@ -488,7 +488,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
 
     /**
     @api {get} /api/techniques/{name}/{version}/directives 3. List all Directives based on one version of a Technique
-    @apiVersion 8.0.0
+    @apiVersion 10.0.0
     @apiName listDirectivesVersion
     @apiGroup Techniques
      
