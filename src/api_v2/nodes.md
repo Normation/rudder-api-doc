@@ -610,45 +610,49 @@ HTTP/1.1 200 OK
 == [POST] api/nodes/{id}
 
     /**
-    @api {post} /api/nodes/{id} 6. Set Node properties
+    @api {post} /api/nodes/{id} 6. Update Node settings and properties
     @apiVersion 8.0.0
     @apiName updateNode
     @apiGroup Nodes
 
     @apiUse nodeId
-    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value.
+    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value. Values are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
+    @apiParam {PolicyMode}       policy In which mode the node will apply its configuration policy. You can choose between "audit" and "enforce" modes, or "default" to use the global mode
+    @apiParam {State}        state The node lifecycle state. You can choose between "enabled", "ignored", "empty-policies", "initializing", and "preparing-eol" state. See https://docs.rudder.io/reference/current/usage/advanced_node_management.html#node-lifecycle for more information.
 
-    @apiDescription This API allows to set "key=value" properties in node. This properties are then returned in the node details under the "properties" key, and they can be used to define group.
-    Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
+    @apiDescription This API allows to update the node settings.
 
     @apiExample Initial content
-# Given the "properties.json" JSON file with content:
+# Given the "data.json" JSON file with content:
 { "properties": [
   { "name": "env_type"    , "value": "production" },
   { "name": "shell"       , "value": "/bin/sh" },
   { "name": "utf-8 poetry", "value": "ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ" }
-] }
+]
+, "policyMode" : "audit"
+}
 
 
-    @apiExample Set key
-# Setting keys from "properties.json":
+    @apiExample Set properties and change to audit mode
+# Setting properties from "data.json" and policy mode to audit:
 curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d @properties.json
 
-    @apiExample Remove key
+    @apiExample Remove one property, change another one
 # Removing the key "utf-8 poetry" from the command line and updating the "env_type" one:
 curl -H "X-API-Token: yourToken" -X POST  -H "Content-Type: application/json" https://rudder.example.com/rudder/api/latest/nodes/NodeID -d '{ "properties": [{ "name":"utf-8 poetry", "value":""}, {"name":"env_type", "value":"deprovisioned"}] }'
 
-    @apiExample Remove key (bis)
-# Removing the key "env_type" and changing "shell" (no JSON):
-curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type="
+    @apiExample Remove a property, change another one and switch to default mode
+# Removing the key "env_type" and changing "shell" and use default policy mode:
+curl -H "X-API-Token: yourToken" -X POST  https://rudder.example.com/rudder/api/latest/nodes/NodeID -d "properties=shell=/bin/false" -d "properties=env_type=" -d "policyMode=default"
 
-    @apiSuccessExample Success-Response:
+    @apiSuccessExample Set properties and change to audit mode:
 HTTP/1.1 200 OK
 {
-  "action": "updateNodeProperties",
+  "action": "updateNode",
   "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
   "result": "success",
   "data": {
+    "policyMode": "audit",
     "properties": [
       {
         "name": "env_type",
@@ -666,19 +670,60 @@ HTTP/1.1 200 OK
   }
 }
 
+    @apiSuccessExample Remove property and modify another one:
+HTTP/1.1 200 OK
+{
+  "action": "updateNode",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "policyMode": "audit",
+    "properties": [
+      {
+        "name": "env_type",
+        "value": "deprovisioned"
+      },
+      {
+        "name": "shell",
+        "value": "/bin/sh"
+      }
+    ]
+  }
+}
+    @apiSuccessExample Remove a property, modify another and change to audit mode:
+HTTP/1.1 200 OK
+{
+  "action": "updateNode",
+  "id": "4db088c8-d849-4f08-bfa9-ac96a22d461a",
+  "result": "success",
+  "data": {
+    "policyMode": "default",
+    "properties": [
+      {
+        "name": "shell",
+        "value": "/bin/false"
+      }
+    ]
+  }
+}
       */
+
+
 
 == [POST] api/nodes/{id}
 
     /**
-    @api {post} /api/nodes/{id} 5. Update Node settings
-    @apiVersion 8.0.0
+    @api {post} /api/nodes/{id} 6. Update Node settings and properties
+    @apiVersion 12.0.0
     @apiName updateNode
     @apiGroup Nodes
 
     @apiUse nodeId
-    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value. Value are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
-    @apiParam {PolicyMode}       policy In which mode the node will apply its configuration policy. You can choose between "audit" and "enfoce" modes, or "default" to use the global mode
+    @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value. Values are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
+    @apiParam {PolicyMode}       policy In which mode the node will apply its configuration policy. You can choose between "audit" and "enforce" modes, or "default" to use the global mode
+    @apiParam {State}        state The node lifecycle state. You can choose between "enabled", "ignored", "empty-policies", "initializing", and "preparing-eol" state. See https://docs.rudder.io/reference/current/usage/advanced_node_management.html#node-lifecycle for more information.
+    @apiParam {String}   agentKey.status The agent key status (optional). Can be "certified" or "undefined".
+    @apiParam {String}   agentKey.value  The agent key value (optional) in PEM format (either certificate or public key). 
 
     @apiDescription This API allows to update the node settings.
 

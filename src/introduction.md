@@ -96,6 +96,11 @@ period of time to allow migration from previous versions.
       <td class="code">5.0</td>
       <td>New system API (replacing old localhost v1 api): status, maintenance operations and server behavior</td>
     </tr>
+    <tr>
+      <td class="code">12</td>
+      <td class="code">5.1</td>
+      <td>Node key management</td>
+    </tr>
  
   </tbody>
 </table>
