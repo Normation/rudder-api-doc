@@ -722,8 +722,7 @@ HTTP/1.1 200 OK
     @apiParam (Multi) {Property}       properties A property of the Node defined by its name and its value. Values are non-empty UTF-8 strings. Setting a key to the empty string removes it from the list of properties for that node.
     @apiParam {PolicyMode}       policy In which mode the node will apply its configuration policy. You can choose between "audit" and "enforce" modes, or "default" to use the global mode
     @apiParam {State}        state The node lifecycle state. You can choose between "enabled", "ignored", "empty-policies", "initializing", and "preparing-eol" state. See https://docs.rudder.io/reference/current/usage/advanced_node_management.html#node-lifecycle for more information.
-    @apiParam {String}   agentKey.status The agent key status (optional). Can be "certified" or "undefined".
-    @apiParam {String}   agentKey.value  The agent key value (optional) in PEM format (either certificate or public key). 
+    @apiParam {JSON}     agentKey The agent key, dict containing two keys: "status" (optional, can be "certified" or "undefined") and "value" (optional, in PEM format (either certificate or public key)).
 
     @apiDescription This API allows to update the node settings.
 
