@@ -1,0 +1,13 @@
+{
+  "name": "Rudder relay API documentation",
+  "version": "1.0.0",
+  "description": "Documentation of Rudder relay API",
+  "title": "Rudder relay API documentation",
+  "header": {
+    "title": "",
+    "filename": "src/relay-api/introduction.md"
+  },
+  "order": [
+    "System"
+  ]
+}

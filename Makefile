@@ -1,7 +1,11 @@
-.PHONY: html
+.PHONY: public-api relay-api
 
-html:
-	apidoc -v -i src/api_v2 -f ".*\\.md$$" -o build/site -t template
+SITES=public-api relay-api
+
+all: $(SITES)
+
+$(SITES):
+	apidoc -v --config src/$@ -i src/$@/endpoints -f ".*\\.md$$" -o build/$@ -t template
 
 clean:
 	rm -rf build
