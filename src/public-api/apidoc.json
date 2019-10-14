@@ -1,21 +1,21 @@
 {
-  "name": "Rudder API documentation",
-  "version": "11.0.0",
-  "description": "Documentation of Rudder server API",
-  "title": "Rudder API documentation",
-  "header": {
-    "title": "",
-    "filename": "src/public-api/introduction.md"
-  },
-  "order": [
-    "Compliance",
-    "Rules",
-    "Directives",
-    "Techniques",
-    "Groups",
-    "Nodes",
-    "Data sources",
-    "Parameters",
-    "Change Requests"
-  ]
+    "name": "Rudder API documentation",
+    "version": "11.0.0",
+    "description": "Documentation of Rudder server API",
+    "title": "Rudder API documentation",
+    "header": {
+        "title": "",
+        "filename": "src/public-api/introduction.md"
+    },
+    "order": [
+        "Compliance",
+        "Rules",
+        "Directives",
+        "Techniques",
+        "Groups",
+        "Nodes",
+        "Data sources",
+        "Parameters",
+        "Change Requests"
+    ]
 }

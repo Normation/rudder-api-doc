@@ -38,7 +38,7 @@ HTTP/1.1 200 OK
     @apiGroup System
 
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/api/latest/system/info
+    curl http://localhost:3030/rudder/api/1/system/info
 
     @apiSuccessExample Success-Response:
 HTTP/1.1 200 OK
@@ -62,11 +62,12 @@ HTTP/1.1 200 OK
     @apiVersion 1.0.0
     @apiName reloadConfiguration
     @apiGroup System
+    @apiDescription Allows to trigger a reload of data files (nodes list, certificates) and logging configuration. Reload is synchronous, and if a success is returned, the reload is already effective.
 
-    @apiExample Example usage (curl):
-     curl -X POST 'http://localhost:3030/rudder/api/1/system/reload'
+    @apiExample Example usage:
+    curl -X POST http://localhost:3030/rudder/api/1/system/reload
 
-    @apiSuccessExample Success Response (curl):
+    @apiSuccessExample Success Response:
 HTTP/1.1 200 OK
 {
   "result": "success",

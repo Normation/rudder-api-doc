@@ -850,8 +850,6 @@ HTTP/1.1 200 OK
 
       */
 
-
-
 == [POST] api/nodes/{id}/applyPolicy
 
     /**
