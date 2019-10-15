@@ -1,16 +1,16 @@
 # Introduction
 
-Rudder relay exposes an internal REST API, enabling the agents and other services to interact with the relay.
+Rudder relay exposes an internal API, enabling the agents and other services to interact with the relay.
 
 <span id="api-_-Authentication"/>
 
 ## Authentication
 
-The relay API are in general not authentified, and it is done on a case-by-case basis:
+The relay API are in general not authenticated, and it is done on a case-by-case basis:
 
 * remote-run is only accessible to request with the IP of the policy server
 * shared-files checks file signature based on known public keys from nodes
-* system API is only accessible to local clients and do not permit acess to
+* system API is only accessible to local clients and do not permit access to
   private information not modification abilities
 
 <span id="api-_-Versioning"/>
@@ -52,7 +52,7 @@ period of time to allow migration from previous versions.
 
 ## Response format
 
-All responses from the API are in the JSON format.
+All responses from the API (except for remote run, shared files and shared folder that do not use it for compatibility) are in the JSON format.
 
 <pre class="language-json"><code>{
   <span class="str">"action"</span>: <span class="tag">The name of the called function</span>,
@@ -69,14 +69,15 @@ All responses from the API are in the JSON format.
 
 ## HTTP method
 
-Rudder's REST API is based on the usage of HTTP methods (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). We use them to indicate what action will be done by the request. Currently, we use four of them:
+Rudder's API is based on the usage of HTTP methods (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). We use them to indicate what action will be done by the request. Currently, we use four of them:
 
-* **GET**: search or retrieve information (get Rule Details, get a Group, ...)
-* **POST**: update existing objects (Update a Directive, Reload a Group, ...)
+* **HEAD**: to get information about a resource without its content
+* **GET**: to retrieve information
+* **POST**: to update information or trigger an action
+* **PUT**: to create a resource on the server
 
 <span id="api-_-Parameters"/>
 
 ## Parameters
 
 To use Rudder API, you may need to pass data attributes to the API. Most of them depends on the called function and will be described below, in the corresponding function's section.
-
