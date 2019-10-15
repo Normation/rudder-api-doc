@@ -125,7 +125,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse ruleCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/rules?prettify=true'  -d "source=RuleIDSource" -d "displayName=Name of New Rule”
+    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/rules?prettify=true'  -d "source=RuleIDSource" -d "displayName=Name of New Rule"
 
     @apiSuccessExample Success-Response:
       HTTP/1.1 200 OK

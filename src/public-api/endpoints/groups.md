@@ -103,7 +103,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiUse groupCreation
     
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/groups' -d “groups=GroupID”
+    curl -H "X-API-Token: yourToken" -X PUT 'http://rudder.example.com/rudder/api/latest/groups' -d "groups=GroupID"
 
      */
 

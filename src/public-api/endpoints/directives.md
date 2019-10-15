@@ -382,7 +382,7 @@ https://github.com/Normation/rudder/blob/master/rudder-web/src/main/scala/com/no
     @apiParam (Multi) {Tag}              [tags]                        Tags linked to this directive. As JSON, send an object { "key1":"value1", ..., "keyN":"valueN"}. As query paramereter, send a "key:value" pair for each tag. 
 
     @apiExample Example usage:
-    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive”
+    curl -H "X-API-Token: yourToken" -X PUT http://rudder.example.com/rudder/api/latest/directives  -d "source=DirectiveIDSource" -d "displayName=Name of New Directive"
 
 
      */
