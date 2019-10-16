@@ -18,10 +18,10 @@ This file describes shared-files REST API
    @apiParam (URL parameters) {String} file_id ID of the shared file, must match `[A-z0-9_-.]`
 */
 
-== [HEAD] api/shared-files/{target_id}/{source_id}/{file_id}
+== [HEAD] relay-api/shared-files/{target_id}/{source_id}/{file_id}
 
     /**
-    @api {head} /api/shared-files/{target_id}/{source_id}/{file_id} 1. Check if shared file is up to date
+    @api {head} /relay-api/shared-files/{target_id}/{source_id}/{file_id} 1. Check if shared file is up to date
     @apiVersion 1.0.0
     @apiName sharedFilesHead
     @apiGroup Shared files
@@ -38,10 +38,10 @@ This file describes shared-files REST API
 
      */
 
-== [PUT] api/shared-files/{target_id}/{source_id}/{file_id}
+== [PUT] relay-api/shared-files/{target_id}/{source_id}/{file_id}
 
     /**
-    @api {put} /api/shared-files/{target_id}/{source_id}/{file_id} 2. Share a file with its metadata
+    @api {put} /relay-api/shared-files/{target_id}/{source_id}/{file_id} 2. Share a file with its metadata
     @apiVersion 1.0.0
     @apiName sharedFilesPut
     @apiGroup Shared files

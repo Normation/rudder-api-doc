@@ -1,9 +1,9 @@
 This file describes shared-folder REST API
 
-== [HEAD] api/shared-folder/{path}/
+== [HEAD] relay-api/shared-folder/{path}/
 
     /**
-    @api {head} /api/shared-folder/{path} 1. Check file hash in the shared-folder
+    @api {head} /relay-api/shared-folder/{path} 1. Check file hash in the shared-folder
     @apiVersion 1.0.0
     @apiName sharedFolderHash
     @apiGroup Shared folder
@@ -15,6 +15,6 @@ This file describes shared-folder REST API
     @apiParam {HashType} [hash_type=sha256] Hash used, can be `sha256` or `sha512`
 
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/api/1/shared-folder/myapplication/myfile.conf?hash_type=sha256&hash=181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b
+    curl http://localhost:3030/rudder/relay-api/1/shared-folder/myapplication/myfile.conf?hash_type=sha256&hash=181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b
 
      */

@@ -36,10 +36,10 @@ This file describes remote-run REST API
    @apiParam {Conditions} [classes] Deprecated alias for `classes`
 */
 
-== [POST] api/remote-run/nodes/{id}
+== [POST] relay-api/remote-run/nodes/{id}
 
     /**
-    @api {post} /api/remote-run/nodes/{id} 1. Trigger a run on a specific node
+    @api {post} /relay-api/remote-run/nodes/{id} 1. Trigger a run on a specific node
     @apiVersion 1.0.0
     @apiName remoteRunNode
     @apiGroup Remote run
@@ -51,14 +51,14 @@ This file describes remote-run REST API
     @apiUse asynchronous
 
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/api/1/remote-run/nodes/2fc7a3a2-4050-4209-afe9-1c5ebc9ce2c8
+    curl http://localhost:3030/rudder/relay-api/1/remote-run/nodes/2fc7a3a2-4050-4209-afe9-1c5ebc9ce2c8
   
      */
 
-== [POST] api/remote-run/nodes
+== [POST] relay-api/remote-run/nodes
 
     /**
-    @api {post} /api/remote-run/nodes 2. Trigger a run on a list of nodes
+    @api {post} /relay-api/remote-run/nodes 2. Trigger a run on a list of nodes
     @apiVersion 1.0.0
     @apiName remoteRunNodes
     @apiGroup Remote run
@@ -70,14 +70,14 @@ This file describes remote-run REST API
     @apiUse asynchronous
 
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/api/1/remote-run/nodes
+    curl http://localhost:3030/rudder/relay-api/1/remote-run/nodes
   
      */
 
-== [POST] api/remote-run/nodes/all
+== [POST] relay-api/remote-run/nodes/all
 
     /**
-    @api {post} /api/remote-run/nodes/all 3. Trigger a run on a all nodes managed by target relay
+    @api {post} /relay-api/remote-run/nodes/all 3. Trigger a run on a all nodes managed by target relay
     @apiVersion 1.0.0
     @apiName remoteRunNodeAll
     @apiGroup Remote run
@@ -88,6 +88,6 @@ This file describes remote-run REST API
     @apiUse asynchronous
 
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/api/1/remote-run/all
+    curl http://localhost:3030/rudder/relay-api/1/remote-run/all
   
      */
