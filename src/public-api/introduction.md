@@ -83,7 +83,7 @@ period of time to allow migration from previous versions.
     </tr>
     <tr>
       <td class="code">12</td>
-      <td class="code">5.1</td>
+      <td class="code">6.0</td>
       <td>Node key management</td>
     </tr>
  
