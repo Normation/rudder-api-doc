@@ -1,4 +1,4 @@
-This file describes remote-run REST API
+This file describes remote-run API
 
  /**
    @apiDefine nodeId
@@ -50,9 +50,12 @@ This file describes remote-run REST API
     @apiUse keepOutput
     @apiUse asynchronous
 
+    @apiExample Local example usage:
+    curl -X POST http://localhost:3030/rudder/relay-api/1/remote-run/nodes/2fc7a3a2-4050-4209-afe9-1c5ebc9ce2c8
+
     @apiExample Example usage:
-    curl http://localhost:3030/rudder/relay-api/1/remote-run/nodes/2fc7a3a2-4050-4209-afe9-1c5ebc9ce2c8
-  
+    curl -X POST https://rudder.example.com/rudder/relay-api/remote-run/nodes/2fc7a3a2-4050-4209-afe9-1c5ebc9ce2c8
+
      */
 
 == [POST] relay-api/remote-run/nodes
@@ -69,9 +72,12 @@ This file describes remote-run REST API
     @apiUse keepOutput
     @apiUse asynchronous
 
-    @apiExample Example usage:
+    @apiExample Local example usage:
     curl http://localhost:3030/rudder/relay-api/1/remote-run/nodes
-  
+
+    @apiExample Example usage:
+    curl https://rudder.example.com/rudder/relay-api/remote-run/nodes
+
      */
 
 == [POST] relay-api/remote-run/nodes/all
@@ -87,7 +93,10 @@ This file describes remote-run REST API
     @apiUse keepOutput
     @apiUse asynchronous
 
-    @apiExample Example usage:
-    curl http://localhost:3030/rudder/relay-api/1/remote-run/all
+    @apiExample Local example usage:
+    curl -X POST http://localhost:3030/rudder/relay-api/1/remote-run/all
   
+    @apiExample Example usage:
+    curl -X POST https://rudder.example.com/rudder/relay-api/remote-run/all
+
      */

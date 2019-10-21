@@ -1,4 +1,4 @@
-This file describes system REST API 
+This file describes system API 
 
 == [GET] system/status
 
@@ -8,7 +8,7 @@ This file describes system REST API
     @apiName getStatus
     @apiGroup System
 
-    @apiExample Example usage:
+    @apiExample Local example usage:
     curl http://localhost:3030/rudder/relay-api/1/system/status
 
     @apiSuccessExample Success-Response:
@@ -37,7 +37,7 @@ HTTP/1.1 200 OK
     @apiName getSystemInfo
     @apiGroup System
 
-    @apiExample Example usage:
+    @apiExample Local example usage:
     curl http://localhost:3030/rudder/relay-api/1/system/info
 
     @apiSuccessExample Success-Response:
@@ -64,7 +64,7 @@ HTTP/1.1 200 OK
     @apiGroup System
     @apiDescription Allows to trigger a reload of data files (nodes list, certificates) and logging configuration. Reload is synchronous, and if a success is returned, the reload is already effective.
 
-    @apiExample Example usage:
+    @apiExample Local example usage:
     curl -X POST http://localhost:3030/rudder/relay-api/1/system/reload
 
     @apiSuccessExample Success Response:

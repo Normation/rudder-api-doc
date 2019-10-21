@@ -1,4 +1,4 @@
-This file describes shared-files REST API
+This file describes shared-files API
 
  /**
    @apiDefine target_id
@@ -33,8 +33,11 @@ This file describes shared-files REST API
 
     @apiDescription Allows checking if the file needs to be updated. If the file is there and the hash matches, returns a `200`, and a `404` in any other cases.
 
+    @apiExample Local example usage:
+    curl --head http://127.0.0.1:3030/rudder/relay-api/1/shared-files/c745a140-40bc-4b86-b6dc-084488fc906b/37817c4d-fbf7-4850-a985-50021f4e8f41/file?hash=c22a3fb1e9de4bfa697ba258f60f14339b72c3faeb043cb75379b9ebcb2717c3
+
     @apiExample Example usage:
-    curl http://127.0.0.1:3030/rudder/relay-api/1/shared-files/c745a140-40bc-4b86-b6dc-084488fc906b/37817c4d-fbf7-4850-a985-50021f4e8f41/file?hash=c22a3fb1e9de4bfa697ba258f60f14339b72c3faeb043cb75379b9ebcb2717c3
+    curl --head https://rudder.example.com/rudder/relay-api/shared-files/c745a140-40bc-4b86-b6dc-084488fc906b/37817c4d-fbf7-4850-a985-50021f4e8f41/file?hash=c22a3fb1e9de4bfa697ba258f60f14339b72c3faeb043cb75379b9ebcb2717c3
 
      */
 

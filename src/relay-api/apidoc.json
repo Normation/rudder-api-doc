@@ -10,6 +10,7 @@
     "order": [
         "System",
         "Remote run",
-        "Shared folder"
+        "Shared folder",
+        "Policies"
     ]
 }
