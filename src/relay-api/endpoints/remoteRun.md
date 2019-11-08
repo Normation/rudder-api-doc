@@ -9,7 +9,7 @@ This file describes remote-run API
  /**
    @apiDefine nodeIds
 
-   @apiParam {UUIDs} ids Comma-separated list of node IDs
+   @apiParam {UUIDs} nodes Comma-separated list of node IDs
 */
 
 /**
