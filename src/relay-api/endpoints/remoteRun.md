@@ -1,6 +1,15 @@
 This file describes remote-run API
 
  /**
+   @apiDefine privateTmp
+
+   @apiDescription WARNING: When running the agent, the `/tmp` folder may not be the global one
+                            but a private one, specific to the relay service. You should not rely on `/tmp`
+			    content in your policies but use `/var/rudder/tmp` instead.
+*/
+
+
+ /**
    @apiDefine nodeId
 
    @apiParam (URL parameters) {UUID} id ID of the node.
@@ -43,7 +52,8 @@ This file describes remote-run API
     @apiVersion 1.0.0
     @apiName remoteRunNode
     @apiGroup Remote run
-    
+    @apiUse privateTmp
+
     @apiUse nodeId
     @apiUse conditions
     @apiUse classes
@@ -65,7 +75,8 @@ This file describes remote-run API
     @apiVersion 1.0.0
     @apiName remoteRunNodes
     @apiGroup Remote run
-    
+    @apiUse privateTmp
+
     @apiUse nodeIds
     @apiUse conditions
     @apiUse classes
@@ -87,7 +98,8 @@ This file describes remote-run API
     @apiVersion 1.0.0
     @apiName remoteRunNodeAll
     @apiGroup Remote run
-    
+    @apiUse privateTmp
+
     @apiUse conditions
     @apiUse classes
     @apiUse keepOutput
