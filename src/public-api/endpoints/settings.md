@@ -133,8 +133,8 @@ https://github.com/Normation/rudder/blob/branches/rudder/4.1/rudder-web/src/main
 
 @apiDescription Here is the list of all settings that can be managed within Rudder.
 
-  @apiParam {N/A} [authorized_networks] List all authorized networks. This setting must be changed by relay.
-  @apiParam {JSON} [authorized_networks/${policy_server_id}] Set authorized networks for given policy server (root or relay). Expected JSON is: '{"authorized_networks":["192.168.52.0/24", "etc"]}'
+  @apiParam {N/A} [allowed_networks] List all allowed networks. This setting must be changed by relay.
+  @apiParam {JSON} [allowed_networks/${policy_server_id}] Set allowed networks for given policy server (root or relay). Expected JSON is: '{"allowed_networks":["192.168.52.0/24", "etc"]}'
 
   @apiParam {String} [global_policy_mode] Define the default setting for global policy mode, either "enforce" or "audit"
   @apiParam {Boolean} [global_policy_mode_overridable] Allow overrides on this default setting
@@ -201,8 +201,8 @@ https://github.com/Normation/rudder/blob/branches/rudder/4.1/rudder-web/src/main
 
 @apiDescription Here is the list of all settings that can be managed within Rudder.
 
-  @apiParam {N/A} [authorized_networks] List all authorized networks. This setting must be changed by relay.
-  @apiParam {JSON} [authorized_networks/${policy_server_id}] Set authorized networks for given policy server (root or relay). Expected JSON is: '{"authorized_networks":["192.168.52.0/24", "etc"]}'
+  @apiParam {N/A} [allowed_networks] List all allowed networks. This setting must be changed by relay.
+  @apiParam {JSON} [allowed_networks/${policy_server_id}] Set allowed networks for given policy server (root or relay). Expected JSON is: '{"allowed_networks":["192.168.52.0/24", "etc"]}'
 
   @apiParam {String} [global_policy_mode] Define the default setting for global policy mode, either "enforce" or "audit"
   @apiParam {Boolean} [global_policy_mode_overridable] Allow overrides on this default setting
