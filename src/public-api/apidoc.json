@@ -1,6 +1,6 @@
 {
     "name": "Rudder API documentation",
-    "version": "11.0.0",
+    "version": "12.0.0",
     "description": "Documentation of Rudder server API",
     "title": "Rudder API documentation",
     "header": {
@@ -14,8 +14,9 @@
         "Techniques",
         "Groups",
         "Nodes",
-        "Data sources",
+        "Inventories",
         "Parameters",
+        "Data sources",
         "Change Requests"
     ]
 }
