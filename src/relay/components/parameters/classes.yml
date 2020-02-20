@@ -1,0 +1,6 @@
+name: "classes"
+in: "query"
+description: "Deprecated alias for `conditions`"
+schema:
+  type: string
+  format: "comma separated conditions"

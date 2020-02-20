@@ -1,0 +1,9 @@
+name: "keep_output"
+in: "query"
+description: "Forward agent output"
+schema:
+  type: "boolean"
+  enum:
+    - true
+    - false
+  default: false

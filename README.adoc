@@ -1,0 +1,56 @@
+= Rudder: Continuous Auditing & Configuration
+
+This project is part of Rudder, see https://github.com/Normation/rudder[the main repository]
+for more information.
+ 
+== License
+
+This sub-project is licensed under GPLv3 license, 
+see the provided "LICENSE" file or 
+http://www.gnu.org/licenses/gpl-3.0.txt
+
+== Synopsis
+
+This repository contains the documentation fo Rudder HTTP APIs.
+
+== Usage (openapi/redoc)
+
+Building the doc requires installing:
+
+```
+npm install -g redoc-cli @redocly/openapi-cli
+```
+
+* `openapi-cli` build a single openapi file from the sources
+* `redoc-cli` produces the HTML output from the openapi file
+
+Then run:
+
+```
+make openapi
+```
+
+And The resulting files will be in `build/`.
+
+== Usage (apidoc)
+
+If you are interested about using Rudder REST API, you should simply look at the
+generated documentation. 
+
+The project is the one that manage the REST API web site creation. It is based on
+APIDoc (http://apidocjs.com). 
+
+The build needs NodeJS and npm, see: http://apidocjs.com/#install
+
+To build the whole things, once nodejs is installed, just execute the build.sh script
+
+==== Template update
+
+Current version is 0.17.5.
+
+To update the template from a new version of apidoc you need to get all of the new ${APIDOC_DIRECTORY}/template
+directory content except : 
+- index.html that has been modified localy
+
+index.html just has a slight modification located between 2 comments "XXX Local modifications XXX"
+

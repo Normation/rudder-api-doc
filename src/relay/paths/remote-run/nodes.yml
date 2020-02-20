@@ -1,0 +1,32 @@
+post:
+  summary: Trigger agent run on a list of remote nodes
+  description: "Trigger the agent on a list of managed nodes (if port `5309` is open to the node). **WARNING**: When running the agent, the `/tmp` folder may not be the global one but a private one, specific to the relay service. You should not rely on `/tmp` content in your policies but use `/var/rudder/tmp` instead."
+  operationId: remoteRunNodes
+  parameters:
+    - $ref: "../../components/parameters/conditions.yml"
+    - $ref: "../../components/parameters/classes.yml"
+    - $ref: "../../components/parameters/keep-output.yml"
+    - $ref: "../../components/parameters/asynchronous.yml"
+  requestBody:
+    description: "List of nodes to trigger"
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          properties:
+            "nodes":
+              type: string
+              format: "comma separated node ids"
+              example: "root,4ac35ef0-582d-468d-8c95-cd3f2ee333f9"
+          required:
+            - "nodes"
+  responses:
+    200:
+      $ref: "../../components/responses/agent-output.yml"
+  tags:
+    - Remote run
+  x-code-samples:
+    - lang: curl
+      source:
+        $ref: ../../code_samples/curl/remote-run/nodes.sh

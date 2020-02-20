@@ -1,0 +1,7 @@
+name: "conditions"
+in: "query"
+description: "Conditions passed as parameter to make it available during agent run, separated by a comma, each condition must match `^[a-zA-Z0-9][a-zA-Z0-9_]*$`"
+example: "trigger_backup,force_inventory"
+schema:
+  type: string
+  format: "comma separated conditions"

@@ -1,0 +1,9 @@
+name: "asynchronous"
+in: "query"
+description: "Return early or wait for the end of the agent run"
+schema:
+  type: "boolean"
+  enum:
+    - true
+    - false
+  default: false
