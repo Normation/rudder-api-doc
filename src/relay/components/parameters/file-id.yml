@@ -1,9 +1,9 @@
 name: fileId
 in: path
 description: >-
-  Id of the target node
+  Id of the shared file, should be unique.
 required: true
-example: "4ac35ef0-582d-468d-8c95-cd3f2ee333f9"
+example: "my-shared-file"
 schema:
   type: string
-  format: uuid
+  format: "[A-z0-9_-.]"
