@@ -1,17 +1,11 @@
-= Rudder: Continuous Auditing & Configuration
+This project was migrated into "rudder" main repository on 2020-03-04.
+The source has been rewritten in openapi specification format.
 
-This project is part of Rudder, see https://github.com/Normation/rudder[the main repository]
-for more information.
- 
-== License
-
-This sub-project is licensed under GPLv3 license, 
-see the provided "LICENSE" file or 
-http://www.gnu.org/licenses/gpl-3.0.txt
+Please go to: https://github.com/Normation/rudder/tree/master/api-doc
 
 == Synopsis
 
-This repository contains the documentation fo Rudder HTTP APIs.
+This repository contained the documentation fo Rudder HTTP APIs.
 
 == Usage (openapi/redoc)
 
